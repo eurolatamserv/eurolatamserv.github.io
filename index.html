@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>::: TERMINAL SEGURA :::</title>
+<style>
+  /* ============ BASE ============ */
+  :root{
+    --verde:#39ff9e;
+    --verde-tenue:#0e3a2a;
+    --rojo:#ff2d40;
+    --fondo:#04060a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;overflow:hidden;}
+  body{
+    background:
+      radial-gradient(ellipse at 50% 40%, #0b1420 0%, #05080d 55%, #000 100%);
+    font-family:"Courier New", Courier, monospace;
+    color:var(--verde);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:crosshair;
+    user-select:none;
+  }
+
+  /* Niebla que respira */
+  body::before{
+    content:"";
+    position:fixed; inset:-30%;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(20,80,60,.20), transparent 45%),
+      radial-gradient(circle at 80% 70%, rgba(10,40,80,.22), transparent 45%),
+      radial-gradient(circle at 55% 15%, rgba(60,10,40,.15), transparent 40%);
+    filter:blur(40px);
+    animation:niebla 24s ease-in-out infinite alternate;
+    pointer-events:none;
+    z-index:0;
+  }
+  @keyframes niebla{
+    0%  {transform:translate(-3%, -2%) scale(1);}
+    50% {transform:translate(4%, 3%) scale(1.12);}
+    100%{transform:translate(-2%, 4%) scale(1.05);}
+  }
+
+  /* Scanlines CRT */
+  .scanlines{
+    position:fixed; inset:0; z-index:90; pointer-events:none;
+    background:repeating-linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 0px,
+      rgba(0,0,0,0) 2px,
+      rgba(0,0,0,.35) 3px,
+      rgba(0,0,0,.35) 4px);
+    mix-blend-mode:multiply;
+    animation:desplaza 8s linear infinite;
+  }
+  @keyframes desplaza{from{background-position-y:0;}to{background-position-y:100px;}}
+
+  /* Viñeta + parpadeo del tubo */
+  .vineta{
+    position:fixed; inset:0; z-index:91; pointer-events:none;
+    box-shadow:inset 0 0 220px 60px #000;
+    animation:tubo 5.5s steps(2, end) infinite;
+  }
+  @keyframes tubo{
+    0%,96%{opacity:1;} 97%{opacity:.82;} 98%{opacity:1;} 99%{opacity:.9;} 100%{opacity:1;}
+  }
+
+  /* ============ TERMINAL ============ */
+  .terminal{
+    position:relative; z-index:10;
+    width:min(560px, 92vw);
+    padding:38px 34px 30px;
+    border:1px solid rgba(57,255,158,.22);
+    background:rgba(3,10,8,.55);
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,.6),
+      0 0 60px rgba(0,255,150,.05),
+      inset 0 0 80px rgba(0,0,0,.8);
+    backdrop-filter:blur(2px);
+    animation:aparece 2.4s ease-out both;
+  }
+  @keyframes aparece{
+    0%{opacity:0; filter:blur(8px); transform:scale(.97);}
+    100%{opacity:1; filter:blur(0); transform:scale(1);}
+  }
+
+  .marca{
+    font-size:11px; letter-spacing:.42em; color:#2f6b56;
+    text-transform:uppercase; margin-bottom:26px;
+  }
+
+  h1{
+    font-size:clamp(20px, 4.4vw, 30px);
+    letter-spacing:.16em;
+    font-weight:normal;
+    text-shadow:0 0 12px rgba(57,255,158,.55), 0 0 2px #fff;
+    position:relative;
+  }
+  h1::after{
+    content:"INSERTAR CONTRASEÑA";
+    position:absolute; left:0; top:0; width:100%;
+    color:#ff2d40; opacity:.55; clip-path:inset(0 0 62% 0);
+    animation:glitch 4.6s infinite steps(1);
+    pointer-events:none;
+  }
+  @keyframes glitch{
+    0%,88%{transform:translate(0,0); opacity:0;}
+    89%{transform:translate(-3px,1px); opacity:.6;}
+    91%{transform:translate(3px,-2px); opacity:.5;}
+    93%{transform:translate(-2px,0); opacity:.6;}
+    95%,100%{opacity:0;}
+  }
+
+  .aviso{
+    margin:18px 0 26px;
+    font-size:12.5px; line-height:1.7; color:#4e8f78;
+    border-left:2px solid rgba(57,255,158,.25);
+    padding-left:12px;
+  }
+
+  /* Campo */
+  .campo{display:flex; align-items:center; gap:10px;
+    border:1px solid rgba(57,255,158,.3);
+    background:#020705; padding:14px 16px;
+    transition:border-color .25s, box-shadow .25s;
+  }
+  .campo:focus-within{
+    border-color:var(--verde);
+    box-shadow:0 0 22px rgba(57,255,158,.18), inset 0 0 22px rgba(57,255,158,.05);
+  }
+  .prompt{color:var(--verde); opacity:.7;}
+  input[type=password]{
+    flex:1; background:transparent; border:none; outline:none;
+    color:var(--verde); font-family:inherit; font-size:16px;
+    letter-spacing:.35em; caret-color:var(--verde);
+  }
+  input::placeholder{color:#1f5c46; letter-spacing:.2em;}
+
+  button{
+    margin-top:20px; width:100%; padding:13px;
+    background:transparent; color:var(--verde);
+    border:1px solid rgba(57,255,158,.35);
+    font-family:inherit; font-size:13px; letter-spacing:.3em;
+    text-transform:uppercase; cursor:pointer;
+    transition:.2s;
+  }
+  button:hover{background:rgba(57,255,158,.08); box-shadow:0 0 26px rgba(57,255,158,.18);}
+  button:active{transform:translateY(1px);}
+
+  .estado{
+    margin-top:18px; min-height:40px;
+    font-size:12.5px; line-height:1.6; color:var(--rojo);
+    text-shadow:0 0 10px rgba(255,45,64,.5);
+  }
+  /* Sacudida en fallo */
+  .sacudir{animation:sacudir .42s cubic-bezier(.36,.07,.19,.97) both;}
+  @keyframes sacudir{
+    10%,90%{transform:translateX(-2px);}
+    20%,80%{transform:translateX(4px);}
+    30%,50%,70%{transform:translateX(-8px);}
+    40%,60%{transform:translateX(8px);}
+  }
+  .rojo{--verde:var(--rojo); border-color:rgba(255,45,64,.4)!important;}
+
+  /* ============ VICTORIA ============ */
+  #victoria{
+    position:fixed; inset:0; z-index:120;
+    display:none; flex-direction:column;
+    align-items:center; justify-content:center;
+    background:radial-gradient(ellipse at center, #04140d 0%, #000 80%);
+    text-align:center; gap:22px;
+  }
+  #victoria.on{display:flex; animation:fundido 1s ease-out both;}
+  @keyframes fundido{from{opacity:0;}to{opacity:1;}}
+
+  pre.cara{
+    font-size:clamp(9px, 2.1vw, 15px);
+    line-height:1.15; color:var(--verde);
+    text-shadow:0 0 18px rgba(57,255,158,.7);
+    animation:latido 1.8s ease-in-out infinite;
+  }
+  @keyframes latido{
+    0%,100%{transform:scale(1); filter:brightness(1);}
+    50%{transform:scale(1.04); filter:brightness(1.35);}
+  }
+  .concedido{
+    font-size:clamp(15px, 3.6vw, 24px);
+    letter-spacing:.4em; color:#c9ffe8;
+    text-shadow:0 0 24px rgba(57,255,158,.8);
+  }
+  .sub{font-size:12px; letter-spacing:.3em; color:#3f8a70;}
+
+  /* Etiqueta robot36 */
+  #robot36{
+    position:fixed; right:26px; bottom:22px; z-index:200;
+    display:none;
+    font-size:clamp(16px, 3vw, 26px);
+    letter-spacing:.22em; color:#eaff00;
+    text-shadow:0 0 14px rgba(234,255,0,.8), 0 0 40px rgba(234,255,0,.35);
+  }
+  #robot36.on{display:block; animation:pulsoEtq .5s steps(2,end) infinite;}
+  @keyframes pulsoEtq{0%,100%{opacity:1;}50%{opacity:.25;}}
+
+  /* ============ SUSTO ============ */
+  #susto{
+    position:fixed; inset:0; z-index:900; display:none;
+    background:#000; overflow:hidden;
+  }
+  #susto.on{display:block;}
+  #susto img{
+    position:absolute; top:50%; left:50%;
+    width:100vw; height:100vh; object-fit:contain;
+    transform-origin:center;
+    /* La cara se ve entera: el negativo cambia cada 0.4 s y el
+       temblor es corto, para que la imagen siga siendo legible. */
+    animation:
+      negativo .4s steps(1,end) infinite,
+      temblor .09s linear infinite;
+  }
+  @keyframes negativo{
+    0%  {filter:invert(1) contrast(1.5) saturate(1.4);}
+    50% {filter:invert(1) contrast(1.7) hue-rotate(200deg) saturate(2);}
+    100%{filter:invert(1) contrast(1.4) hue-rotate(320deg) brightness(1.15);}
+  }
+  /* Vibración nerviosa, sin perder el encuadre */
+  @keyframes temblor{
+    0%  {transform:translate(-50%,-50%) scale(1) rotate(0deg);}
+    25% {transform:translate(-50.7%,-49.4%) scale(1.012) rotate(-.5deg);}
+    50% {transform:translate(-49.4%,-50.6%) scale(1.004) rotate(.4deg);}
+    75% {transform:translate(-50.4%,-49.7%) scale(1.016) rotate(-.3deg);}
+    100%{transform:translate(-50%,-50%) scale(1) rotate(0deg);}
+  }
+  /* Zoom lento que se te viene encima durante los 6 s */
+  #susto .marco{
+    position:absolute; inset:0;
+    animation:acercarse 6s cubic-bezier(.6,0,.9,1) forwards;
+  }
+  @keyframes acercarse{
+    0%  {transform:scale(1);}
+    70% {transform:scale(1.35);}
+    85% {transform:scale(1.3);}
+    100%{transform:scale(2.1);}
+  }
+  /* Destellos puntuales: negro casi todo el tiempo, no tapa la cara */
+  #susto::after{
+    content:"";
+    position:absolute; inset:0; z-index:4;
+    background:#000; pointer-events:none;
+    animation:destellos 1.2s steps(1,end) infinite;
+  }
+  @keyframes destellos{
+    0%,7%    {opacity:.85;}
+    8%,30%   {opacity:0;}
+    31%,34%  {opacity:.7;}
+    35%,61%  {opacity:0;}
+    62%,64%  {opacity:.9;}
+    65%,88%  {opacity:0;}
+    89%,91%  {opacity:.6;}
+    92%,100% {opacity:0;}
+  }
+
+  /* Negro absoluto previo al susto */
+  #vacio{
+    position:fixed; inset:0; z-index:880; background:#000;
+    display:none;
+  }
+  #vacio.on{display:block;}
+
+  /* Apagado final */
+  #apagado{
+    position:fixed; inset:0; z-index:999; background:#000;
+    display:none; align-items:center; justify-content:center;
+    color:#1c3d33; font-size:12px; letter-spacing:.5em;
+  }
+  #apagado.on{display:flex; animation:fundido .4s both;}
+</style>
+</head>
+<body>
+
+<div class="scanlines"></div>
+<div class="vineta"></div>
+
+<!-- ================= TERMINAL ================= -->
+<main class="terminal" id="terminal">
+  <div class="marca">nodo 07 · enlace cifrado · lat -34.6 lon -58.4</div>
+
+  <h1>INSERTAR CONTRASEÑA</h1>
+
+  <p class="aviso">
+    &gt; Se detectó una transmisión entrante sin origen.<br>
+    &gt; El canal permanece abierto desde hace 11 h 42 m.<br>
+    &gt; Autenticación requerida para decodificar la señal.
+  </p>
+
+  <form id="formulario" autocomplete="off">
+    <div class="campo" id="campo">
+      <span class="prompt">&gt;</span>
+      <input type="password" id="clave" placeholder="••••••••••" autofocus>
+    </div>
+    <button type="submit">Descifrar</button>
+  </form>
+
+  <div class="estado" id="estado"></div>
+</main>
+
+<!-- ================= VICTORIA ================= -->
+<section id="victoria">
+  <pre class="cara">
+       .-"""""""-.
+     .'           '.
+    /   O       O   \
+   :                 :
+   |                 |
+   :  \           /  :
+    \  '.       .'  /
+     '.  '-...-'  .'
+       '-.......-'
+  </pre>
+  <div class="concedido">ACCESO CONCEDIDO</div>
+  <div class="sub" id="subVictoria">DECODIFICANDO SEÑAL...</div>
+</section>
+
+<!-- ================= ROBOT36 ================= -->
+<div id="robot36">robot36</div>
+
+<!-- ================= SUSTO ================= -->
+<div id="vacio"></div>
+
+<section id="susto">
+  <div class="marco"><img src="susto.png" alt=""></div>
+</section>
+
+<div id="apagado">CONEXIÓN TERMINADA</div>
+
+<audio id="sstv" src="sstv.wav" preload="auto"></audio>
+
+<script>
+/* Lo único que no puede hacerse con HTML/CSS puros:
+   temporizadores, conteo de intentos, audio y cierre de ventana. */
+const CLAVE = "eurolatam7p1";
+const MAX   = 10;
+let fallos  = 0;
+
+const form   = document.getElementById('formulario');
+const input  = document.getElementById('clave');
+const campo  = document.getElementById('campo');
+const estado = document.getElementById('estado');
+const term   = document.getElementById('terminal');
+const sstv   = document.getElementById('sstv');
+
+const burlas = [
+  "CLAVE INCORRECTA. Reintente.",
+  "CLAVE INCORRECTA. La señal se acerca.",
+  "NO. Eso no es lo que escribiste la última vez.",
+  "CLAVE INCORRECTA. Alguien más está escribiendo.",
+  "El canal registró tu intento.",
+  "CLAVE INCORRECTA. Deja de intentarlo.",
+  "Te está mirando desde el otro lado del enlace.",
+  "ÚLTIMAS ADVERTENCIAS: 3",
+  "ÚLTIMAS ADVERTENCIAS: 2",
+  "ÚLTIMAS ADVERTENCIAS: 1"
+];
+
+/* ---------- Motor de audio ---------- */
+let ac = null;
+function ctx(){
+  if(!ac) ac = new (window.AudioContext || window.webkitAudioContext)();
+  if(ac.state === 'suspended') ac.resume();
+  return ac;
+}
+
+/* Fanfarria de victoria */
+function sonidoVictoria(){
+  const a = ctx(), t0 = a.currentTime;
+  [[523.25,0],[659.25,.11],[783.99,.22],[1046.5,.34]].forEach(([f,d],i)=>{
+    const o = a.createOscillator(), g = a.createGain();
+    o.type = i===3 ? 'triangle' : 'square';
+    o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, t0+d);
+    g.gain.exponentialRampToValueAtTime(.22, t0+d+.02);
+    g.gain.exponentialRampToValueAtTime(.0001, t0+d+(i===3?.75:.22));
+    o.connect(g).connect(a.destination);
+    o.start(t0+d); o.stop(t0+d+.9);
+  });
+}
+
+/* Bip corto de error */
+function sonidoError(){
+  const a = ctx(), t0 = a.currentTime;
+  const o = a.createOscillator(), g = a.createGain();
+  o.type='sawtooth'; o.frequency.setValueAtTime(180, t0);
+  o.frequency.exponentialRampToValueAtTime(60, t0+.25);
+  g.gain.setValueAtTime(.18, t0);
+  g.gain.exponentialRampToValueAtTime(.0001, t0+.3);
+  o.connect(g).connect(a.destination);
+  o.start(t0); o.stop(t0+.32);
+}
+
+/* Curva de saturación: convierte tonos limpios en algo desgarrado */
+function distorsion(a, k){
+  const n = 4096, c = new Float32Array(n);
+  for(let i=0;i<n;i++){
+    const x = i*2/n - 1;
+    c[i] = (3+k)*x*20*Math.PI/180 / (Math.PI + k*Math.abs(x));
+  }
+  const ws = a.createWaveShaper();
+  ws.curve = c; ws.oversample = '4x';
+  return ws;
+}
+
+/* Ruido con envolvente propia (respiración, roce, estática) */
+function ruido(a, destino, t, dur, vol, frecFiltro, tipo){
+  const buf = a.createBuffer(1, Math.ceil(a.sampleRate*dur), a.sampleRate);
+  const d = buf.getChannelData(0);
+  for(let i=0;i<d.length;i++) d[i] = Math.random()*2-1;
+  const src = a.createBufferSource(); src.buffer = buf;
+  const f = a.createBiquadFilter(); f.type = tipo || 'bandpass';
+  f.frequency.value = frecFiltro; f.Q.value = 1.4;
+  const g = a.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(vol, t+dur*0.15);
+  g.gain.exponentialRampToValueAtTime(0.0001, t+dur);
+  src.connect(f).connect(g).connect(destino);
+  src.start(t); src.stop(t+dur);
+}
+
+/* Susurro previo: lo que se oye en el negro, antes del golpe */
+function sonidoPresagio(dur){
+  const a = ctx(), t0 = a.currentTime;
+  const m = a.createGain(); m.gain.value = .5; m.connect(a.destination);
+  // respiración áspera
+  ruido(a, m, t0, dur*0.55, .18, 700, 'bandpass');
+  ruido(a, m, t0+dur*0.6, dur*0.4, .22, 480, 'bandpass');
+  // sub que crece y anuncia el impacto
+  const o = a.createOscillator(), g = a.createGain();
+  o.type='sine'; o.frequency.setValueAtTime(28, t0);
+  o.frequency.exponentialRampToValueAtTime(55, t0+dur);
+  g.gain.setValueAtTime(.05, t0);
+  g.gain.exponentialRampToValueAtTime(.6, t0+dur);
+  o.connect(g).connect(m); o.start(t0); o.stop(t0+dur);
+}
+
+/* Golpe + alarido desgarrado + metal + estática: el susto real */
+function sonidoTerror(dur){
+  const a = ctx(), t0 = a.currentTime;
+
+  const master = a.createGain();
+  master.gain.setValueAtTime(1, t0);
+  master.gain.setValueAtTime(1, t0+dur-.5);
+  master.gain.linearRampToValueAtTime(0, t0+dur);
+  const sat = distorsion(a, 55);
+  master.connect(sat).connect(a.destination);
+
+  /* 1. IMPACTO: golpe grave que revienta al inicio */
+  const imp = a.createOscillator(), impG = a.createGain();
+  imp.type='sine';
+  imp.frequency.setValueAtTime(180, t0);
+  imp.frequency.exponentialRampToValueAtTime(24, t0+.7);
+  impG.gain.setValueAtTime(1.2, t0);
+  impG.gain.exponentialRampToValueAtTime(.0001, t0+1.1);
+  imp.connect(impG).connect(master);
+  imp.start(t0); imp.stop(t0+1.2);
+  ruido(a, master, t0, .5, .9, 3000, 'highpass');   // reventón del impacto
+
+  /* 2. ALARIDO: dos sierras desafinadas con vibrato caótico */
+  [1, 1.0136].forEach((det, i)=>{
+    const o = a.createOscillator(), g = a.createGain();
+    o.type = 'sawtooth';
+    const base = 620*det;
+    o.frequency.setValueAtTime(base*1.35, t0+.05);
+    o.frequency.exponentialRampToValueAtTime(base*0.72, t0+dur*0.55);
+    o.frequency.exponentialRampToValueAtTime(base*1.9,  t0+dur*0.8);
+    o.frequency.exponentialRampToValueAtTime(90,        t0+dur);   // colapso final
+    // vibrato humano-roto
+    const vib = a.createOscillator(), vg = a.createGain();
+    vib.type='sine'; vib.frequency.value = 11 + i*7.3; vg.gain.value = 65+i*40;
+    vib.connect(vg).connect(o.frequency); vib.start(t0); vib.stop(t0+dur);
+    // formante: le da cuerpo de garganta
+    const fm = a.createBiquadFilter();
+    fm.type='bandpass'; fm.Q.value=4.5;
+    fm.frequency.setValueAtTime(900, t0);
+    fm.frequency.linearRampToValueAtTime(2600, t0+dur*.7);
+    fm.frequency.linearRampToValueAtTime(400, t0+dur);
+    g.gain.setValueAtTime(.0001, t0);
+    g.gain.exponentialRampToValueAtTime(.5, t0+.12);
+    g.gain.setValueAtTime(.5, t0+dur*.85);
+    g.gain.exponentialRampToValueAtTime(.001, t0+dur);
+    o.connect(fm).connect(g).connect(master);
+    o.start(t0); o.stop(t0+dur);
+  });
+
+  /* 3. DISONANCIA: tritono grave sostenido, imposible de ignorar */
+  [58, 82.4].forEach(f=>{
+    const o = a.createOscillator(), g = a.createGain();
+    o.type='square'; o.frequency.value = f;
+    g.gain.value = .16;
+    const trem = a.createOscillator(), tg = a.createGain();
+    trem.type='square'; trem.frequency.value = 5.5; tg.gain.value = .12;
+    trem.connect(tg).connect(g.gain); trem.start(t0); trem.stop(t0+dur);
+    o.connect(g).connect(master); o.start(t0); o.stop(t0+dur);
+  });
+
+  /* 4. METAL: chirrido agudo resonante que araña */
+  const met = a.createOscillator(), metF = a.createBiquadFilter(), metG = a.createGain();
+  met.type='sawtooth'; met.frequency.setValueAtTime(2100, t0+.15);
+  met.frequency.linearRampToValueAtTime(4700, t0+dur*.75);
+  met.frequency.linearRampToValueAtTime(1500, t0+dur);
+  metF.type='bandpass'; metF.Q.value = 18; metF.frequency.value = 3200;
+  metG.gain.setValueAtTime(.0001, t0);
+  metG.gain.exponentialRampToValueAtTime(.3, t0+.4);
+  metG.gain.exponentialRampToValueAtTime(.02, t0+dur);
+  met.connect(metF).connect(metG).connect(master);
+  met.start(t0); met.stop(t0+dur);
+
+  /* 5. ESTÁTICA: estallidos irregulares, como el canal rompiéndose */
+  let t = t0 + .35;
+  while(t < t0+dur-.25){
+    ruido(a, master, t, .1+Math.random()*.14, .3+Math.random()*.35,
+          400+Math.random()*4000, 'bandpass');
+    t += .18 + Math.random()*.42;
+  }
+}
+
+/* ---------- Flujo correcto ---------- */
+function acceso(){
+  term.style.display = 'none';
+  document.getElementById('victoria').classList.add('on');
+  sonidoVictoria();
+
+  // A los 2 segundos suena sstv.wav
+  setTimeout(()=>{
+    document.getElementById('subVictoria').textContent = 'RECIBIENDO SSTV...';
+    sstv.play().catch(()=>{
+      document.getElementById('subVictoria').textContent = 'CLIC PARA RECIBIR SSTV';
+      document.body.addEventListener('click', ()=>sstv.play(), {once:true});
+    });
+  }, 2000);
+
+  // Al terminar el wav: "robot36" en la esquina durante 2 segundos
+  sstv.addEventListener('ended', ()=>{
+    const etq = document.getElementById('robot36');
+    etq.classList.add('on');
+    document.getElementById('subVictoria').textContent = 'MODO DE TRANSMISIÓN IDENTIFICADO';
+    setTimeout(()=>etq.classList.remove('on'), 2000);
+  });
+}
+
+/* ---------- Flujo del susto ---------- */
+function susto(){
+  const ESPERA   = 1800;   // negro y respiración: la calma antes del golpe
+  const DURACION = 6000;
+
+  term.style.display = 'none';
+  document.getElementById('vacio').classList.add('on');
+  sonidoPresagio(ESPERA/1000);
+
+  setTimeout(()=>{
+    document.getElementById('vacio').classList.remove('on');
+    document.getElementById('susto').classList.add('on');
+    sonidoTerror(DURACION/1000);
+
+    setTimeout(()=>{
+      document.getElementById('susto').classList.remove('on');
+      document.getElementById('apagado').classList.add('on');
+      setTimeout(()=>{
+        window.open('', '_self');
+        window.close();
+        // Si el navegador no permite cerrar la pestaña, queda en negro:
+        document.documentElement.innerHTML =
+          '<body style="background:#000"></body>';
+      }, 500);
+    }, DURACION);
+  }, ESPERA);
+}
+
+/* ---------- Envío ---------- */
+form.addEventListener('submit', e=>{
+  e.preventDefault();
+  const v = input.value;
+  input.value = '';
+
+  if(v === CLAVE){ acceso(); return; }
+
+  fallos++;
+  sonidoError();
+  estado.textContent = burlas[Math.min(fallos-1, burlas.length-1)];
+  campo.classList.add('rojo');
+  term.classList.remove('sacudir');
+  void term.offsetWidth;
+  term.classList.add('sacudir');
+
+  // La terminal se degrada con cada fallo
+  document.body.style.filter = 'hue-rotate(-'+(fallos*4)+'deg) contrast('+(1+fallos*0.05)+')';
+
+  if(fallos >= MAX) setTimeout(susto, 500);
+});
+</script>
+</body>
+</html>
