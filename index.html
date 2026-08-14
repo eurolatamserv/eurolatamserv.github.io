@@ -235,7 +235,7 @@
     100%{transform:translate(-50%,-50%) scale(1) rotate(0deg);}
   }
   /* Zoom lento que se te viene encima durante los 6 s */
-  #susto .marco{
+  # .marco{
     position:absolute; inset:0;
     animation:acercarse 6s cubic-bezier(.6,0,.9,1) forwards;
   }
@@ -246,7 +246,7 @@
     100%{transform:scale(2.1);}
   }
   /* Destellos puntuales: negro casi todo el tiempo, no tapa la cara */
-  #susto::after{
+  #::after{
     content:"";
     position:absolute; inset:0; z-index:4;
     background:#000; pointer-events:none;
@@ -263,7 +263,7 @@
     92%,100% {opacity:0;}
   }
 
-  /* Negro absoluto previo al susto */
+  /* Negro absoluto previo al  */
   #vacio{
     position:fixed; inset:0; z-index:880; background:#000;
     display:none;
@@ -327,11 +327,11 @@
 <!-- ================= ROBOT36 ================= -->
 <div id="robot36">robot36</div>
 
-<!-- ================= SUSTO ================= -->
+<!-- =================  ================= -->
 <div id="vacio"></div>
 
-<section id="susto">
-  <div class="marco"><img src="susto.png" alt=""></div>
+<section id="">
+  <div class="marco"><img src="sustoso.png" alt=""></div>
 </section>
 
 <div id="apagado">CONEXIÓN TERMINADA</div>
