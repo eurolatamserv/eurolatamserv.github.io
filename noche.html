@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Ojo</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html, body {
+    width:100%; height:100%;
+    background:#000;
+    overflow:hidden;
+  }
+
+  body {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Times New Roman', serif;
+  }
+
+  .void {
+    position:relative;
+    width:100vw; height:100vh;
+    background:
+      radial-gradient(ellipse at 50% 55%, #0a0000 0%, #020000 40%, #000000 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+
+  /* drifting fog / darkness that breathes */
+  .fog {
+    position:absolute;
+    inset:-20%;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(20,0,0,0.35), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(15,0,0,0.35), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(10,0,0,0.5), transparent 50%);
+    filter: blur(40px);
+    animation: drift 18s ease-in-out infinite alternate;
+    pointer-events:none;
+  }
+
+  @keyframes drift {
+    0%   { transform: translate(0,0) scale(1); opacity:.6; }
+    50%  { transform: translate(-2%, 1%) scale(1.08); opacity:.9; }
+    100% { transform: translate(2%, -1%) scale(1); opacity:.6; }
+  }
+
+  /* dying-light flicker over the whole scene, irregular and unsettling */
+  .dread {
+    position:absolute;
+    inset:0;
+    background:#000;
+    opacity:0;
+    pointer-events:none;
+    animation: dread-flicker 6.7s steps(1,end) infinite;
+  }
+
+  @keyframes dread-flicker {
+    0%   { opacity:0; }
+    3%   { opacity:.5; }
+    4%   { opacity:0; }
+    4.5% { opacity:.35; }
+    5%   { opacity:0; }
+    31%  { opacity:0; }
+    32%  { opacity:.6; }
+    33%  { opacity:.05; }
+    34%  { opacity:.4; }
+    35%  { opacity:0; }
+    72%  { opacity:0; }
+    72.5%{ opacity:.7; }
+    73%  { opacity:0; }
+    100% { opacity:0; }
+  }
+
+  .whisper {
+    position:absolute;
+    bottom:8%;
+    left:50%;
+    transform:translateX(-50%);
+    color:#3a0000;
+    letter-spacing:0.6em;
+    font-size:14px;
+    text-transform:uppercase;
+    text-shadow: 0 0 8px rgba(120,0,0,0.5), 0 0 22px rgba(80,0,0,0.35);
+    opacity:0;
+    animation: whisper-flicker 9s ease-in-out infinite;
+    pointer-events:none;
+  }
+
+  @keyframes whisper-flicker {
+    0%, 40%   { opacity:0; }
+    45%       { opacity:.12; }
+    48%       { opacity:0; }
+    52%       { opacity:.25; }
+    58%       { opacity:.04; }
+    65%, 100% { opacity:0; }
+  }
+
+  /* ---------- EYE ---------- */
+
+  .eye-wrap {
+    position:relative;
+    width:420px;
+    height:280px;
+    animation: tremble 7s ease-in-out infinite;
+  }
+
+  @keyframes tremble {
+    0%, 100% { transform: translate(0,0) rotate(0deg); }
+    20%      { transform: translate(-1px, 1px) rotate(-0.3deg); }
+    40%      { transform: translate(1px, -1px) rotate(0.2deg); }
+    60%      { transform: translate(-1px, -1px) rotate(0.3deg); }
+    80%      { transform: translate(1px, 1px) rotate(-0.2deg); }
+  }
+
+  .glow {
+    position:absolute;
+    inset:-70px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(90,0,0,0.4), rgba(50,0,0,0.1) 55%, transparent 75%);
+    filter: blur(25px);
+    animation: pulse-glow 3.4s ease-in-out infinite;
+    pointer-events:none;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity:.3; transform:scale(1); }
+    50%      { opacity:.6; transform:scale(1.1); }
+  }
+
+  .eye-shape {
+    position:absolute;
+    inset:0;
+    clip-path: path('M10,140 C90,10 330,10 410,140 C330,270 90,270 10,140 Z');
+    background: radial-gradient(circle at 38% 30%, #260505 0%, #100101 45%, #030000 80%, #000 100%);
+    box-shadow:
+      inset 0 0 70px 18px rgba(0,0,0,0.92),
+      inset 0 0 12px 4px rgba(150,0,0,0.18);
+    overflow:hidden;
+  }
+
+  /* subtle sclera texture using turbulence-like layered gradients */
+  .sclera-texture {
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.015) 0px, transparent 2px, transparent 6px),
+      repeating-radial-gradient(circle at 40% 60%, rgba(80,0,0,0.12) 0px, transparent 3px, transparent 9px);
+    mix-blend-mode: screen;
+    opacity:.4;
+  }
+
+  /* bloodshot veins radiating from center, like dried blood */
+  .veins {
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .veins span {
+    position:absolute;
+    width:2px;
+    height:150px;
+    top:50%; left:50%;
+    transform-origin: top center;
+    background: linear-gradient(to bottom,
+        rgba(90,0,0,0) 0%,
+        rgba(80,0,0,0.6) 55%,
+        rgba(140,10,10,0.75) 100%);
+    filter: blur(0.6px);
+    border-radius:2px;
+    opacity:.4;
+    animation: throb 2.6s ease-in-out infinite;
+  }
+  .veins span:nth-child(odd)  { animation-duration: 3.1s; }
+  .veins span:nth-child(3n)   { animation-delay: .4s; }
+  .veins span:nth-child(4n)   { animation-delay: .9s; opacity:.28; }
+  .veins span:nth-child(5n)   { height:120px; }
+
+  @keyframes throb {
+    0%, 100% { opacity:.22; }
+    50%      { opacity:.6; }
+  }
+
+  /* iris + pupil */
+  .iris {
+    position:absolute;
+    width:150px; height:150px;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 50%,
+        #7a0a0a 0%, #560505 20%, #340202 42%, #1a0000 65%, #050000 88%, #000 100%);
+    box-shadow:
+      0 0 18px 4px rgba(100,0,0,0.3),
+      inset 0 0 22px 6px rgba(0,0,0,0.8);
+    overflow:hidden;
+  }
+
+  .iris-fibers {
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background-image: repeating-conic-gradient(
+      from 0deg,
+      rgba(0,0,0,0.35) 0deg 2deg,
+      transparent 2deg 8deg
+    );
+    animation: rotate-fibers 40s linear infinite;
+    opacity:.7;
+  }
+
+  @keyframes rotate-fibers {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .pupil {
+    position:absolute;
+    width:24px;
+    height:100px;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    background: radial-gradient(ellipse at center, #000 60%, #0d0000 100%);
+    border-radius: 50% / 20%;
+    box-shadow: 0 0 10px 3px rgba(120,0,0,0.4);
+    animation: pupil-live 7s ease-in-out infinite;
+  }
+
+  @keyframes pupil-live {
+    0%   { width:24px; height:100px; }
+    12%  { width:36px; height:104px; }
+    20%  { width:18px; height:96px;  }
+    45%  { width:24px; height:100px; }
+    60%  { width:44px; height:110px; }
+    68%  { width:14px; height:90px;  }
+    80%  { width:24px; height:100px; }
+    100% { width:24px; height:100px; }
+  }
+
+  .shine {
+    position:absolute;
+    width:14px; height:9px;
+    top:30%; left:32%;
+    background: radial-gradient(circle, rgba(180,120,120,0.35), rgba(180,120,120,0) 70%);
+    border-radius:50%;
+    opacity:.4;
+    animation: shine-flicker 5s ease-in-out infinite;
+  }
+
+  @keyframes shine-flicker {
+    0%, 100% { opacity:.35; }
+    48%      { opacity:.45; }
+    50%      { opacity:.05; }
+    52%      { opacity:.4; }
+  }
+
+  /* dark corner vignette to keep focus on the eye */
+  .vignette {
+    position:absolute;
+    inset:0;
+    background: radial-gradient(ellipse at center, transparent 30%, #000 90%);
+    pointer-events:none;
+  }
+</style>
+</head>
+<body>
+  <div class="void">
+    <div class="fog"></div>
+
+    <div class="eye-wrap">
+      <div class="glow"></div>
+
+      <div class="eye-shape">
+        <div class="sclera-texture"></div>
+
+        <div class="veins">
+          <span style="transform: rotate(0deg);"></span>
+          <span style="transform: rotate(20deg);"></span>
+          <span style="transform: rotate(40deg);"></span>
+          <span style="transform: rotate(60deg);"></span>
+          <span style="transform: rotate(80deg);"></span>
+          <span style="transform: rotate(100deg);"></span>
+          <span style="transform: rotate(120deg);"></span>
+          <span style="transform: rotate(140deg);"></span>
+          <span style="transform: rotate(160deg);"></span>
+          <span style="transform: rotate(180deg);"></span>
+          <span style="transform: rotate(200deg);"></span>
+          <span style="transform: rotate(220deg);"></span>
+          <span style="transform: rotate(240deg);"></span>
+          <span style="transform: rotate(260deg);"></span>
+          <span style="transform: rotate(280deg);"></span>
+          <span style="transform: rotate(300deg);"></span>
+          <span style="transform: rotate(320deg);"></span>
+          <span style="transform: rotate(340deg);"></span>
+        </div>
+
+        <div class="iris">
+          <div class="iris-fibers"></div>
+          <div class="pupil"></div>
+          <div class="shine"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="whisper">te observa</div>
+    <div class="vignette"></div>
+    <div class="dread"></div>
+  </div>
+</body>
+</html>
