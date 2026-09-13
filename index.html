@@ -15,6 +15,18 @@
 
   <div class="progress" aria-hidden="true"></div>
 
+  <!-- CUENTA ATRÁS · para cambiar la fecha edita data-fecha (año-mes-día y hora, +02:00 = hora de España en verano) -->
+  <aside class="countdown" data-fecha="2026-09-14T19:00:00+02:00" hidden>
+    <p class="countdown-label">Cuenta atrás</p>
+    <p class="countdown-time">
+      <span><strong data-cd="d">00</strong><small>días</small></span>
+      <span><strong data-cd="h">00</strong><small>hrs</small></span>
+      <span><strong data-cd="m">00</strong><small>min</small></span>
+      <span><strong data-cd="s">00</strong><small>seg</small></span>
+    </p>
+    <p class="countdown-date">14 sept · 19:00 (España)</p>
+  </aside>
+
   <header class="nav">
     <a href="#inicio" class="logo">
       <img src="img/icono.png" width="64" height="64" alt="">
@@ -31,8 +43,7 @@
   <section class="hero" id="inicio">
     <div class="hero-bg" aria-hidden="true"></div>
 
-    <p class="eyebrow">Servidor de Minecraft java 26.2 --» 1.21.11 · Europa y Latinoamérica</p>
-    <p class="eyebrow">bedrock minecraft --» proximamente</p>
+    <p class="eyebrow">Servidor de Minecraft · Europa y Latinoamérica</p>
     <h1 class="sr-only">EuroLatam 7</h1>
     <img class="hero-logo" src="img/logo.png" width="2172" height="724" alt="EuroLatam 7">
 
@@ -42,7 +53,7 @@
     </p>
 
     <div class="ip-wrap">
-      <span class="ip-label">IP del servidor 26.2 --» 1.21.11 · haz clic para copiar</span>
+      <span class="ip-label">IP del servidor · haz clic para copiar</span>
       <button type="button" class="ip" data-copy-ip="eurolatam.craft.gg" aria-label="Copiar IP eurolatam.craft.gg">
         <span class="ip-text">eurolatam.craft.gg</span>
         <span class="ip-icon" aria-hidden="true">
@@ -330,6 +341,44 @@
     });
 
     if (location.hash === '#wikis') setWikis(true);
+
+    // Cuenta atrás
+    const cd = document.querySelector('.countdown');
+    const cdTime = cd.querySelector('.countdown-time');
+    const objetivo = new Date(cd.dataset.fecha).getTime();
+    const partes = {
+      d: cd.querySelector('[data-cd="d"]'),
+      h: cd.querySelector('[data-cd="h"]'),
+      m: cd.querySelector('[data-cd="m"]'),
+      s: cd.querySelector('[data-cd="s"]')
+    };
+
+    function pintarCuenta() {
+      const falta = objetivo - Date.now();
+
+      if (falta <= 0) {
+        cd.classList.add('is-done');
+        cdTime.innerHTML = '<span class="countdown-live">¡Ya estamos dentro!</span>';
+        cd.querySelector('.countdown-label').textContent = 'EuroLatam 7';
+        cd.querySelector('.countdown-date').textContent = 'eurolatam.craft.gg';
+        cd.hidden = false;
+        return false;
+      }
+
+      const seg = Math.floor(falta / 1000);
+      partes.d.textContent = String(Math.floor(seg / 86400)).padStart(2, '0');
+      partes.h.textContent = String(Math.floor(seg / 3600) % 24).padStart(2, '0');
+      partes.m.textContent = String(Math.floor(seg / 60) % 60).padStart(2, '0');
+      partes.s.textContent = String(seg % 60).padStart(2, '0');
+      cd.hidden = false;
+      return true;
+    }
+
+    if (pintarCuenta()) {
+      const reloj = setInterval(() => {
+        if (!pintarCuenta()) clearInterval(reloj);
+      }, 1000);
+    }
   </script>
 
 </body>
