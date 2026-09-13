@@ -15,23 +15,17 @@
 
   <div class="progress" aria-hidden="true"></div>
 
-  <!-- CUENTA ATRÁS · para cambiar la fecha edita data-fecha (año-mes-día y hora, +02:00 = hora de España en verano) -->
-  <aside class="countdown" data-fecha="2026-09-14T19:00:00+02:00" hidden>
-    <p class="countdown-label">Cuenta atrás</p>
-    <p class="countdown-time">
-      <span><strong data-cd="d">00</strong><small>días</small></span>
-      <span><strong data-cd="h">00</strong><small>hrs</small></span>
-      <span><strong data-cd="m">00</strong><small>min</small></span>
-      <span><strong data-cd="s">00</strong><small>seg</small></span>
-    </p>
-    <p class="countdown-date">14 sept · 19:00 (España)</p>
-  </aside>
-
   <header class="nav">
-    <a href="#inicio" class="logo">
-      <img src="img/icono.png" width="64" height="64" alt="">
-      EuroLatam<span>7</span>
-    </a>
+    <div class="brand">
+      <a href="#inicio" class="logo">
+        <img src="img/icono.png" width="64" height="64" alt="">
+        EuroLatam<span>7</span>
+      </a>
+      <!-- Cuenta atrás: cambia la fecha en data-fecha (+02:00 = hora de España en verano, +01:00 en invierno) -->
+      <p class="countdown" data-fecha="2026-09-14T19:00:00+02:00" aria-label="Cuenta atrás" hidden>
+        <span data-cd="d"></span><span data-cd="h">00</span><i>:</i><span data-cd="m">00</span><i>:</i><span data-cd="s">00</span>
+      </p>
+    </div>
     <nav aria-label="Secciones">
       <a href="#mundo">Mundo</a>
       <a href="#aventura">Aventura</a>
@@ -344,32 +338,21 @@
 
     // Cuenta atrás
     const cd = document.querySelector('.countdown');
-    const cdTime = cd.querySelector('.countdown-time');
     const objetivo = new Date(cd.dataset.fecha).getTime();
-    const partes = {
-      d: cd.querySelector('[data-cd="d"]'),
-      h: cd.querySelector('[data-cd="h"]'),
-      m: cd.querySelector('[data-cd="m"]'),
-      s: cd.querySelector('[data-cd="s"]')
-    };
+    const dos = (n) => String(n).padStart(2, '0');
 
     function pintarCuenta() {
       const falta = objetivo - Date.now();
-
       if (falta <= 0) {
-        cd.classList.add('is-done');
-        cdTime.innerHTML = '<span class="countdown-live">¡Ya estamos dentro!</span>';
-        cd.querySelector('.countdown-label').textContent = 'EuroLatam 7';
-        cd.querySelector('.countdown-date').textContent = 'eurolatam.craft.gg';
-        cd.hidden = false;
+        cd.hidden = true;
         return false;
       }
-
       const seg = Math.floor(falta / 1000);
-      partes.d.textContent = String(Math.floor(seg / 86400)).padStart(2, '0');
-      partes.h.textContent = String(Math.floor(seg / 3600) % 24).padStart(2, '0');
-      partes.m.textContent = String(Math.floor(seg / 60) % 60).padStart(2, '0');
-      partes.s.textContent = String(seg % 60).padStart(2, '0');
+      const dias = Math.floor(seg / 86400);
+      cd.querySelector('[data-cd="d"]').textContent = dias > 0 ? dias + 'd ' : '';
+      cd.querySelector('[data-cd="h"]').textContent = dos(Math.floor(seg / 3600) % 24);
+      cd.querySelector('[data-cd="m"]').textContent = dos(Math.floor(seg / 60) % 60);
+      cd.querySelector('[data-cd="s"]').textContent = dos(seg % 60);
       cd.hidden = false;
       return true;
     }
@@ -379,6 +362,7 @@
         if (!pintarCuenta()) clearInterval(reloj);
       }, 1000);
     }
+
   </script>
 
 </body>
