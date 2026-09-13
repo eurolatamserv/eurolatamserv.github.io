@@ -1,0 +1,933 @@
+/* =========================================================
+   MountTravel — Guía del jugador
+   Basada en la plantilla "Noir": negro, dorado y serif.
+   ========================================================= */
+
+/* ---------- Variables ---------- */
+:root {
+  --bg: #000;
+  --bg-soft: #0c0c0c;
+  --bg-card: #0f0e0c;
+  --text: #f2efe9;
+  --muted: #8a8780;
+  --line: #222;
+  --accent: #c9a86a;
+  --accent-soft: rgba(201, 168, 106, 0.12);
+  --danger: #d9776b;
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --gutter: clamp(1.25rem, 8vw, 8rem);
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+strong { font-weight: 500; color: var(--text); }
+
+/* Deja hueco a la barra fija al saltar a una seccion */
+section, article { scroll-margin-top: 6rem; }
+
+/* Texto del juego citado tal cual */
+.game {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.05em 0.45em;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* ---------- Barra de progreso ---------- */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 100;
+}
+
+/* ---------- Navegacion ---------- */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem clamp(1.25rem, 5vw, 4rem);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.92), transparent);
+  z-index: 50;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.logo span { color: var(--accent); }
+
+.nav nav {
+  display: flex;
+  gap: clamp(1rem, 2.4vw, 2.25rem);
+}
+
+.nav nav a {
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.nav nav a:hover,
+.nav nav a:focus-visible { color: var(--text); }
+
+/* ---------- Portada ---------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem var(--gutter) 6rem;
+  position: relative;
+  background:
+    linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.88) 38%, rgba(0, 0, 0, 0.45) 75%, rgba(0, 0, 0, 0.7) 100%),
+    linear-gradient(to top, #000 0%, transparent 30%),
+    url("img/punto-de-viaje.jpg") center / cover no-repeat;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  animation: fade-up 1s ease both;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 7.2vw, 6.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 13ch;
+  animation: fade-up 1s 0.15s ease both;
+}
+
+.hero h1 em { color: var(--accent); }
+
+.hero-text {
+  max-width: 44ch;
+  margin-top: 2rem;
+  color: #b9b5ad;
+  font-size: 1.08rem;
+  animation: fade-up 1s 0.3s ease both;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 2.5rem;
+  align-self: flex-start;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.6rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  animation: fade-up 1s 0.45s ease both;
+  transition: background 0.3s, color 0.3s;
+}
+
+.hero-cta:hover,
+.hero-cta:focus-visible {
+  background: var(--accent);
+  color: #000;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 3.5rem;
+}
+
+.scroll-hint::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 2.75rem;
+  background: linear-gradient(var(--muted), transparent);
+  animation: drip 2s ease-in-out infinite;
+}
+
+/* ---------- Cabecera de seccion ---------- */
+.section-head {
+  max-width: 60rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.kicker {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.section-head h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.05;
+}
+
+.section-head p {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  max-width: 56ch;
+  font-size: 1.05rem;
+}
+
+/* ---------- Pasos rapidos ---------- */
+.steps {
+  padding: 6rem var(--gutter) 2rem;
+}
+
+.steps ol {
+  list-style: none;
+  counter-reset: paso;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+.steps li {
+  padding: 2rem 1.5rem 0 0;
+  counter-increment: paso;
+}
+
+.steps li::before {
+  content: "0" counter(paso);
+  display: block;
+  font-family: var(--serif);
+  font-size: 2.75rem;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.steps h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.steps p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 26ch;
+}
+
+/* ---------- Bloques intercalados ---------- */
+.blocks {
+  padding: 6rem var(--gutter) 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6rem, 13vw, 11rem);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.block--reverse { grid-template-columns: 7fr 5fr; }
+.block--reverse .block-text { order: 2; }
+.block--reverse .block-media { order: 1; }
+
+.number {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.25rem;
+}
+
+.number::after {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 1px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+
+.block-text h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 4.2vw, 3.5rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.block-text p {
+  color: var(--muted);
+  max-width: 46ch;
+  font-size: 1.05rem;
+}
+
+.block-text p + p { margin-top: 1rem; }
+
+/* Lista con guion dorado */
+.list {
+  list-style: none;
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.85rem;
+  max-width: 46ch;
+}
+
+.list li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--muted);
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 0.9rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ---------- Capturas recortadas ---------- */
+/* El recorte se define con --x --y --w --h en pixeles de la captura original
+   (1920 de ancho). Asi se ve solo la parte que importa. */
+.shot-wrap { margin: 0; }
+
+.shot {
+  --src-w: 1920;
+  display: block;
+  position: relative;
+  aspect-ratio: var(--w) / var(--h);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  cursor: zoom-in;
+}
+
+.shot img {
+  position: absolute;
+  max-width: none;
+  width: calc(var(--src-w) / var(--w) * 100%);
+  height: auto;
+  left: calc(var(--x) / var(--w) * -100%);
+  top: calc(var(--y) / var(--h) * -100%);
+}
+
+.shot::after {
+  content: "Ampliar";
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid var(--line);
+  padding: 0.35rem 0.65rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.shot:hover::after,
+.shot:focus-visible::after { opacity: 1; }
+
+.shot:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+.shot-wrap figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+/* ---------- Ampliacion a pantalla completa (solo CSS) ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(0, 0, 0, 0.94);
+}
+
+.lightbox:target { display: grid; }
+
+.lightbox img {
+  position: relative;
+  max-height: calc(100vh - 6rem);
+  width: auto;
+  border: 1px solid var(--line);
+  animation: fade-up 0.35s ease both;
+  pointer-events: none;
+}
+
+.lightbox-close {
+  position: absolute;
+  inset: 0;
+  cursor: zoom-out;
+}
+
+.lightbox-close span {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Avisos ---------- */
+.callout {
+  margin-top: 1.75rem;
+  padding: 1.1rem 1.25rem;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-soft);
+  max-width: 46ch;
+  font-size: 0.95rem;
+  color: #c9c5bd;
+}
+
+.callout strong {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.callout ul {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* ---------- Paneles sin imagen (vuelo, descubrir) ---------- */
+.panel {
+  padding: 7rem var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+.panel--soft {
+  background: radial-gradient(ellipse at 20% 0%, #15120d 0%, var(--bg) 55%);
+}
+
+/* Linea de tiempo del vuelo */
+.timeline {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--line));
+}
+
+.timeline li {
+  position: relative;
+  padding: 2.25rem 1.5rem 0 0;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 0.2rem;
+  left: 0;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  transform: rotate(45deg);
+}
+
+.timeline h3,
+.card h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.timeline p,
+.card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.subhead {
+  margin: 5rem 0 2rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Tarjetas */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.card {
+  background: var(--bg);
+  padding: 1.75rem 1.5rem;
+}
+
+.card .icon {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* Descubrir: dos columnas */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.discover-steps {
+  list-style: none;
+  counter-reset: desc;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.discover-steps li {
+  counter-increment: desc;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  color: var(--muted);
+}
+
+.discover-steps li::before {
+  content: counter(desc);
+  font-family: var(--serif);
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.discover-steps strong {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+/* Mensaje del juego "imitado" */
+.toast {
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  padding: 2rem;
+}
+
+.toast-line {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #e7dcc6;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 0.6rem 0.8rem;
+}
+
+.toast-line .tag { color: #b36ad9; }
+.toast-line .hl { color: #6ad7d9; }
+.toast-line .new { color: #ff66ff; font-weight: 700; }
+
+.toast p {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.notes {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.notes .callout { margin-top: 0; max-width: none; }
+
+/* ---------- Ayuda ---------- */
+.help {
+  padding: 7rem var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+.help .subhead:first-of-type { margin-top: 0; }
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+}
+
+.msg-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 36rem;
+}
+
+.msg-table th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-soft);
+}
+
+.msg-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.msg-table tr:last-child td { border-bottom: 0; }
+
+.msg-table td:first-child {
+  width: 46%;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--danger);
+}
+
+.msg-table td.ok { color: #9fcf8c; }
+
+/* Preguntas frecuentes */
+.faq {
+  border-top: 1px solid var(--line);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  line-height: 1.25;
+  transition: color 0.3s;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--accent);
+  transition: transform 0.3s;
+}
+
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover,
+.faq summary:focus-visible { color: var(--accent); }
+
+.faq details p {
+  color: var(--muted);
+  max-width: 64ch;
+  padding: 0 0 1.5rem;
+}
+
+/* Comando */
+.command {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2.5rem;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+}
+
+.command code {
+  font-family: var(--mono);
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  color: var(--accent);
+}
+
+.command p {
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 10rem var(--gutter) 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 1;
+}
+
+.footer h2 em { color: var(--accent); }
+
+.footer-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.footer-link:hover { border-color: var(--accent); }
+
+.copy {
+  margin-top: 8rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* ---------- Animaciones ---------- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drip {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes from-left {
+  from { opacity: 0; transform: translateX(-80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes from-right {
+  from { opacity: 0; transform: translateX(80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes from-below {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal-img {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes grow {
+  to { transform: scaleX(1); }
+}
+
+/* Aparicion al hacer scroll — solo CSS. Sin soporte se ve igual, sin animar. */
+@supports (animation-timeline: view()) {
+
+  .progress {
+    animation: grow linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .block-text,
+  .block-media,
+  .shot img,
+  .steps li,
+  .timeline li,
+  .card,
+  .discover-steps li,
+  .toast,
+  .faq details {
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 30%;
+  }
+
+  .block .block-text           { animation-name: from-left; }
+  .block .block-media          { animation-name: from-right; }
+  .block--reverse .block-text  { animation-name: from-right; }
+  .block--reverse .block-media { animation-name: from-left; }
+
+  .steps li,
+  .timeline li,
+  .card,
+  .discover-steps li,
+  .toast,
+  .faq details { animation-name: from-below; }
+
+  /* La captura se "destapa" dentro de su marco */
+  .shot img {
+    animation-name: reveal-img;
+    animation-range: entry 20% cover 45%;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .steps ol,
+  .timeline { grid-template-columns: repeat(2, 1fr); row-gap: 2.5rem; }
+  .timeline::before { display: none; }
+}
+
+@media (max-width: 800px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .nav nav {
+    width: 100%;
+    overflow-x: auto;
+    gap: 1.25rem;
+    padding-bottom: 0.25rem;
+    scrollbar-width: none;
+  }
+
+  .nav nav::-webkit-scrollbar { display: none; }
+
+  .hero {
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.9) 55%, #000 100%),
+      url("img/punto-de-viaje.jpg") 50% 30% / cover no-repeat;
+  }
+
+  .block,
+  .block--reverse,
+  .split { grid-template-columns: 1fr; }
+
+  /* En movil siempre: texto arriba, captura abajo */
+  .block--reverse .block-text  { order: 1; }
+  .block--reverse .block-media { order: 2; }
+
+  .shot::after { opacity: 1; }
+}
+
+@media (max-width: 520px) {
+  .steps ol,
+  .timeline { grid-template-columns: 1fr; }
+  .game { white-space: normal; }
+
+  /* La tabla de mensajes pasa a fichas apiladas */
+  .msg-table { min-width: 0; }
+  .msg-table thead { display: none; }
+  .msg-table tr { display: block; border-bottom: 1px solid var(--line); }
+  .msg-table tr:last-child { border-bottom: 0; }
+  .msg-table td { display: block; width: auto !important; border-bottom: 0; }
+  .msg-table td:first-child { padding-bottom: 0.35rem; }
+  .msg-table td + td { padding-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .progress { display: none; }
+}

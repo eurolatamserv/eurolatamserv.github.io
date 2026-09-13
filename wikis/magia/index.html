@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiki de GMagic</title>
+  <meta name="description" content="Guía para jugadores del sistema de clases y habilidades del servidor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&family=Silkscreen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="../../img/icono.png">
+  <link rel="stylesheet" href="../../volver.css">
+</head>
+<body>
+
+  <a href="../../index.html" class="volver-home" aria-label="Volver a la página principal de EuroLatam 7"><img src="../../img/icono.png" alt="" width="64" height="64"><span aria-hidden="true">←</span><span class="volver-text">Volver a EuroLatam 7</span></a>
+
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#top" class="logo">GMagic<span>.</span></a>
+    <nav aria-label="Secciones">
+      <a href="#empezar">Empezar</a>
+      <a href="#clases">Clases</a>
+      <a href="#controles">Controles</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#objetos">Objetos</a>
+      <a href="#ayuda">Ayuda</a>
+    </nav>
+  </header>
+
+  <!-- PORTADA -->
+  <section class="hero" id="top">
+    <p class="eyebrow">Wiki del servidor · Sistema de habilidades</p>
+    <h1>Cinco clases. <em>55</em> habilidades.</h1>
+    <p class="hero-text">
+      Todo lo que necesitas para jugar con el sistema de habilidades: dónde empezar, qué hace cada
+      clase, cómo se lanzan las habilidades y qué objetos te echan una mano por el camino.
+    </p>
+    <nav class="hero-classes" aria-label="Clases"><a href="#clase-guerrero" style="--c: var(--guerrero)">⚔ Guerrero</a><a href="#clase-sanador" style="--c: var(--sanador)">✦ Sanador</a><a href="#clase-mago" style="--c: var(--mago)">✹ Mago</a><a href="#clase-cazador" style="--c: var(--cazador)">➤ Cazador</a><a href="#clase-soporte" style="--c: var(--soporte)">❖ Soporte</a></nav>
+    <span class="scroll-hint" aria-hidden="true">Desliza</span>
+  </section>
+
+  <!-- PRIMEROS PASOS -->
+  <section class="section" id="empezar">
+    <div class="section-head">
+      <span class="kicker">Primeros pasos</span>
+      <h2>De cero a tu primera habilidad</h2>
+      <p>Ocho pasos, en orden. Si es tu primera vez en el servidor, empieza por el primero.</p>
+    </div>
+  </section>
+  <main class="blocks">
+    <article class="block"><div class="block-text"><span class="number">01</span><h2>Busca al Maestro de Clase</h2><p>Todo empieza aquí. El Maestro de Clase es un personaje con su nombre flotando sobre la cabeza: háblale con <strong>click derecho</strong> y se abre su menú.</p><p>Desde él eliges clase, aprendes habilidades, las subes de nivel, mejoras tu arma y, si eres Cazador, eliges mascota.</p><a href="#clases" class="link">Ver las clases</a></div><figure class="block-image block-image--cover"><img src="img/maestro.webp" alt="El Maestro de Clase en el mundo" loading="lazy"></figure></article><article class="block block--reverse"><div class="block-text"><span class="number">02</span><h2>Elige tu clase</h2><p>Pasa el ratón por cada una: verás qué hace, con qué recurso juega y con qué habilidad empiezas.</p><p>La primera elección es <strong>gratis</strong>. Cambiar de clase más adelante cuesta <strong>512 SuperCoin</strong> y tus habilidades vuelven a nivel I.</p><a href="#clases" class="link">Las cinco clases</a></div><figure class="block-image block-image--shot"><img src="img/clase-guerrero.webp" alt="Elegir clase en el Maestro" loading="lazy"></figure></article><article class="block"><div class="block-text"><span class="number">03</span><h2>Recibe tu arma</h2><p>Al elegir clase recibes tu arma de clase. Aparece en la <strong>casilla 9</strong> de la barra y no se cae ni se mueve por accidente.</p><p>Las barras de recurso y de habilidad solo se ven con ella en la mano. Si la pierdes, <code>/gm foco</code> te la devuelve.</p></div><figure class="block-image block-image--shot"><img src="img/arma-nivel-1.webp" alt="Tu arma de clase en el Maestro" loading="lazy"></figure></article><article class="block block--reverse"><div class="block-text"><span class="number">04</span><h2>Lanza con click derecho</h2><p>Con el arma en la mano, el <strong>click derecho</strong> lanza la habilidad que tengas seleccionada.</p><p>Abajo, junto a la barra, ves cuál es y cuánto le queda para volver a estar lista.</p></div><figure class="block-image block-image--clip"><img src="img/cast.webp" alt="Un Guerrero lanza Salto del Titán con click derecho" loading="lazy"><figcaption>Click derecho · Salto del Titán</figcaption></figure></article><article class="block"><div class="block-text"><span class="number">05</span><h2>Cambia con la Q</h2><p>Pulsa <kbd>Q</kbd> para pasar a la siguiente habilidad y <kbd>Shift</kbd><span class="plus">+</span><kbd>Q</kbd> para volver a la anterior.</p><p>Con el arma en la mano la Q no la suelta: solo cambia de habilidad.</p><a href="#controles" class="link">Todos los controles</a></div><figure class="block-image block-image--clip"><img src="img/q.webp" alt="Cambiando de habilidad con la tecla Q" loading="lazy"><figcaption>Q · Golpe Sísmico → Carga Brutal → Piel de Hierro → Torbellino Carmesí</figcaption></figure></article><article class="block block--reverse"><div class="block-text"><span class="number">06</span><h2>Aprende más habilidades</h2><p>En el Maestro, <strong>Habilidades</strong> te enseña todas las de tu clase. Las que tienes bloqueadas se aprenden pagando SuperCoin.</p><p>Una habilidad normal cuesta <strong>32</strong>, una pasiva <strong>16</strong> y una definitiva <strong>96</strong>.</p><a href="#habilidades" class="link">Las 55 habilidades</a></div><figure class="block-image block-image--shot"><img src="img/habilidad-bloqueada.webp" alt="Carga Brutal bloqueada, con su precio" loading="lazy"></figure></article><article class="block"><div class="block-text"><span class="number">07</span><h2>Súbelas de nivel</h2><p>Cada habilidad tiene tres niveles. El II le da un 25 % más de potencia y un 10 % menos de espera; el III, un 50 % más y un efecto especial.</p><p>Una habilidad <strong>nunca puede estar por encima del nivel de tu arma</strong>.</p></div><figure class="block-image block-image--shot"><img src="img/nivel-subir.webp" alt="Golpe Sísmico aprendida, lista para subir a nivel II" loading="lazy"></figure></article><article class="block block--reverse"><div class="block-text"><span class="number">08</span><h2>Mejora tu arma</h2><p>Con tu arma más fuerte puedes subir más tus habilidades. Pasar a nivel II cuesta <strong>128 SuperCoin</strong> y a nivel III, <strong>384</strong>.</p><p>Cambiar de tipo de arma dentro de tu clase —espada, hacha o lanza en el Guerrero— es gratis.</p></div><figure class="block-image block-image--shot"><img src="img/arma-mejorar-2.webp" alt="Mejorar el arma a nivel II" loading="lazy"></figure></article>
+  </main>
+
+  <!-- CLASES -->
+  <section class="section" id="clases">
+    <div class="section-head">
+      <span class="kicker">Las clases</span>
+      <h2>Elige cómo quieres pelear</h2>
+      <p>
+        Cada clase juega con un recurso distinto, empieza con una habilidad y tiene su propia arma.
+        Puedes tenerlas todas probadas, pero solo llevar una a la vez.
+      </p>
+    </div>
+    <div class="clases"><article class="clase" id="clase-guerrero" style="--c: var(--guerrero)"><div><div class="clase-id"><span class="clase-simbolo" aria-hidden="true">⚔</span><h3>Guerrero</h3></div><p class="clase-rol">Combate frontal y furia pura.</p><dl class="datos"><div><dt>Recurso</dt><dd>Ira · hasta 100</dd></div><div><dt>Se recupera</dt><dd>Dando y recibiendo golpes</dd></div><div><dt>Empiezas con</dt><dd>Golpe Sísmico</dd></div><div><dt>Arma</dt><dd>Espada, hacha o lanza</dd></div><div><dt>Habilidades</dt><dd>11 · 10 por aprender</dd></div><div><dt>Símbolo</dt><dd>⚔</dd></div></dl><ul class="puntos"><li>Aguantas el golpe, provocas a tus enemigos y cuanto peor te ves, más fuerte pegas.</li><li>Tu Ira empieza a cero en cada pelea: la llenas peleando y la gastas en habilidades.</li><li>Tienes dos estilos de combate: <strong>Berserker</strong> (+15 % de daño, −10 % de defensa y +25 % de Ira) o <strong>Guardián</strong> (+20 % de defensa, −10 % de daño). Se eligen con <code>/gm estilo</code>.</li></ul></div><figure class="captura"><img src="img/clase-guerrero.webp" alt="Descripción del Guerrero en el menú del Maestro de Clase" loading="lazy"><figcaption>Así la ves en el Maestro de Clase, al pasar el ratón por encima.</figcaption></figure></article><article class="clase" id="clase-sanador" style="--c: var(--sanador)"><div><div class="clase-id"><span class="clase-simbolo" aria-hidden="true">✦</span><h3>Sanador</h3></div><p class="clase-rol">Mantienes al equipo en pie.</p><dl class="datos"><div><dt>Recurso</dt><dd>Maná · hasta 100</dd></div><div><dt>Se recupera</dt><dd>2,5 por segundo</dd></div><div><dt>Empiezas con</dt><dd>Curación Menor</dd></div><div><dt>Arma</dt><dd>Grimorio</dd></div><div><dt>Habilidades</dt><dd>11 · 10 por aprender</dd></div><div><dt>Símbolo</dt><dd>✦</dd></div></dl><ul class="puntos"><li>Curas, escudas y limpias los efectos negativos de tus aliados.</li><li>Si curas a alguien que ya tiene la vida llena, lo que sobra se convierte en escudo: la <strong>Sobrecura</strong>.</li><li>Con Renacer puedes devolver a la vida a quien haya caído cerca.</li></ul></div><figure class="captura"><img src="img/clase-sanador.webp" alt="Descripción del Sanador en el menú del Maestro de Clase" loading="lazy"><figcaption>Así la ves en el Maestro de Clase, al pasar el ratón por encima.</figcaption></figure></article><article class="clase" id="clase-mago" style="--c: var(--mago)"><div><div class="clase-id"><span class="clase-simbolo" aria-hidden="true">✹</span><h3>Mago</h3></div><p class="clase-rol">Destrucción arcana a distancia.</p><dl class="datos"><div><dt>Recurso</dt><dd>Maná · hasta 120</dd></div><div><dt>Se recupera</dt><dd>2 por segundo</dd></div><div><dt>Empiezas con</dt><dd>Proyectil Arcano</dd></div><div><dt>Arma</dt><dd>Vara Arcana o Tomo de Fuego</dd></div><div><dt>Habilidades</dt><dd>10 · 9 por aprender</dd></div><div><dt>Símbolo</dt><dd>✹</dd></div></dl><ul class="puntos"><li>El mayor daño del juego… si te dejan lanzar tranquilo: aguantas muy poco.</li><li>Cada vez que alcanzas a alguien con una habilidad ganas una <strong>Carga Arcana</strong>. Con 5 puedes soltar la Sobrecarga Arcana.</li><li>Invocas súbditos que pelean por ti.</li></ul></div><figure class="captura"><img src="img/clase-mago.webp" alt="Descripción del Mago en el menú del Maestro de Clase" loading="lazy"><figcaption>Así la ves en el Maestro de Clase, al pasar el ratón por encima.</figcaption></figure></article><article class="clase" id="clase-cazador" style="--c: var(--cazador)"><div><div class="clase-id"><span class="clase-simbolo" aria-hidden="true">➤</span><h3>Cazador</h3></div><p class="clase-rol">Daño a distancia y control del terreno.</p><dl class="datos"><div><dt>Recurso</dt><dd>Munición · hasta 100</dd></div><div><dt>Se recupera</dt><dd>4 por segundo</dd></div><div><dt>Empiezas con</dt><dd>Disparo Preciso</dd></div><div><dt>Arma</dt><dd>Arco de Caza</dd></div><div><dt>Habilidades</dt><dd>12 · 11 por aprender</dd></div><div><dt>Símbolo</dt><dd>➤</dd></div></dl><ul class="puntos"><li>No usas magia: usas puntería, trampas y una mascota que pelea contigo.</li><li>Con el arco en la mano, el <strong>click izquierdo</strong> dispara una flecha básica, sin gastar flechas del inventario.</li><li>Al acertar acumulas <strong>Instinto de Caza</strong>; al llenarlo entras en Cacería Activa.</li></ul></div><figure class="captura"><img src="img/clase-cazador.webp" alt="Descripción del Cazador en el menú del Maestro de Clase" loading="lazy"><figcaption>Así la ves en el Maestro de Clase, al pasar el ratón por encima.</figcaption></figure></article><article class="clase" id="clase-soporte" style="--c: var(--soporte)"><div><div class="clase-id"><span class="clase-simbolo" aria-hidden="true">❖</span><h3>Soporte</h3></div><p class="clase-rol">No curas: haces letales a los demás.</p><dl class="datos"><div><dt>Recurso</dt><dd>Esencia · hasta 100</dd></div><div><dt>Se recupera</dt><dd>Cerca de tus aliados</dd></div><div><dt>Empiezas con</dt><dd>Aumento de Poder</dd></div><div><dt>Arma</dt><dd>Báculo</dd></div><div><dt>Habilidades</dt><dd>11 · 10 por aprender</dd></div><div><dt>Símbolo</dt><dd>❖</dd></div></dl><ul class="puntos"><li>Potencias el daño, la velocidad y la defensa de tu grupo gastando Esencia.</li><li>Ganas Esencia estando cerca de tus aliados y cada vez que ellos lanzan una habilidad.</li><li>Puedes vincularte con un aliado concreto con <code>/gm vinculo</code>.</li></ul></div><figure class="captura"><img src="img/clase-soporte.webp" alt="Descripción del Soporte en el menú del Maestro de Clase" loading="lazy"><figcaption>Así la ves en el Maestro de Clase, al pasar el ratón por encima.</figcaption></figure></article></div>
+  </section>
+
+  <!-- CONTROLES -->
+  <section class="section" id="controles">
+    <div class="section-head">
+      <span class="kicker">Controles</span>
+      <h2>Todo se hace con tu arma en la mano</h2>
+      <p>
+        No hace falta memorizar comandos: con el arma de clase en la mano, el ratón y dos teclas lo
+        cubren casi todo.
+      </p>
+    </div>
+    <div class="controles"><div class="control"><div><kbd>Click derecho</kbd></div><p><strong>Lanza</strong> la habilidad seleccionada.</p></div><div class="control"><div><kbd>Q</kbd></div><p>Pasa a la <strong>siguiente</strong> habilidad.</p></div><div class="control"><div><kbd>Shift</kbd><span class="plus">+</span><kbd>Q</kbd></div><p>Vuelve a la habilidad <strong>anterior</strong>.</p></div><div class="control"><div><kbd>F</kbd></div><p>Abre el <strong>menú de habilidades</strong>: ves qué hace cada una y puedes lanzarlas desde ahí.</p></div><div class="control"><div><kbd>Click izquierdo</kbd><span class=control-tag>Solo Cazador</span></div><p><strong>Disparo básico</strong>: una flecha de verdad, una por segundo, sin gastar flechas del inventario.</p></div></div>
+
+    <h3 class="sub">El menú de habilidades</h3>
+    <div class="dos-col">
+      <div class="prose">
+        <p>
+          Con <kbd>F</kbd> se abre tu menú. En <strong>Mis habilidades</strong> ves qué hace cada una y
+          puedes lanzarlas con un click.
+        </p>
+        <p>
+          En <strong>Casilla del Foco</strong> eliges en qué hueco de la barra quieres llevar el arma.
+          Y si prefieres no llevarla encima, puedes desactivar el <strong>ítem del arma</strong>: entonces
+          lanzas desde el menú o con <code>/gm lanzar</code>.
+        </p>
+      </div>
+      <figure class="captura">
+        <img src="img/menu-casilla.webp" alt="Menú de habilidades con la opción Casilla del Foco" loading="lazy">
+        <figcaption>La casilla del arma viene en el hueco 9.</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub">Comandos</h3>
+    <div class="tabla-wrap">
+      <table class="tabla">
+        <thead><tr><th>Comando</th><th>Qué hace</th></tr></thead>
+        <tbody><tr><td><code>/gm menu</code></td><td>Abre el menú de habilidades, igual que la F.</td></tr><tr><td><code>/gm lanzar &lt;número&gt;</code></td><td>Lanza una habilidad por su número, sin cambiar la seleccionada.</td></tr><tr><td><code>/gm siguiente · /gm anterior</code></td><td>Cambian la habilidad seleccionada.</td></tr><tr><td><code>/gm foco</code></td><td>Te devuelve el arma de clase si la has perdido.</td></tr><tr><td><code>/gm estilo</code></td><td>Eliges estilo de combate. Solo Guerrero.</td></tr><tr><td><code>/gm vinculo &lt;jugador&gt;</code></td><td>Te vinculas con un aliado. Solo Soporte.</td></tr><tr><td><code>/gm renacer aceptar · rechazar</code></td><td>Respondes cuando un Sanador te ofrece volver.</td></tr><tr><td><code>/gm hud · /gm bossbar</code></td><td>Muestran u ocultan la barra de habilidad y la de recurso.</td></tr><tr><td><code>/gm info</code></td><td>Un resumen de tu clase y tus habilidades.</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section class="section" id="habilidades">
+    <div class="section-head">
+      <span class="kicker">Habilidades</span>
+      <h2>Las 55, clase por clase</h2>
+      <p>
+        El coste se paga con el recurso de tu clase. La espera es lo que tarda en volver a estar lista.
+        El precio en SuperCoin es lo que cuesta aprenderla en el Maestro.
+      </p>
+    </div>
+
+    <div class="niveles">
+      <div class="nivel">
+        <span class="nivel-nombre">Nivel I</span>
+        <p>La versión básica. La tienes nada más aprenderla.</p>
+        <span class="num">Precio de aprenderla</span>
+      </div>
+      <div class="nivel">
+        <span class="nivel-nombre">Nivel II</span>
+        <p>+25 % de potencia y un 10 % menos de espera. Necesitas el arma a nivel II.</p>
+        <span class="num">Tres cuartos del precio · 24 SuperCoin en una normal</span>
+      </div>
+      <div class="nivel">
+        <span class="nivel-nombre">Nivel III</span>
+        <p>+50 % de potencia y el efecto especial de cada habilidad. Necesitas el arma a nivel III.</p>
+        <span class="num">Precio y medio · 48 SuperCoin en una normal</span>
+      </div>
+    </div>
+
+    <details class="grupo" style="--c: var(--guerrero)" open><summary><span class="grupo-nombre">⚔ Guerrero</span><span class="grupo-meta">11 habilidades · Ira</span><span class="grupo-signo" aria-hidden="true">+</span></summary><ul class="habilidades"><li class="habilidad"><div class="hab-cabeza"><h4>Golpe Sísmico</h4><span class="hab-tipo">Ataque</span></div><p class="hab-datos"><span>20 Ira</span><span>8 s de espera</span><span class="inicial">Con la que empiezas</span></p><div class="hab-texto"><p>Golpeas el suelo con toda tu furia. Daña y lanza por los aires a los enemigos a tu alrededor.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Torbellino Carmesí</h4><span class="hab-tipo">Ataque</span></div><p class="hab-datos"><span>25 Ira</span><span>12 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Giras violentamente con espadas invocadas orbitando a tu alrededor, cortando a todo enemigo que se acerque.</p><p>Puedes seguir moviéndote: las hojas te acompañan mientras dura.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Venganza Sangrienta</h4><span class="hab-tipo">Ataque</span></div><p class="hab-datos"><span>20 Ira</span><span>22 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Guardas parte de todo el daño que recibas durante unos segundos. Al terminar lo devuelves todo de golpe en una onda a tu alrededor.</p><p>Lánzala otra vez para soltarla antes.</p><p class="nota"><b>Nivel III</b>la onda también te cura.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Carga Brutal</h4><span class="hab-tipo">Movilidad</span></div><p class="hab-datos"><span>15 Ira</span><span>10 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Te lanzas hacia adelante a toda velocidad. El primer enemigo que impactes recibe daño y sale despedido aturdido.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Salto del Titán</h4><span class="hab-tipo">Movilidad</span></div><p class="hab-datos"><span>25 Ira</span><span>16 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Saltas por los aires hacia donde miras. Al aterrizar provocas una explosión que daña y lanza a todos los enemigos.</p><p class="nota"><b>Nivel III</b>el impacto deja el suelo ardiendo.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Provocación</h4><span class="hab-tipo">Control</span></div><p class="hab-datos"><span>25 Ira</span><span>20 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Un rugido que atrae toda la atencion. Los monstruos cercanos te atacan a ti y los jugadores provocados pegan mucho menos a cualquiera que no seas tú.</p><p>Perfecto para proteger a tu Sanador.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Rompearmaduras</h4><span class="hab-tipo">Control</span></div><p class="hab-datos"><span>20 Ira</span><span>14 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Un hachazo brutal que destroza la defensa del enemigo al que apuntas. Durante unos segundos recibe mucho más daño de ti y de todo tu equipo.</p><p class="nota"><b>Nivel III</b>además lo deja debilitado y sangrando.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Piel de Hierro</h4><span class="hab-tipo">Defensa</span></div><p class="hab-datos"><span>30 Ira</span><span>25 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Tu piel se endurece como el hierro. Reduces muchísimo el daño recibido, creces de tamaño y casi no te empujan.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Último Aliento</h4><span class="hab-tipo">Defensa</span></div><p class="hab-datos"><span>30 Ira</span><span>1 min de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Te niegas a caer. Si durante los próximos segundos recibes un golpe que deberia matarte, sobrevives con un corazón y ganas resistencia.</p><p class="nota"><b>Nivel III</b>además te cura al salvarte.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Sed de Batalla</h4><span class="hab-tipo">Pasiva</span></div><p class="hab-datos"><span>Siempre activa</span><span>16 SuperCoin</span></p><div class="hab-texto"><p>Siempre activa. Por debajo del 50% de vida ganas hasta +45% de daño y más velocidad de ataque.</p><p>Cuanto peor te ves, más peligroso eres.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Furia Desatada</h4><span class="hab-tipo hab-tipo--definitiva">Definitiva</span></div><p class="hab-datos"><span>Gasta toda tu Ira</span><span>1 min 30 s de espera</span><span>96 SuperCoin</span></p><div class="hab-texto"><p>Consume toda tu Ira de golpe. Cuanta más Ira gastes, más dura. Ganas daño brutal, resistencia y velocidad.</p><p class="nota"><b>Combo</b>pídele Sobrecarga al Soporte antes de activarla.</p></div></li></ul></details><details class="grupo" style="--c: var(--sanador)"><summary><span class="grupo-nombre">✦ Sanador</span><span class="grupo-meta">11 habilidades · Maná</span><span class="grupo-signo" aria-hidden="true">+</span></summary><ul class="habilidades"><li class="habilidad"><div class="hab-cabeza"><h4>Curación Menor</h4><span class="hab-tipo">Curación</span></div><p class="hab-datos"><span>15 Maná</span><span>3 s de espera</span><span class="inicial">Con la que empiezas</span></p><div class="hab-texto"><p>Restaura vida al aliado que estás mirando. Si no miras a nadie, te curas a ti mismo.</p><p>Si el objetivo está lleno de vida, la Sobrecura se vuelve escudo.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Círculo de Vida</h4><span class="hab-tipo">Curación</span></div><p class="hab-datos"><span>40 Maná</span><span>25 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Dibujas un círculo sagrado en el suelo donde estás apuntando. Cura sin parar a los aliados que estén dentro durante bastante tiempo.</p><p class="nota"><b>Nivel III</b>también limpia efectos negativos.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Lluvia Celestial</h4><span class="hab-tipo">Curación</span></div><p class="hab-datos"><span>50 Maná</span><span>30 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Haces caer rayos de energía sobre la zona a la que apuntas. Cada impacto cura a los aliados y daña a los enemigos que haya debajo.</p><p class="nota"><b>Nivel III</b>los enemigos alcanzados quedan lentos.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Luz Renovadora</h4><span class="hab-tipo">Curación</span></div><p class="hab-datos"><span>35 Maná</span><span>15 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Creas una zona sagrada en el suelo. Todos los aliados dentro se curan poco a poco durante varios segundos.</p><p class="nota"><b>Combo</b>úsala cuando el Guerrero entre al centro de la pelea.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Palabra Sagrada</h4><span class="hab-tipo">Curación</span></div><p class="hab-datos"><span>30 Maná</span><span>9 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Una plegaria inmediata sobre el aliado al que estás mirando. Cuanta menos vida le quede, mucho más le cura.</p><p class="nota"><b>Nivel III</b>si está muy grave le da absorción.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Transferencia Vital</h4><span class="hab-tipo">Curación</span></div><p class="hab-datos"><span>10 Maná</span><span>15 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Entregas parte de tu propia vida para curar mucho más al aliado al que miras.</p><p>Cuesta poco maná, pero te deja tocado. Nunca te deja por debajo de un corazón.</p><p class="nota"><b>Nivel III</b>recuperas la mitad de lo entregado.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Vínculo Vital</h4><span class="hab-tipo">Curación</span></div><p class="hab-datos"><span>25 Maná</span><span>18 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Te unes a un aliado durante unos segundos. Toda la curación que reciba uno de los dos se comparte con el otro.</p><p>Ambos ganan regeneración mientras dure.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Ángel Guardián</h4><span class="hab-tipo">Protección</span></div><p class="hab-datos"><span>45 Maná</span><span>45 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Pones un ángel sobre el aliado al que miras. Si recibe un golpe mortal en los próximos segundos, sobrevive automáticamente con resistencia y regeneración.</p><p class="nota"><b>Nivel III</b>además le cura al salvarle.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Escudo Sagrado</h4><span class="hab-tipo">Protección</span></div><p class="hab-datos"><span>30 Maná</span><span>12 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Rodeas al aliado con una barrera de luz que absorbe el daño antes que su vida.</p><p>Se apila con la Sobrecura.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Purificación</h4><span class="hab-tipo">Utilidad</span></div><p class="hab-datos"><span>20 Maná</span><span>10 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Elimina veneno, lentitud, debilidad, ceguera y demas efectos negativos de todos los aliados a tu alrededor.</p><p>También rompe la Provocación.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Renacer</h4><span class="hab-tipo hab-tipo--definitiva">Definitiva</span></div><p class="hab-datos"><span>80 Maná</span><span>2 min de espera</span><span>96 SuperCoin</span></p><div class="hab-texto"><p>Una explosión de vida a tu alrededor. Cura muchísimo a todos los aliados y revive a los que hayan caido cerca.</p><p>Las Almas de los muertos duran un minuto en el sitio donde cayeron.</p></div></li></ul></details><details class="grupo" style="--c: var(--mago)"><summary><span class="grupo-nombre">✹ Mago</span><span class="grupo-meta">10 habilidades · Maná</span><span class="grupo-signo" aria-hidden="true">+</span></summary><ul class="habilidades"><li class="habilidad"><div class="hab-cabeza"><h4>Proyectil Arcano</h4><span class="hab-tipo">Ataque</span></div><p class="hab-datos"><span>12 Maná</span><span>3 s de espera</span><span class="inicial">Con la que empiezas</span></p><div class="hab-texto"><p>Lanzas una esfera de energía que vuela recto y explota al impactar, dañando a todo lo que haya alrededor del golpe.</p><p>Tu ataque de siempre: barato y rápido.</p><p class="nota"><b>Nivel III</b>la explosión es mucho mayor.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Cadena de Rayos</h4><span class="hab-tipo">Ataque</span></div><p class="hab-datos"><span>25 Maná</span><span>9 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Un rayo golpea al enemigo que mires y salta hacia los que tenga cerca, perdiendo un poco de fuerza en cada salto.</p><p>Cuanto más apiñados estén, mejor.</p><p class="nota"><b>Nivel III</b>un salto extra y menos pérdida.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Lluvia de Fuego</h4><span class="hab-tipo">Ataque</span></div><p class="hab-datos"><span>40 Maná</span><span>18 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Marcas una zona en el suelo y, tras unos segundos, caen varias explosiones sobre todos los enemigos que sigan dentro.</p><p>Da tiempo a escapar: úsala con control o justo después de una Prisión Arcana.</p><p class="nota"><b>Nivel III</b>los alcanzados quedan ardiendo.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Órdenes del Invocador</h4><span class="hab-tipo">Control</span></div><p class="hab-datos"><span>Gratis</span><span>2 s de espera</span><span>16 SuperCoin</span></p><div class="hab-texto"><p>Cambia lo que hacen tus súbditos. Cada uso pasa a la siguiente orden:</p><ul><li><strong>Asalto</strong> — todos al enemigo que mires</li><li><strong>Defensa</strong> — contigo, responden si te atacan</li><li><strong>Cacería</strong> — persiguen al más cercano</li><li><strong>Retirada</strong> — vuelven a tu lado sin pelear</li></ul><p>Agachado: marca objetivo sin cambiar de orden.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Prisión Arcana</h4><span class="hab-tipo">Control</span></div><p class="hab-datos"><span>30 Maná</span><span>20 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Encierras al enemigo que mires en una jaula de energía: no puede moverse y recibe más daño mientras dure.</p><p>El preparativo perfecto para la Lluvia de Fuego o el Meteorito.</p><p class="nota"><b>Nivel III</b>también lo deja ciego.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Explosión de Maná</h4><span class="hab-tipo">Defensa</span></div><p class="hab-datos"><span>25 Maná</span><span>12 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Sueltas de golpe el maná que te rodea: daña y empuja lejos a todo el que tengas encima.</p><p>Tu botón de pánico cuando se acercan.</p><p class="nota"><b>Nivel III</b>además te impulsa hacia atras.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Sobrecarga Arcana</h4><span class="hab-tipo">Potenciación</span></div><p class="hab-datos"><span>Gasta tus Cargas Arcanas</span><span>45 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Consume todas tus Cargas Arcanas.</p><p>Durante unos segundos:</p><ul><li>tus hechizos hacen mucho más daño</li><li>cuestan menos maná</li><li>las explosiones son más grandes</li><li>tus súbditos entran en frenesí</li></ul><p>Se cargan golpeando con habilidades.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Invocación Arcana</h4><span class="hab-tipo">Utilidad</span></div><p class="hab-datos"><span>45 Maná</span><span>1 min de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Abres una grieta y salen súbditos arcanos que pelean a tus órdenes.</p><p>Con Órdenes del Invocador les dices qué hacer: atacar, defenderte, cazar o volver a tu lado.</p><p>Con Sobrecarga Arcana entran en frenesí.</p><p class="nota"><b>Nivel III</b>sale un súbdito más.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Acumulación Arcana</h4><span class="hab-tipo">Pasiva</span></div><p class="hab-datos"><span>Siempre activa</span><span>16 SuperCoin</span></p><div class="hab-texto"><p>Siempre activa. Cada vez que alcanzas a alguien con una habilidad ganas una Carga Arcana.</p><p>Al llegar a 5 puedes lanzar la Sobrecarga Arcana.</p><p>Las cargas giran a tu alrededor y se ven en la barra de acción.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Meteorito</h4><span class="hab-tipo hab-tipo--definitiva">Definitiva</span></div><p class="hab-datos"><span>70 Maná</span><span>2 min de espera</span><span>96 SuperCoin</span></p><div class="hab-texto"><p>Marcas una zona y llamas a una roca ardiendo del tamaño de una casa. Al impactar arrasa todo lo que haya dentro.</p><p>Tarda unos segundos en caer: úsalo sobre enemigos que no puedan moverse.</p><p>Con Sobrecarga Arcana hace mucho más daño.</p></div></li></ul></details><details class="grupo" style="--c: var(--cazador)"><summary><span class="grupo-nombre">➤ Cazador</span><span class="grupo-meta">12 habilidades · Munición</span><span class="grupo-signo" aria-hidden="true">+</span></summary><ul class="habilidades"><li class="habilidad"><div class="hab-cabeza"><h4>Disparo Preciso</h4><span class="hab-tipo">Ataque</span></div><p class="hab-datos"><span>10 Munición</span><span>3 s de espera</span><span class="inicial">Con la que empiezas</span></p><div class="hab-texto"><p>Un tiro afinado que pega más cuanto más lejos esté el objetivo.</p><p>Contra un objetivo marcado o mordido por tu mascota, remata de un tiro.</p><p class="nota"><b>Nivel III</b>no falla aunque haya cobertura.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Disparo Explosivo</h4><span class="hab-tipo">Ataque</span></div><p class="hab-datos"><span>22 Munición</span><span>14 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Un proyectil que estalla al impactar y alcanza a todo lo que esté cerca.</p><p>Tu respuesta a los grupos apiñados.</p><p class="nota"><b>Nivel III</b>la explosión es mucho mayor.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Disparo Perforante</h4><span class="hab-tipo">Ataque</span></div><p class="hab-datos"><span>16 Munición</span><span>8 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>El proyectil atraviesa a todos los enemigos que haya en línea recta.</p><p>Perfecto contra grupos en fila.</p><p class="nota"><b>Nivel III</b>ya no pierde fuerza por el camino.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Paso del Explorador</h4><span class="hab-tipo">Movilidad</span></div><p class="hab-datos"><span>10 Munición</span><span>12 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Ruedas hacia donde miras y sales del cuerpo a cuerpo con velocidad extra.</p><p>Además recargas: tu Disparo Preciso queda listo al instante.</p><p class="nota"><b>Nivel III</b>también te quita la lentitud.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Marca del Cazador</h4><span class="hab-tipo">Control</span></div><p class="hab-datos"><span>8 Munición</span><span>14 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Marcas a una presa. Mientras dure, tú y tu mascota le hacéis más daño.</p><p>Es el principio de todos tus combos.</p><p class="nota"><b>Nivel III</b>la marca dura mucho más.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Mordida Coordinada</h4><span class="hab-tipo">Control</span></div><p class="hab-datos"><span>18 Munición</span><span>18 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Marcas a la presa y tu mascota salta sobre ella, la muerde y la deja frenada.</p><p>Tu siguiente Disparo Preciso la remata.</p><p class="nota"><b>Nivel III</b>la mordida también la envenena.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Órdenes de la Mascota</h4><span class="hab-tipo">Control</span></div><p class="hab-datos"><span>Gratis</span><span>2 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Le dices a tu mascota qué hacer: Atacar, Proteger, Perseguir, Regresar o Esperar.</p><p>Agachado y apuntando: le marcas objetivo sin cambiarle la orden.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Picadura Congelante</h4><span class="hab-tipo">Control</span></div><p class="hab-datos"><span>12 Munición</span><span>12 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Un dardo helado que frena en seco a quien lo reciba.</p><p>Para que no se te escape nadie.</p><p class="nota"><b>Nivel III</b>además lo deja clavado un instante.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Picadura Envenenada</h4><span class="hab-tipo">Control</span></div><p class="hab-datos"><span>12 Munición</span><span>10 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Un dardo emponzoñado: poco golpe seco, pero envenena durante varios segundos.</p><p>Ideal para objetivos que huyen.</p><p class="nota"><b>Nivel III</b>el veneno también se contagia a quien tenga al lado.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Colocar Trampa</h4><span class="hab-tipo">Utilidad</span></div><p class="hab-datos"><span>14 Munición</span><span>6 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Dejas una trampa preparada en el suelo. Salta sola cuando pasa un enemigo.</p><p>Agachado: cambia de tipo de trampa. Pinchos, Hielo, Explosiva y Red.</p><p class="nota"><b>Nivel III</b>las trampas pegan más y sangran.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Instinto de Caza</h4><span class="hab-tipo">Pasiva</span></div><p class="hab-datos"><span>Siempre activa</span><span>16 SuperCoin</span></p><div class="hab-texto"><p>Cada acierto tuyo, cada trampa que salta y cada mordida de tu mascota suman Instinto de Caza.</p><p>Al llenarlo entras en Cacería Activa: más daño, más rapidez y mascota furiosa. Se ve en la barra de acción como ➤3.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Cacería Implacable</h4><span class="hab-tipo hab-tipo--definitiva">Definitiva</span></div><p class="hab-datos"><span>45 Munición</span><span>1 min 30 s de espera</span><span>96 SuperCoin</span></p><div class="hab-texto"><p>Entras en concentración total.</p><ul><li>Más daño y más velocidad de disparo.</li><li>Tu mascota entra en frenesí.</li><li>Ves a los marcados aunque se escondan.</li><li>Tus enfriamientos bajan mucho.</li></ul><p class="nota"><b>Nivel III</b>dura bastante más.</p></div></li></ul></details><details class="grupo" style="--c: var(--soporte)"><summary><span class="grupo-nombre">❖ Soporte</span><span class="grupo-meta">11 habilidades · Esencia</span><span class="grupo-signo" aria-hidden="true">+</span></summary><ul class="habilidades"><li class="habilidad"><div class="hab-cabeza"><h4>Aumento de Poder</h4><span class="hab-tipo">Mejora</span></div><p class="hab-datos"><span>20 Esencia</span><span>10 s de espera</span><span class="inicial">Con la que empiezas</span></p><div class="hab-texto"><p>El aliado al que miras golpea mucho más fuerte durante unos segundos.</p><p>Se nota especialmente en el Guerrero en primera línea.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Impulso</h4><span class="hab-tipo">Movilidad</span></div><p class="hab-datos"><span>25 Esencia</span><span>14 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Una onda de energía recorre a tus aliados. Todos se mueven y atacan más rápido durante unos segundos.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Armadura de Esencia</h4><span class="hab-tipo">Defensa</span></div><p class="hab-datos"><span>30 Esencia</span><span>16 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Cubres a los aliados cercanos con placas de esencia que absorben parte del daño que reciban.</p><p>Se combina con el Escudo Sagrado del Sanador.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Sincronización</h4><span class="hab-tipo">Mejora</span></div><p class="hab-datos"><span>35 Esencia</span><span>25 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Mira a un aliado y lanza para marcarlo. Vuelve a lanzar mirando a otro para unirlos.</p><p>Mientras dure, cada mejora que reciba uno le llega al otro más débil.</p><p class="nota"><b>Nivel III</b>la copia sale casi igual de fuerte.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Zona de Dominio</h4><span class="hab-tipo">Mejora</span></div><p class="hab-datos"><span>45 Esencia</span><span>28 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Reclamas el terreno bajo tus pies. Mientras estén dentro del círculo, tus aliados ganan velocidad, fuerza y resistencia.</p><p class="nota"><b>Nivel III</b>los enemigos que entren se frenan.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Batería de Esencia</h4><span class="hab-tipo">Potenciación</span></div><p class="hab-datos"><span>Carga Esencia</span><span>40 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Te quedas cargando Esencia unos segundos. Al terminar, el aliado al que mires recibe una Sobrecarga enorme: su siguiente habilidad sale brutal.</p><p>Cuanta más Esencia tengas al cargar, más fuerte sale la potenciación.</p><p class="nota"><b>Nivel III</b>también recarga a los aliados cercanos.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Eco de Poder</h4><span class="hab-tipo">Potenciación</span></div><p class="hab-datos"><span>30 Esencia</span><span>18 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>La siguiente habilidad que lance el aliado al que mires se repetira sola un segundo después, más débil.</p><p>Funciona con cualquier habilidad: dos Golpes Sísmicos, dos curaciones...</p><p class="nota"><b>Nivel III</b>el eco sale casi tan fuerte.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Sobrecarga</h4><span class="hab-tipo">Potenciación</span></div><p class="hab-datos"><span>35 Esencia</span><span>20 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>La siguiente habilidad del aliado al que mires sale potenciada y con la mitad de enfriamiento.</p><p>Combo legendario: Furia Desatada o Renacer sobrecargados.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Redistribución</h4><span class="hab-tipo">Utilidad</span></div><p class="hab-datos"><span>25 Esencia</span><span>20 s de espera</span><span>32 SuperCoin</span></p><div class="hab-texto"><p>Le arrancas al enemigo al que apuntas todas sus ventajas y se las entregas al aliado que tengas más cerca.</p><p>Si el enemigo no tiene nada bueno, no se gasta la habilidad.</p><p class="nota"><b>Nivel III</b>el aliado las recibe mejoradas.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Canalizador</h4><span class="hab-tipo">Pasiva</span></div><p class="hab-datos"><span>Siempre activa</span><span>16 SuperCoin</span></p><div class="hab-texto"><p>Siempre activa. Cada vez que un aliado cercano lanza una habilidad, tu ganas Esencia.</p><p>También generas Esencia solo con estar cerca de tu equipo.</p></div></li><li class="habilidad"><div class="hab-cabeza"><h4>Ascensión</h4><span class="hab-tipo hab-tipo--definitiva">Definitiva</span></div><p class="hab-datos"><span>Gasta toda tu Esencia</span><span>2 min de espera</span><span>96 SuperCoin</span></p><div class="hab-texto"><p>Consume toda tu Esencia. Todos los aliados cercanos ganan daño, velocidad, resistencia y regeneración.</p><p>Cuanta más Esencia gastes, más dura.</p></div></li></ul></details>
+
+    <h3 class="sub">Evolución del arma</h3>
+    <div class="tabla-wrap">
+      <table class="tabla">
+        <thead><tr><th>Clase</th><th>Nivel I</th><th>Nivel II · 128</th><th>Nivel III · 384</th></tr></thead>
+        <tbody><tr><td>Guerrero</td><td>Espada, hacha o lanza de hierro</td><td>De diamante</td><td>De netherita</td></tr><tr><td>Sanador</td><td>Grimorio</td><td>Grimorio encantado</td><td>Grimorio encantado</td></tr><tr><td>Mago · vara</td><td>Vara de blaze</td><td>Vara del End</td><td>Vara de breeze</td></tr><tr><td>Mago · tomo</td><td>Tomo de Fuego</td><td>Tomo encantado</td><td>Tomo encantado</td></tr><tr><td>Cazador</td><td>Arco de Caza</td><td>Arco de Caza</td><td>Ballesta</td></tr><tr><td>Soporte</td><td>Fragmento de amatista</td><td>Cúmulo de amatista</td><td>Fragmento de eco</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CAZADOR -->
+  <section class="section" id="cazador" style="--c: var(--cazador)">
+    <div class="section-head">
+      <span class="kicker">Cazador</span>
+      <h2>Tu mascota pelea contigo</h2>
+      <p>
+        El Cazador siempre va acompañado. Cada mascota es un mob de Minecraft en pequeño, con una
+        habilidad propia. El lobo lo tienes desde el principio; el resto se desbloquean con su huevo.
+      </p>
+    </div>
+
+    <div class="dos-col">
+      <ul class="mascotas"><li class="mascota"><h4>Lobo</h4><span class="mascota-poder">Desgarro</span><p>Sus mordiscos hacen sangrar.</p><span class="mascota-huevo">Viene de serie</span></li><li class="mascota"><h4>Zombi Amaestrado</h4><span class="mascota-poder">Zarpazo pesado</span><p>Sus golpes entorpecen y frenan al enemigo.</p><span class="mascota-huevo">Huevo de zombi</span></li><li class="mascota"><h4>Esqueleto Rastreador</h4><span class="mascota-poder">Tiro de apoyo</span><p>Dispara flechas desde lejos.</p><span class="mascota-huevo">Huevo de esqueleto</span></li><li class="mascota"><h4>Vex</h4><span class="mascota-poder">Filo espectral</span><p>Parte de su golpe se salta la armadura.</p><span class="mascota-huevo">Huevo de vex</span></li><li class="mascota"><h4>Abeja</h4><span class="mascota-poder">Aguijón</span><p>Sus picaduras envenenan.</p><span class="mascota-huevo">Huevo de abeja</span></li><li class="mascota"><h4>Phantom</h4><span class="mascota-poder">Vuelo bajo</span><p>Te da rapidez mientras te acompaña.</p><span class="mascota-huevo">Huevo de phantom</span></li><li class="mascota"><h4>Ghast</h4><span class="mascota-poder">Escupitajo</span><p>Lanza bolas de fuego pequeñas.</p><span class="mascota-huevo">Huevo de ghast</span></li><li class="mascota"><h4>Sniffer</h4><span class="mascota-poder">Olfato</span><p>Hace brillar a los enemigos que rondan cerca.</p><span class="mascota-huevo">Huevo de sniffer</span></li></ul>
+      <figure class="captura">
+        <img src="img/vinculos.webp" alt="Los huevos que desbloquean cada mascota" loading="lazy">
+        <figcaption>Un huevo por mascota.</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub">Cómo conseguir una mascota nueva</h3>
+    <div class="prose">
+      <p>
+        Coge el huevo de la mascota y úsalo con <strong>click derecho</strong>. No sale ningún mob: la
+        mascota queda desbloqueada para siempre. Después ve al Maestro de Clase, abre
+        <strong>Tu mascota</strong> y elígela. Las que aún no tienes aparecen en gris.
+      </p>
+      <p>
+        Solo el Cazador puede usar estos huevos, y el huevo se gasta únicamente si el desbloqueo sale
+        bien.
+      </p>
+    </div>
+
+    <h3 class="sub">Órdenes de la mascota</h3>
+    <div class="prose"><p>Se cambian lanzando la habilidad <strong>Órdenes de la Mascota</strong>: cada uso pasa a la siguiente.</p></div>
+    <dl class="ordenes" style="margin-top: 2rem"><div><dt>Atacar</dt><dd>Va a por lo que estés peleando.</dd></div><div><dt>Proteger</dt><dd>Se queda a tu lado y responde a quien te ataque.</dd></div><div><dt>Perseguir</dt><dd>Caza sola al enemigo más cercano.</dd></div><div><dt>Regresar</dt><dd>Vuelve contigo y deja de pelear.</dd></div><div><dt>Esperar</dt><dd>Se queda quieta donde está.</dd></div><div><dt>Guardada</dt><dd>Desaparece hasta que le des otra orden.</dd></div></dl>
+
+    <h3 class="sub">Lo que conviene saber</h3>
+    <ul class="puntos">
+      <li>Si tu mascota muere, vuelve sola a los <strong>12 segundos</strong>.</li>
+      <li>No te ataca a ti ni a tu equipo, y tampoco se quema con el sol.</li>
+      <li>Colocar Trampa tiene cuatro tipos —pinchos, hielo, explosiva y red—; agáchate al lanzarla para cambiar de tipo.</li>
+      <li>Cada acierto, cada trampa que salta y cada mordida suman Instinto de Caza. Al llenarlo, Cacería Activa te da más daño y rapidez.</li>
+    </ul>
+  </section>
+
+  <!-- MAGO -->
+  <section class="section" id="mago" style="--c: var(--mago)">
+    <div class="section-head">
+      <span class="kicker">Mago</span>
+      <h2>Súbditos a tus órdenes</h2>
+      <p>
+        Con <strong>Invocación Arcana</strong> abres una grieta de la que salen súbditos que pelean por
+        ti durante un rato. Con la Sobrecarga Arcana entran en frenesí.
+      </p>
+    </div>
+    <dl class="ordenes"><div><dt>Asalto</dt><dd>Todos al enemigo que mires.</dd></div><div><dt>Defensa</dt><dd>Se quedan contigo y responden si te atacan.</dd></div><div><dt>Cacería</dt><dd>Persiguen al enemigo más cercano.</dd></div><div><dt>Retirada</dt><dd>Vuelven a tu lado sin pelear.</dd></div></dl>
+    <ul class="puntos" style="margin-top: 2.5rem">
+      <li>La orden se cambia lanzando <strong>Órdenes del Invocador</strong>. Agachado, marcas un objetivo sin cambiar la orden.</li>
+      <li>Si te alejas mucho, tus súbditos no se quedan atrás: aparecen a tu lado de un salto.</li>
+      <li>Con Invocación Arcana a nivel III sale un súbdito más.</li>
+    </ul>
+  </section>
+
+  <!-- OBJETOS -->
+  <section class="section" id="objetos">
+    <div class="section-head">
+      <span class="kicker">Objetos</span>
+      <h2>Lo que te echa una mano</h2>
+      <p>Pergaminos que te hacen más fuerte un rato, botellas que devuelven recurso y la moneda con la que se paga todo.</p>
+    </div>
+
+    <h3 class="sub">Pergaminos</h3>
+    <div class="dos-col">
+      <div class="prose">
+        <p>
+          Usa un pergamino con <strong>click derecho</strong> y te da una ventaja durante un tiempo.
+          Hay 52: diez para cada clase y dos que sirven a cualquiera.
+        </p>
+        <p>
+          Cuanto más raro, más fuerte y más dura. Los pergaminos activos <strong>se pierden al
+          morir</strong>, así que úsalos cuando vayas a pelear.
+        </p>
+      </div>
+      <figure class="captura">
+        <img src="img/pergaminos.webp" alt="Pergaminos del Mago" loading="lazy">
+        <figcaption>Los diez pergaminos del Mago.</figcaption>
+      </figure>
+    </div>
+
+    <div class="tabla-wrap" style="margin-top: 3rem">
+      <table class="tabla">
+        <thead><tr><th>Rareza</th><th>Potencia</th><th>Duración</th></tr></thead>
+        <tbody>
+          <tr><td>Común</td><td class="num">+10 %</td><td class="num">5 minutos</td></tr>
+          <tr><td>Raro</td><td class="num">+20 %</td><td class="num">10 minutos</td></tr>
+          <tr><td>Épico</td><td class="num">+30 %</td><td class="num">15 minutos</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <details class="grupo" style="margin-top: 3rem; --c: var(--accent)">
+      <summary><span class="grupo-nombre">Todos los pergaminos</span>
+        <span class="grupo-meta">52 · por clase</span>
+        <span class="grupo-signo" aria-hidden="true">+</span></summary>
+      <div class="pergaminos"><div style="--c: var(--guerrero)"><h4>Guerrero</h4><ul><li><strong>Fuerza del Titán</strong>Cada golpe tuyo pesa más.</li><li><strong>Piel de Hierro</strong>Encajas los golpes mucho mejor.</li><li><strong>Furia de Batalla</strong>Atacas más rápido.</li><li><strong>Sangre de Berserker</strong>Cuanto peor te ves, más fuerte pegas.</li><li><strong>Resistencia Inquebrantable</strong>Reduces todo el daño que recibes.</li><li><strong>Golpe Devastador</strong>Tu siguiente ataque hace un destrozo.</li><li><strong>Guardia del Acero</strong>Corazones de más para aguantar la línea.</li><li><strong>Voluntad de Guerra</strong>Los efectos que te frenan o aturden duran menos.</li><li><strong>Segundo Aliento</strong>Recuperas vida poco a poco.</li><li><strong>Carga Imparable</strong>Te mueves mucho más rápido.</li></ul></div><div style="--c: var(--sanador)"><h4>Sanador</h4><ul><li><strong>Sanación Mayor</strong>Tus curaciones valen más.</li><li><strong>Luz Renovadora</strong>Las curaciones en el tiempo rinden más.</li><li><strong>Maná Sagrado</strong>El maná vuelve solo, y deprisa.</li><li><strong>Salvación</strong>Curas mucho más a quien está a punto de caer.</li><li><strong>Escudo Divino</strong>Un escudo que gira contigo y aguanta golpes.</li><li><strong>Purificación Sagrada</strong>Limpia de golpe todos los efectos negativos.</li><li><strong>Vida Compartida</strong>Parte de lo que curas salpica a los de al lado.</li><li><strong>Renacimiento</strong>Quien vuelve, vuelve con mucha más vida.</li><li><strong>Gracia</strong>Tus habilidades cuestan menos maná.</li><li><strong>Última Esperanza</strong>Corazones de más para el que aguanta al grupo.</li></ul></div><div style="--c: var(--mago)"><h4>Mago</h4><ul><li><strong>Poder Arcano</strong>Tus hechizos golpean más fuerte.</li><li><strong>Concentración</strong>Lanzas más seguido: bajan los enfriamientos.</li><li><strong>Maná Abundante</strong>Tu deposito de maná crece.</li><li><strong>Regeneración Arcana</strong>El maná vuelve más deprisa.</li><li><strong>Penetración Mágica</strong>Tus hechizos ignoran parte de la resistencia enemiga.</li><li><strong>Llamas Intensas</strong>Las habilidades de fuego arrasan más.</li><li><strong>Escarcha Profunda</strong>Tus ralentizaciones y hielos duran más y frenan más.</li><li><strong>Tormenta</strong>El daño eléctrico remata con más fuerza.</li><li><strong>Barrera Arcana</strong>Escudos girando a tu alrededor que aguantan por ti.</li><li><strong>Explosión Arcana</strong>Tu siguiente hechizo pega muchísimo más.</li></ul></div><div style="--c: var(--cazador)"><h4>Cazador</h4><ul><li><strong>Ojo de Águila</strong>Llegas más lejos y apuntas mejor.</li><li><strong>Disparo Mortal</strong>Tus críticos hacen mucho más daño.</li><li><strong>Agilidad Salvaje</strong>Te mueves y atacas más rápido.</li><li><strong>Veneno</strong>Tus ataques dejan veneno.</li><li><strong>Flechas Perforantes</strong>Tus disparos se saltan parte de la defensa.</li><li><strong>Rastreador</strong>Ves a los enemigos cercanos aunque se escondan.</li><li><strong>Bestia Feroz</strong>Tu mascota pega más fuerte y va más rápido.</li><li><strong>Camuflaje</strong>Cuesta mucho más verte.</li><li><strong>Trampa Mejorada</strong>Tus trampas duran más y hacen más daño.</li><li><strong>Disparo Rápido</strong>Disparas muchísimo más rápido durante un rato.</li></ul></div><div style="--c: var(--soporte)"><h4>Soporte</h4><ul><li><strong>Inspiración</strong>Los aliados cercanos pegan más fuerte.</li><li><strong>Protección Compartida</strong>Todo el grupo recibe menos daño.</li><li><strong>Celeridad</strong>El grupo se mueve más rápido.</li><li><strong>Claridad Mental</strong>A los tuyos les vuelve antes el recurso.</li><li><strong>Valentía</strong>Aguantáis mejor los efectos negativos.</li><li><strong>Aura de Guerra</strong>Un empujon a todas las estadisticas del grupo.</li><li><strong>Purificación</strong>Te quita de encima todo lo malo al instante.</li><li><strong>Resurrección Rapida</strong>Revivir cuesta menos y va más rápido.</li><li><strong>Vínculo Protector</strong>Cargas con parte del daño que reciben los tuyos.</li><li><strong>Bendición Suprema</strong>Un poco de todo, para todo.</li></ul></div><div style="--c: var(--accent)"><h4>Para todos</h4><ul><li><strong>Vitalidad</strong>Corazones de más en la barra mientras dure.</li><li><strong>Barrera</strong>Escudos girando a tu alrededor, para cualquier clase.</li></ul></div></div>
+    </details>
+
+    <h3 class="sub">Botellas de Maná</h3>
+    <div class="dos-col">
+      <div class="prose">
+        <p>
+          Una botella que se bebe con <strong>click derecho</strong> y te devuelve recurso al momento.
+          Solo la aprovechan el <strong>Mago</strong>, el <strong>Sanador</strong> y el
+          <strong>Soporte</strong>; si ya tienes el recurso lleno, no se gasta.
+        </p>
+        <div class="tabla-wrap">
+          <table class="tabla">
+            <thead><tr><th>Botella</th><th>Devuelve</th></tr></thead>
+            <tbody>
+              <tr><td>Común</td><td class="num">30</td></tr>
+              <tr><td>Rara</td><td class="num">60</td></tr>
+              <tr><td>Épica</td><td class="num">100</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <figure class="captura">
+        <img src="img/botellas.webp" alt="Botellas de Maná común, rara y épica" loading="lazy">
+        <figcaption>El color del líquido te dice la rareza.</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub">Fuentes de Maná</h3>
+    <div class="prose">
+      <p>
+        Repartidas por el mapa. Haz <strong>click</strong> en una y recuperas <strong>40</strong> de
+        recurso; puedes volver a hacerlo cada 8 segundos. Y solo con quedarte al lado recuperas
+        2,5 por segundo.
+      </p>
+      <p>Igual que las botellas, sirven al Mago, al Sanador y al Soporte.</p>
+    </div>
+
+    <h3 class="sub">SuperCoin</h3>
+    <div class="dos-col">
+      <div class="prose">
+        <p>
+          La moneda del servidor. Con ella aprendes habilidades, las subes de nivel, mejoras tu arma y
+          cambias de clase en el Maestro.
+        </p>
+        <div class="tabla-wrap">
+          <table class="tabla">
+            <thead><tr><th>Qué compras</th><th>Precio</th></tr></thead>
+            <tbody>
+              <tr><td>Habilidad normal</td><td class="num">32</td></tr>
+              <tr><td>Habilidad pasiva</td><td class="num">16</td></tr>
+              <tr><td>Habilidad definitiva</td><td class="num">96</td></tr>
+              <tr><td>Arma a nivel II</td><td class="num">128</td></tr>
+              <tr><td>Arma a nivel III</td><td class="num">384</td></tr>
+              <tr><td>Cambiar de clase</td><td class="num">512</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <figure class="captura">
+        <img src="img/supercoin.webp" alt="La SuperCoin en el inventario" loading="lazy">
+        <figcaption>Un girasol con su nombre en dorado.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- GRUPO -->
+  <section class="section" id="grupo">
+    <div class="section-head">
+      <span class="kicker">En grupo</span>
+      <h2>Equipos, PvP y volver de la muerte</h2>
+    </div>
+
+    <h3 class="sub">Equipos y PvP</h3>
+    <ul class="puntos">
+      <li>Si estás en el <strong>mismo equipo</strong> que otro jugador, tus habilidades de daño y control no le afectan. Las curas y las mejoras, sí.</li>
+      <li>Fuera de un equipo, los jugadores <strong>pueden atacarse</strong> entre sí.</li>
+      <li>Tu mascota y tus súbditos respetan a tu equipo igual que tú.</li>
+    </ul>
+
+    <h3 class="sub">Si mueres</h3>
+    <ul class="puntos">
+      <li>Tu recurso vuelve a empezar y pierdes los pergaminos que tuvieras activos.</li>
+      <li>Tu <strong>alma se queda un minuto</strong> en el sitio donde caíste.</li>
+      <li>
+        Si un Sanador usa <strong>Renacer</strong> cerca, te aparece una ventana para volver a ese punto
+        exacto con parte de tu vida. Tienes <strong>30 segundos</strong> para elegir entre
+        «Sí, llévame allí» y «No, me quedo aquí».
+      </li>
+    </ul>
+  </section>
+
+  <!-- AYUDA -->
+  <section class="section" id="ayuda">
+    <div class="section-head">
+      <span class="kicker">Ayuda</span>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div class="faq"><details><summary>He perdido mi arma de clase.</summary><p>Escribe <code>/gm foco</code> y te la devuelve. Si la tienes guardada en un cofre, sácala: solo puedes llevar una.</p></details><details><summary>No veo la barra de recurso ni la de habilidad.</summary><p>Solo aparecen con tu arma de clase en la mano. Si aun así no salen, revisa que no las hayas apagado con <code>/gm hud</code> o <code>/gm bossbar</code>.</p></details><details><summary>No me deja subir una habilidad a nivel II.</summary><p>Tu arma tiene que estar al menos a ese nivel. Mejórala en el Maestro de Clase y vuelve a probar.</p></details><details><summary>¿Puedo cambiar de clase?</summary><p>Sí, desde el Maestro de Clase. La primera elección es gratis; cada cambio después cuesta 512 SuperCoin y tus habilidades vuelven a nivel I.</p></details><details><summary>Mi pergamino no hace nada.</summary><p>Seguramente es de otra clase. Los pergaminos de clase solo funcionan en esa clase; los de «Para todos» sirven a cualquiera.</p></details><details><summary>Mi mascota no ataca.</summary><p>Mira qué orden tiene. Con <strong>Regresar</strong>, <strong>Esperar</strong> o <strong>Guardada</strong> no pelea. Cámbiala con Órdenes de la Mascota.</p></details><details><summary>¿Puedo meter pergaminos en el telar o botellas en el alambique?</summary><p>No: están bloqueados a propósito. El telar se comería el pergamino y el alambique convertiría la botella en otra poción.</p></details><details><summary>¿Mi mascota o mis súbditos pueden atacarme?</summary><p>No. Ni a ti ni a tu equipo. Tampoco las flechas o bolas de fuego que lanzan.</p></details></div>
+  </section>
+
+  <!-- CIERRE -->
+  <footer class="footer">
+    <h2>Nos vemos en el Maestro.</h2>
+    <a href="#top" class="footer-mail">Volver arriba</a>
+    <p class="copy">GMagic · Wiki del sistema de clases y habilidades</p>
+  </footer>
+
+</body>
+</html>

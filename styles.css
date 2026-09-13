@@ -1,0 +1,810 @@
+/* =========================================
+   Variables
+   ========================================= */
+:root {
+  --bg: #000;
+  --bg-soft: #0c0c0c;
+  --text: #f2efe9;
+  --muted: #8f8b85;
+  --line: #222;
+  --accent: #e8282b;
+  --accent-soft: rgba(232, 40, 43, 0.14);
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* =========================================
+   Base
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+em {
+  color: var(--accent);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   Barra de progreso (scroll)
+   ========================================= */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 100;
+}
+
+/* =========================================
+   Navegación
+   ========================================= */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+  z-index: 50;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.logo img {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.logo span {
+  color: var(--accent);
+  margin-left: 0.2em;
+  font-variant-numeric: lining-nums;
+}
+
+.nav nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.nav nav a {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.nav nav a:hover {
+  color: var(--text);
+}
+
+.nav nav .nav-cta {
+  color: var(--text);
+  border: 1px solid var(--accent);
+  padding: 0.45rem 1.1rem;
+}
+
+.nav nav .nav-cta:hover {
+  background: var(--accent);
+}
+
+/* =========================================
+   Portada
+   ========================================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem clamp(1.25rem, 6vw, 6rem) 7rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.85) 60%, #000 100%),
+    url("img/mapa-cenital.webp") center / cover no-repeat;
+  animation: hero-zoom 30s ease-in-out infinite alternate;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  animation: fade-up 1s ease both;
+}
+
+.hero-logo {
+  width: min(100%, 44rem);
+  filter: drop-shadow(0 0.75rem 2.5rem rgba(232, 40, 43, 0.35));
+  animation: fade-up 1s 0.15s ease both;
+}
+
+.hero-text {
+  max-width: 48ch;
+  margin-top: 1.5rem;
+  color: #c9c5bf;
+  font-size: 1.05rem;
+  animation: fade-up 1s 0.3s ease both;
+}
+
+/* IP grande y clicable */
+.ip-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2.5rem;
+  width: 100%;
+  animation: fade-up 1s 0.45s ease both;
+}
+
+.ip-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  max-width: 100%;
+  padding: clamp(0.9rem, 2vw, 1.25rem) clamp(1.25rem, 4vw, 2.5rem);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 0 0 rgba(232, 40, 43, 0.5), 0 0 3rem rgba(232, 40, 43, 0.18);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  animation: pulse 2.8s ease-in-out infinite;
+}
+
+.ip-text {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(1.35rem, 5.5vw, 3.25rem);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.ip-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  color: var(--accent);
+  transition: color 0.3s;
+}
+
+.ip:hover {
+  background: var(--accent);
+}
+
+.ip:hover .ip-icon {
+  color: var(--text);
+}
+
+.ip:active {
+  transform: scale(0.98);
+}
+
+.ip.is-copied {
+  background: var(--accent);
+}
+
+.ip--small {
+  margin-top: 2.5rem;
+  animation: none;
+}
+
+.ip--small .ip-text {
+  font-size: clamp(1.1rem, 3.5vw, 1.75rem);
+}
+
+.banner {
+  display: block;
+  max-width: 100%;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.banner:hover {
+  opacity: 1;
+}
+
+.banner[hidden] {
+  display: none;
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 3rem;
+}
+
+.scroll-hint::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(var(--muted), transparent);
+  animation: drip 2s ease-in-out infinite;
+}
+
+/* =========================================
+   Bloques intercalados
+   ========================================= */
+.blocks {
+  padding: 6rem clamp(1.25rem, 8vw, 8rem) 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6rem, 14vw, 11rem);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.block--reverse {
+  grid-template-columns: 1.15fr 1fr;
+}
+
+.block--reverse .block-text {
+  order: 2;
+}
+
+.block--reverse .block-image {
+  order: 1;
+}
+
+.number {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.25rem;
+}
+
+.number::after {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 1px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+
+.block-text h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.block-text p {
+  color: var(--muted);
+  max-width: 46ch;
+  font-size: 1.05rem;
+}
+
+.stats {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  margin-top: 2rem;
+}
+
+.stats li {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.stats strong {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2.75rem;
+  color: var(--text);
+  font-variant-numeric: lining-nums;
+}
+
+.stats span {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.link::after {
+  content: " →";
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.link:hover::after {
+  transform: translateX(4px);
+}
+
+/* Imagen con marco negro */
+.block-image {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.block-image img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  filter: saturate(0.55) contrast(1.05);
+  transition: filter 0.8s ease, transform 0.8s ease;
+}
+
+.block-image--tall {
+  max-width: 30rem;
+  justify-self: center;
+}
+
+.block-image--tall img {
+  aspect-ratio: 4 / 5;
+  object-position: center 30%;
+}
+
+.block-image:hover img {
+  filter: saturate(1.05) contrast(1.05);
+  transform: scale(1.03);
+}
+
+.block-image figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* =========================================
+   Wiki
+   ========================================= */
+.wiki-section {
+  margin-top: 8rem;
+  padding: 7rem clamp(1.25rem, 8vw, 8rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 0%, #1a0707 0%, var(--bg) 55%);
+}
+
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.wiki-section h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 1;
+}
+
+.wiki-intro {
+  max-width: 44ch;
+  margin: 1.5rem auto 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.wiki-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 3rem;
+  padding: 1.1rem 1.25rem 1.1rem 2.25rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.wiki-toggle:hover {
+  background: #ff3b3e;
+}
+
+.wiki-toggle:active {
+  transform: scale(0.98);
+}
+
+.wiki-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.wiki-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+  text-align: left;
+}
+
+.wiki-list[hidden] {
+  display: none;
+}
+
+.wiki-list li {
+  animation: fade-up 0.6s ease both;
+}
+
+.wiki-list li:nth-child(2) { animation-delay: 0.05s; }
+.wiki-list li:nth-child(3) { animation-delay: 0.1s; }
+.wiki-list li:nth-child(4) { animation-delay: 0.15s; }
+.wiki-list li:nth-child(5) { animation-delay: 0.2s; }
+.wiki-list li:nth-child(6) { animation-delay: 0.25s; }
+.wiki-list li:nth-child(7) { animation-delay: 0.3s; }
+.wiki-list li:nth-child(8) { animation-delay: 0.35s; }
+
+.wiki-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.wiki-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  filter: saturate(0.6);
+  transition: filter 0.5s;
+}
+
+.wiki-card div {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.wiki-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.wiki-card h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  margin: 0.35rem 0 0.6rem;
+}
+
+.wiki-card h3::after {
+  content: " →";
+  color: var(--accent);
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.wiki-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.wiki-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.wiki-card:hover img {
+  filter: saturate(1.05);
+}
+
+.wiki-card:hover h3::after {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.footer {
+  text-align: center;
+  padding: 8rem clamp(1.25rem, 8vw, 8rem) 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 9vw, 7rem);
+  line-height: 1;
+}
+
+.footer-text {
+  margin-top: 1.5rem;
+  color: var(--muted);
+}
+
+.copy {
+  margin-top: 6rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* =========================================
+   Aviso de copiado
+   ========================================= */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  translate: -50% 1rem;
+  max-width: calc(100% - 2rem);
+  padding: 0.85rem 1.5rem;
+  background: var(--text);
+  color: #000;
+  font-weight: 500;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, translate 0.3s;
+  z-index: 200;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  translate: -50% 0;
+}
+
+/* =========================================
+   Animaciones
+   ========================================= */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.12); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 40, 43, 0.45), 0 0 3rem rgba(232, 40, 43, 0.18); }
+  50%      { box-shadow: 0 0 0 10px rgba(232, 40, 43, 0), 0 0 3rem rgba(232, 40, 43, 0.3); }
+}
+
+@keyframes drip {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes from-left {
+  from { opacity: 0; transform: translateX(-80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes from-right {
+  from { opacity: 0; transform: translateX(80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes reveal-img {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes grow {
+  to { transform: scaleX(1); }
+}
+
+/* Aparición al hacer scroll — solo CSS (scroll-driven animations).
+   En navegadores sin soporte el contenido se ve igual, sin animación. */
+@supports (animation-timeline: view()) {
+
+  .progress {
+    animation: grow linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .block-text,
+  .block-image,
+  .block-image img {
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 40%;
+  }
+
+  .block .block-text  { animation-name: from-left; }
+  .block .block-image { animation-name: from-right; }
+
+  .block--reverse .block-text  { animation-name: from-right; }
+  .block--reverse .block-image { animation-name: from-left; }
+
+  .block-image img {
+    animation-name: reveal-img;
+    animation-range: entry 20% cover 50%;
+  }
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 800px) {
+  .nav nav a:not(.nav-cta) {
+    display: none;
+  }
+
+  .block,
+  .block--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .block--reverse .block-text  { order: 1; }
+  .block--reverse .block-image { order: 2; }
+
+  .hero {
+    padding-bottom: 6rem;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .ip-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .progress {
+    display: none;
+  }
+}

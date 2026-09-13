@@ -1,0 +1,746 @@
+/* =========================================
+   Variables
+   ========================================= */
+:root {
+  --bg: #000;
+  --bg-soft: #0c0c0c;
+  --text: #f2efe9;
+  --muted: #8a8780;
+  --line: #222;
+  --accent: #c9a86a;
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* =========================================
+   Base
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================
+   Barra de progreso (scroll)
+   ========================================= */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 100;
+}
+
+/* =========================================
+   Navegación
+   ========================================= */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem clamp(1.25rem, 5vw, 4rem);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent);
+  z-index: 50;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav nav {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.nav nav a {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.nav nav a:hover {
+  color: var(--text);
+}
+
+/* =========================================
+   Portada
+   ========================================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem clamp(1.25rem, 8vw, 8rem) 4rem;
+  position: relative;
+  background: radial-gradient(ellipse at 70% 30%, #1a1712 0%, var(--bg) 60%);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  animation: fade-up 1s ease both;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 8vw, 7rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+  animation: fade-up 1s 0.15s ease both;
+}
+
+.hero h1 em {
+  color: var(--accent);
+}
+
+.hero-text {
+  max-width: 42ch;
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  animation: fade-up 1s 0.3s ease both;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 3.5rem;
+}
+
+.scroll-hint::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 2.75rem;
+  background: linear-gradient(var(--muted), transparent);
+  animation: drip 2s ease-in-out infinite;
+}
+
+/* =========================================
+   Bloques intercalados
+   ========================================= */
+.blocks {
+  padding: 4rem clamp(1.25rem, 8vw, 8rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6rem, 14vw, 12rem);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+/* Intercala: imagen a la izquierda y texto a la derecha */
+.block--reverse .block-text {
+  order: 2;
+}
+
+.block--reverse .block-image {
+  order: 1;
+}
+
+.number {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.25rem;
+}
+
+.number::after {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 1px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+
+.block-text h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.block-text p {
+  color: var(--muted);
+  max-width: 44ch;
+  font-size: 1.05rem;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.link::after {
+  content: " →";
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.link:hover::after {
+  transform: translateX(4px);
+}
+
+/* Imagen con fondo negro */
+.block-image {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: clamp(1rem, 2.5vw, 2rem);
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.8s ease, transform 0.8s ease;
+}
+
+.block-image:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.footer {
+  text-align: center;
+  padding: 10rem clamp(1.25rem, 8vw, 8rem) 3rem;
+  border-top: 1px solid var(--line);
+  margin-top: 8rem;
+}
+
+.footer h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 1;
+}
+
+.footer-mail {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.footer-mail:hover {
+  border-color: var(--accent);
+}
+
+.copy {
+  margin-top: 8rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* =========================================
+   Wiki: capturas del juego
+   Las capturas son panorámicas y tienen texto: se muestran
+   enteras, en color y más anchas que el texto.
+   ========================================= */
+.block--shot {
+  grid-template-columns: 4fr 7fr;
+}
+
+.block--shot.block--reverse {
+  grid-template-columns: 7fr 4fr;
+}
+
+.block--shot .block-image {
+  aspect-ratio: auto;
+  padding: clamp(0.5rem, 1.2vw, 1rem);
+}
+
+.block--shot .block-image a {
+  display: block;
+  overflow: hidden;
+}
+
+.block--shot .block-image img {
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0.88);
+}
+
+.block--shot .block-image:hover img {
+  filter: brightness(1);
+  transform: scale(1.02);
+}
+
+.block-image figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* =========================================
+   Wiki: texto
+   ========================================= */
+.block-text p + p,
+.block-text .list + p,
+.block-text p + .list {
+  margin-top: 1rem;
+}
+
+.block-text strong,
+.lead strong,
+.card strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.gold  { color: var(--accent) !important; }
+.aqua  { color: #6fd6e0 !important; }
+.red   { color: #e57a6f !important; }
+.green { color: #8fd18a !important; }
+
+.list {
+  list-style: none;
+  max-width: 44ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 0.75rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.block-text p.callout,
+.callout {
+  margin-top: 1.5rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--accent);
+  color: var(--text);
+  max-width: 44ch;
+}
+
+.chip {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.05rem 0.55rem;
+  margin-right: 0.35rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  vertical-align: 0.1em;
+}
+
+.chip--green { color: #8fd18a; }
+.chip--red   { color: #e57a6f; }
+
+code {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+
+code {
+  font-size: 0.9em;
+  color: var(--accent);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  padding: 0.05rem 0.4rem;
+}
+
+/* =========================================
+   Wiki: secciones sin captura
+   ========================================= */
+.section {
+  padding: clamp(6rem, 12vw, 10rem) clamp(1.25rem, 8vw, 8rem) 0;
+}
+
+.section-head {
+  max-width: 62ch;
+}
+
+.section-head h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 58ch;
+}
+
+/* Tarjetas: armaduras, armas, herramientas */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.card {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.4s;
+}
+
+.card:hover {
+  border-color: #3a3326;
+}
+
+.card-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.1;
+  margin: 0.75rem 0 1rem;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.card .quote {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.card p + .quote {
+  margin-top: auto;
+}
+
+.card p:not(.quote) {
+  margin-bottom: 1.5rem;
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: 3.5rem;
+}
+
+.note h4 {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.note p {
+  color: var(--muted);
+}
+
+/* Preguntas frecuentes */
+.faq {
+  margin-top: 3rem;
+  max-width: 62rem;
+  border-top: 1px solid var(--line);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.4vw, 1.65rem);
+  line-height: 1.25;
+  transition: color 0.3s;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--accent);
+  transition: transform 0.3s;
+}
+
+.faq summary:hover {
+  color: var(--accent);
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq details p {
+  color: var(--muted);
+  max-width: 65ch;
+  padding-bottom: 1.75rem;
+}
+
+/* =========================================
+   Animaciones
+   ========================================= */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drip {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes from-left {
+  from { opacity: 0; transform: translateX(-80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes from-right {
+  from { opacity: 0; transform: translateX(80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes reveal-img {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes grow {
+  to { transform: scaleX(1); }
+}
+
+/* Aparición al hacer scroll — solo CSS (scroll-driven animations).
+   En navegadores sin soporte el contenido se ve igual, sin animación. */
+@supports (animation-timeline: view()) {
+
+  .progress {
+    animation: grow linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .block-text,
+  .block-image,
+  .block-image img {
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 40%;
+  }
+
+  /* Bloque normal: texto entra por la izquierda, imagen por la derecha */
+  .block .block-text  { animation-name: from-left; }
+  .block .block-image { animation-name: from-right; }
+
+  /* Bloque invertido: al revés */
+  .block--reverse .block-text  { animation-name: from-right; }
+  .block--reverse .block-image { animation-name: from-left; }
+
+  /* La foto se "destapa" dentro del marco negro */
+  .block-image img {
+    animation-name: reveal-img;
+    animation-range: entry 20% cover 50%;
+  }
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 800px) {
+  .nav nav {
+    display: none;
+  }
+
+  .block {
+    grid-template-columns: 1fr;
+  }
+
+  /* En móvil siempre: texto arriba, imagen abajo */
+  .block--reverse .block-text  { order: 1; }
+  .block--reverse .block-image { order: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .progress {
+    display: none;
+  }
+}
+
+/* =========================================
+   Wiki: aparición de las secciones nuevas
+   ========================================= */
+@supports (animation-timeline: view()) {
+  .section-head,
+  .card,
+  .note,
+  .faq details {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .cards,
+  .notes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Las capturas miden 1920 px de ancho: sin minmax(0, 1fr) la columna no se
+   encoge por debajo de ese tamano y la pagina se desborda en movil. */
+.block > *,
+.cards > *,
+.notes > * {
+  min-width: 0;
+}
+
+@media (max-width: 800px) {
+  .block,
+  .block--shot,
+  .block--shot.block--reverse {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-head,
+  .card,
+  .note,
+  .faq details {
+    animation: none !important;
+  }
+}
+
+/* Las animaciones de entrada desplazan los bloques 80 px hacia los lados;
+   algunos navegadores moviles ignoran overflow-x en body y dejan hacer scroll lateral. */
+html {
+  overflow-x: clip;
+}

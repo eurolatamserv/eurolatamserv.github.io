@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piedras de Party</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&family=Pixelify+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="../../img/icono.png">
+  <link rel="stylesheet" href="../../volver.css">
+</head>
+<body>
+
+  <a href="../../index.html" class="volver-home" aria-label="Volver a la página principal de EuroLatam 7"><img src="../../img/icono.png" alt="" width="64" height="64"><span aria-hidden="true">←</span><span class="volver-text">Volver a EuroLatam 7</span></a>
+
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#inicio" class="logo">Party<span>.</span></a>
+    <nav>
+      <a href="#empezar">Empezar</a>
+      <a href="#juntos">Juntos</a>
+      <a href="#terminar">Terminar</a>
+      <a href="#comandos">Comandos</a>
+      <a href="#dudas">Dudas</a>
+    </nav>
+  </header>
+
+  <!-- PORTADA -->
+  <section class="hero" id="inicio">
+    <p class="eyebrow">Guía para jugadores</p>
+    <h1>Busca la piedra.<br>Reúne a tu <em>grupo</em>.</h1>
+    <p class="hero-text">
+      Las Piedras de Party están repartidas por el mapa. Con ellas formas un grupo de
+      hasta 8 jugadores que no se hacen daño entre sí, se reconocen de lejos, pueden
+      llamarse unos a otros y avanzan juntos en las misiones.
+    </p>
+    <span class="scroll-hint" aria-hidden="true">Desliza</span>
+  </section>
+
+  <main>
+
+    <!-- =============== PARTE I =============== -->
+    <header class="chapter" id="empezar">
+      <p class="eyebrow">Parte I</p>
+      <h2>Empezar</h2>
+      <p>De encontrar la piedra a tener a tus amigos dentro, en cuatro pasos.</p>
+    </header>
+
+    <div class="blocks">
+
+      <article class="block">
+        <div class="block-text">
+          <span class="number">Paso 1</span>
+          <h2>Encuentra una piedra</h2>
+          <p>
+            Es fácil de ver: un cristal morado que flota y gira sobre un pedestal de piedra
+            con cuatro garras, y encima el cartel <strong>Piedra de Party</strong>.
+          </p>
+          <p>
+            Haz <strong>clic derecho</strong> sobre ella (golpearla también vale) y se abre su
+            menú. No se puede romper, así que no te preocupes por darle.
+          </p>
+        </div>
+        <figure class="block-image">
+          <img src="img/piedra.jpg" alt="Piedra de Party en la jungla: cristal morado sobre un pedestal con garras y el cartel encima" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="block block--reverse">
+        <div class="block-text">
+          <span class="number">Paso 2</span>
+          <h2>Crea tu party</h2>
+          <p>
+            Pulsa la <strong>estrella</strong>. Ya tienes party y tú eres el líder: el único
+            que puede invitar y expulsar. En total caben 8 jugadores contándote a ti.
+          </p>
+          <p>
+            Si en vez de la estrella ves una barrera roja es que acabas de disolver otra
+            party y te toca esperar un poco. Lo explicamos en <a href="#terminar" class="inline">Terminar</a>.
+          </p>
+        </div>
+        <figure class="block-image">
+          <img src="img/crear-party.jpg" alt="Menú de la piedra con el botón Crear party: crea una party y quédate como líder, podrás invitar hasta 8 jugadores" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="block">
+        <div class="block-text">
+          <span class="number">Paso 3</span>
+          <h2>El menú de tu party</h2>
+          <p>
+            Desde ahora la piedra te abre <strong>Tu Party</strong>. Cuatro botones, de
+            izquierda a derecha:
+          </p>
+          <dl class="keys">
+            <div><dt>Libro y pluma</dt><dd>Invitar jugadores. Solo el líder; a los demás les sale en gris.</dd></div>
+            <div><dt>Tu cabeza</dt><dd>Ver quién está en la party, invocarlos o expulsarlos.</dd></div>
+            <div><dt>Amatista</dt><dd>Información: líder, miembros y cuántos están conectados.</dd></div>
+            <div><dt>Barrera o puerta</dt><dd>Disolver la party si eres líder, o salir si eres miembro.</dd></div>
+          </dl>
+        </div>
+        <figure class="block-image">
+          <img src="img/tu-party.jpg" alt="Menú Tu Party con los cuatro botones: libro y pluma, cabeza, amatista y barrera" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="block block--reverse">
+        <div class="block-text">
+          <span class="number">Paso 4</span>
+          <h2>Invita a tus amigos</h2>
+          <p>
+            El libro abre la lista de jugadores <strong>conectados que no están en ninguna
+            party</strong>. Haz clic en la cabeza de alguien y le llega tu invitación.
+          </p>
+          <p>
+            Si esa persona ya te rechazó hace poco, aparece en gris con el tiempo que falta
+            para poder invitarla de nuevo.
+          </p>
+        </div>
+        <figure class="block-image">
+          <img src="img/invitar.jpg" alt="Botón Invitar jugadores: jugadores conectados y sin party, al invitarlos les saldrá una ventana para aceptar o rechazar, 1/8 miembros" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="block">
+        <div class="block-text">
+          <span class="number">Así lo ve tu amigo</span>
+          <h2>La invitación</h2>
+          <p>
+            A quien invitas le aparece una ventana en mitad de la pantalla con dos botones.
+          </p>
+          <dl class="keys">
+            <div><dt>Si, unirme</dt><dd>Entra en la party al momento y todos reciben el aviso.</dd></div>
+            <div><dt>No, gracias</dt><dd>Esa party no podrá volver a invitarle durante 5 minutos. Así nadie recibe spam.</dd></div>
+          </dl>
+          <p>
+            Si no contesta, la invitación caduca a los 60 segundos sin ninguna penalización.
+          </p>
+        </div>
+        <figure class="block-image mock" role="img" aria-label="Ventana del juego: Invitacion de party. theEVILgrip te invita a unirte a su party. La party tiene 1/8 miembros. Quieres participar? Botones: Si, unirme y No, gracias.">
+          <div class="mc-screen">
+            <p class="mc-title mc-dark-green">Invitacion de party</p>
+            <div class="mc-body">
+              <div class="mc-item">
+                <svg class="mc-head" viewBox="0 0 8 8" aria-hidden="true"><rect width="8" height="8" fill="#6b4a36"/><rect width="8" height="3" fill="#2b1d14"/><rect y="3" width="1" height="2" fill="#2b1d14"/><rect x="7" y="3" width="1" height="2" fill="#2b1d14"/><rect x="2" y="4" width="1" height="1" fill="#f2f2f2"/><rect x="5" y="4" width="1" height="1" fill="#f2f2f2"/><rect x="3" y="6" width="2" height="1" fill="#4a3022"/></svg>
+                <p><span class="mc-white">theEVILgrip</span> <span class="mc-gray">te invita a unirte a su party.</span></p>
+              </div>
+              <p class="mc-gray">La party tiene <span class="mc-white">1/8</span> miembros.</p>
+              <p class="mc-yellow">Quieres participar?</p>
+              <p class="mc-dark-gray">Si dices que no, no podran volver a invitarte durante 5 minutos.</p>
+            </div>
+            <div class="mc-buttons">
+              <span class="mc-btn mc-green">Si, unirme</span>
+              <span class="mc-btn mc-red">No, gracias</span>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+    </div>
+
+    <!-- =============== PARTE II =============== -->
+    <header class="chapter" id="juntos">
+      <p class="eyebrow">Parte II</p>
+      <h2>Juntos</h2>
+      <p>Lo que cambia cuando ya estás en una party.</p>
+    </header>
+
+    <div class="blocks">
+
+      <article class="block block--reverse">
+        <div class="block-text">
+          <span class="number">Miembros</span>
+          <h2>Quién está contigo</h2>
+          <p>
+            La cabeza del menú abre la lista de la party. Cada jugador muestra su rango
+            (<strong>Líder</strong> o <strong>Miembro</strong>) y si está conectado.
+          </p>
+          <dl class="keys">
+            <div><dt>Clic izquierdo</dt><dd>Invocar a ese jugador a donde estás tú.</dd></div>
+            <div><dt>Clic derecho</dt><dd>Expulsarlo de la party. Solo funciona si eres el líder.</dd></div>
+          </dl>
+        </div>
+        <figure class="block-image">
+          <img src="img/jugadores.jpg" alt="Botón Jugadores de la party: mira quién está dentro, invócalos o expúlsalos, 1 conectados de 1" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="block">
+        <div class="block-text">
+          <span class="number">Invocar</span>
+          <h2>Trae a un compañero</h2>
+          <p>
+            Cualquier miembro puede invocar a cualquier otro, no hace falta ser líder. Al
+            invocado le sale una ventana con el mundo y la distancia a la que estás.
+          </p>
+          <p>
+            Si acepta, aparece <strong>a tu lado al instante</strong>, esté donde esté y
+            aunque te hayas movido mientras se lo pensaba.
+          </p>
+          <p>
+            Entre invocación e invocación hay que esperar 30 segundos, y si nadie contesta
+            la petición caduca en otros 30.
+          </p>
+        </div>
+        <figure class="block-image mock" role="img" aria-label="Ventana del juego: Te estan invocando. theEVILgrip te esta invocando a su posicion. Mundo: world. Distancia: 312 bloques. Quieres ir ahora mismo? Botones: Si, llevame y No, me quedo.">
+          <div class="mc-screen">
+            <p class="mc-title mc-dark-aqua">Te estan invocando</p>
+            <div class="mc-body">
+              <div class="mc-item">
+                <svg class="mc-head" viewBox="0 0 8 8" aria-hidden="true"><rect width="8" height="8" fill="#6b4a36"/><rect width="8" height="3" fill="#2b1d14"/><rect y="3" width="1" height="2" fill="#2b1d14"/><rect x="7" y="3" width="1" height="2" fill="#2b1d14"/><rect x="2" y="4" width="1" height="1" fill="#f2f2f2"/><rect x="5" y="4" width="1" height="1" fill="#f2f2f2"/><rect x="3" y="6" width="2" height="1" fill="#4a3022"/></svg>
+                <p><span class="mc-white">theEVILgrip</span> <span class="mc-gray">te esta invocando a su posicion.</span></p>
+              </div>
+              <p class="mc-gray">Mundo: <span class="mc-white">world</span><br>Distancia: <span class="mc-white">312 bloques</span></p>
+              <p class="mc-yellow">Quieres ir ahora mismo?</p>
+            </div>
+            <div class="mc-buttons">
+              <span class="mc-btn mc-green">Si, llevame</span>
+              <span class="mc-btn mc-red">No, me quedo</span>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+      <article class="block block--reverse">
+        <div class="block-text">
+          <span class="number">Aliados</span>
+          <h2>Se reconocen de lejos</h2>
+          <p>
+            Debajo del nombre de tus compañeros verás en verde <strong class="tag-green">Aliado Party</strong>.
+            Ese cartel solo lo ven los de tu party: para el resto del servidor eres un
+            jugador más.
+          </p>
+          <p>
+            Y entre miembros <strong>no hay fuego amigo</strong>: ni espadas, ni flechas, ni
+            nada. Puedes pelear en medio del grupo sin miedo a herir a nadie.
+          </p>
+        </div>
+        <figure class="block-image mock mock--scene" role="img" aria-label="Ejemplo: sobre la compañera Alex se ve su nombre y debajo Aliado Party en verde; sobre Steve, que no es de la party, solo se ve el nombre.">
+          <div class="scene">
+            <div class="avatar">
+              <span class="plate">Alex</span>
+              <span class="ally">Aliado Party</span>
+              <svg viewBox="0 0 16 32" aria-hidden="true"><rect x="4" width="8" height="8" fill="#c98b54"/><rect x="4" width="8" height="3" fill="#b3562a"/><rect x="5" y="4" width="2" height="1" fill="#3a7d3a"/><rect x="9" y="4" width="2" height="1" fill="#3a7d3a"/><rect x="4" y="8" width="8" height="12" fill="#6aa84f"/><rect y="8" width="4" height="12" fill="#c98b54"/><rect x="12" y="8" width="4" height="12" fill="#c98b54"/><rect x="4" y="20" width="4" height="12" fill="#6b4a2b"/><rect x="8" y="20" width="4" height="12" fill="#5a3d23"/></svg>
+              <span class="who">Compañera de party</span>
+            </div>
+            <div class="avatar avatar--other">
+              <span class="plate">Steve</span>
+              <svg viewBox="0 0 16 32" aria-hidden="true"><rect x="4" width="8" height="8" fill="#b5835a"/><rect x="4" width="8" height="2" fill="#3b2a1d"/><rect x="5" y="4" width="2" height="1" fill="#ffffff"/><rect x="9" y="4" width="2" height="1" fill="#ffffff"/><rect x="4" y="8" width="8" height="12" fill="#2fa3a3"/><rect y="8" width="4" height="12" fill="#b5835a"/><rect x="12" y="8" width="4" height="12" fill="#b5835a"/><rect x="4" y="20" width="4" height="12" fill="#3b3fa0"/><rect x="8" y="20" width="4" height="12" fill="#32358a"/></svg>
+              <span class="who">Otro jugador</span>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+      <article class="block">
+        <div class="block-text">
+          <span class="number">Misiones</span>
+          <h2>Lo que haces tú, cuenta para todos</h2>
+          <p>
+            Si tus compañeros tienen <strong>la misma misión</strong> que tú y van por
+            <strong>el mismo objetivo</strong>, cada vez que avanzas les sube también a
+            ellos. Matas un zombi y a todos se les suma uno.
+          </p>
+          <p>
+            Vale para casi cualquier objetivo: matar criaturas, conseguir objetos, craftear,
+            pescar, hablar con un NPC… Cada uno recibe sus propias recompensas, y si la
+            party se disuelve cada uno conserva lo que llevaba.
+          </p>
+          <p class="note">
+            A quien no tenga esa misión, o vaya por otro paso, no le afecta en nada.
+          </p>
+        </div>
+        <figure class="block-image mock mock--quests" role="img" aria-label="Ejemplo: tú matas un zombi y pasas de 6 a 7 de 10; a tu compañera Alex, que tiene la misma misión, también le sube de 6 a 7 de 10.">
+          <div class="quests">
+            <div class="quest">
+              <p class="quest-who">Tú</p>
+              <p class="quest-name">Limpieza del bosque</p>
+              <p class="quest-goal">Mata zombis</p>
+              <div class="bar"><span style="--p: 70%"></span></div>
+              <p class="quest-count">7 / 10</p>
+            </div>
+            <p class="quest-link" aria-hidden="true"><span>+1</span></p>
+            <div class="quest">
+              <p class="quest-who">Alex</p>
+              <p class="quest-name">Limpieza del bosque</p>
+              <p class="quest-goal">Mata zombis</p>
+              <div class="bar"><span style="--p: 70%"></span></div>
+              <p class="quest-count">7 / 10</p>
+            </div>
+          </div>
+          <figcaption>Ejemplo ilustrativo</figcaption>
+        </figure>
+      </article>
+
+      <article class="block block--reverse" id="chat">
+        <div class="block-text">
+          <span class="number">Chat</span>
+          <h2>Habla solo con tu grupo</h2>
+          <p>
+            Escribe <code>/p</code> seguido del mensaje y solo lo leerán los de tu party.
+          </p>
+          <p>
+            Si vas a hablar mucho, escribe <code>/p</code> a secas: todo lo que escribas
+            irá a la party hasta que vuelvas a poner <code>/p</code>.
+          </p>
+        </div>
+        <figure class="block-image mock mock--chat" role="img" aria-label="Chat del juego: [Party] theEVILgrip: nos vemos en la piedra de la jungla. [Party] Alex: voy para alla.">
+          <div class="chat">
+            <p><span class="mc-dark-green">[Party]</span> <span class="mc-green">theEVILgrip</span><span class="mc-gray">:</span> <span class="mc-white">nos vemos en la piedra de la jungla</span></p>
+            <p><span class="mc-dark-green">[Party]</span> <span class="mc-green">Alex</span><span class="mc-gray">:</span> <span class="mc-white">voy para alla</span></p>
+            <p class="chat-input"><span class="mc-white">/p llevo pociones</span><span class="caret" aria-hidden="true">_</span></p>
+          </div>
+        </figure>
+      </article>
+
+    </div>
+
+    <!-- =============== PARTE III =============== -->
+    <header class="chapter" id="terminar">
+      <p class="eyebrow">Parte III</p>
+      <h2>Terminar</h2>
+      <p>Salir, disolver y qué pasa si alguien se desconecta.</p>
+    </header>
+
+    <div class="blocks">
+
+      <article class="block">
+        <div class="block-text">
+          <span class="number">Salir o disolver</span>
+          <h2>Cuando se acaba la aventura</h2>
+          <dl class="keys">
+            <div><dt>Si eres miembro</dt><dd>La puerta te saca de la party. El resto sigue jugando.</dd></div>
+            <div><dt>Si eres líder</dt><dd>La barrera disuelve la party para todos. El líder no puede salir sin disolverla.</dd></div>
+          </dl>
+          <p>
+            Si la party se queda con una sola persona, se disuelve sola.
+          </p>
+        </div>
+        <figure class="block-image">
+          <img src="img/disolver.jpg" alt="Botón Disolver party: borra la party y su equipo, no podrás crear otra en 10 minutos" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="block block--reverse">
+        <div class="block-text">
+          <span class="number">Espera</span>
+          <h2>Diez minutos de pausa</h2>
+          <p>
+            Quien disuelve una party tiene que esperar <strong>10 minutos</strong> antes de
+            crear otra. Mientras tanto, en la piedra verás una barrera con la cuenta atrás
+            exacta.
+          </p>
+          <p>
+            Puedes seguir entrando en la party de otra persona si te invita: la espera solo
+            afecta a crear una nueva.
+          </p>
+        </div>
+        <figure class="block-image">
+          <img src="img/enfriamiento.jpg" alt="Barrera No puedes crear party: acabas de disolver una party, espera 9m 51s para crear otra" loading="lazy">
+        </figure>
+      </article>
+
+    </div>
+
+    <!-- =============== REFERENCIA =============== -->
+    <section class="reference" id="tiempos">
+      <header class="chapter chapter--inline">
+        <p class="eyebrow">Referencia</p>
+        <h2>Tiempos a tener en cuenta</h2>
+      </header>
+
+      <div class="table-wrap">
+        <table class="ref">
+          <tbody>
+            <tr><th scope="row">Una invitación sin responder caduca</th><td>60 s</td></tr>
+            <tr><th scope="row">Si rechazas, esa party no puede volver a invitarte</th><td>5 min</td></tr>
+            <tr><th scope="row">Una invocación sin responder caduca</th><td>30 s</td></tr>
+            <tr><th scope="row">Espera entre una invocación y la siguiente</th><td>30 s</td></tr>
+            <tr><th scope="row">Crear otra party después de disolver</th><td>10 min</td></tr>
+            <tr><th scope="row">Si te desconectas, sigues en la party durante</th><td>2 min</td></tr>
+            <tr><th scope="row">Si toda la party se desconecta, se borra a los</th><td>5 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ref-note">
+        Si te desconectas y vuelves a tiempo, recuperas tu sitio sin hacer nada. Si el que no
+        vuelve es el líder, la party se disuelve.
+      </p>
+    </section>
+
+    <section class="reference" id="comandos">
+      <header class="chapter chapter--inline">
+        <p class="eyebrow">Referencia</p>
+        <h2>Comandos</h2>
+      </header>
+      <p class="ref-intro">
+        Todo se puede hacer desde la piedra, pero si estás lejos de una, estos comandos
+        hacen lo mismo desde cualquier sitio.
+      </p>
+
+      <div class="table-wrap">
+        <table class="ref ref--commands">
+          <tbody>
+            <tr><th scope="row"><code>/party</code></th><td>Abre el menú, igual que la piedra</td></tr>
+            <tr><th scope="row"><code>/party crear</code></th><td>Crea una party</td></tr>
+            <tr><th scope="row"><code>/party invitar &lt;jugador&gt;</code></th><td>Invita a alguien <span class="only">solo líder</span></td></tr>
+            <tr><th scope="row"><code>/party invocar &lt;jugador&gt;</code></th><td>Trae a un compañero</td></tr>
+            <tr><th scope="row"><code>/party expulsar &lt;jugador&gt;</code></th><td>Echa a alguien <span class="only">solo líder</span></td></tr>
+            <tr><th scope="row"><code>/party lista</code></th><td>Muestra los miembros en el chat</td></tr>
+            <tr><th scope="row"><code>/party salir</code></th><td>Sales de la party</td></tr>
+            <tr><th scope="row"><code>/party disolver</code></th><td>Borra la party <span class="only">solo líder</span></td></tr>
+            <tr><th scope="row"><code>/p &lt;mensaje&gt;</code></th><td>Habla solo con tu party</td></tr>
+            <tr><th scope="row"><code>/p</code></th><td>Fija el chat en la party (repítelo para volver)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ref-note">Atajos: <code>/pt</code> y <code>/grupo</code> equivalen a <code>/party</code>; <code>/pchat</code> a <code>/p</code>.</p>
+    </section>
+
+    <!-- =============== DUDAS =============== -->
+    <section class="faq" id="dudas">
+      <header class="chapter chapter--inline">
+        <p class="eyebrow">Dudas frecuentes</p>
+        <h2>¿Algo no cuadra?</h2>
+      </header>
+
+      <div class="faq-grid">
+        <article class="faq-item">
+          <figure><img src="img/menu-piedra.jpg" alt="Primer menú de la piedra con un libro, una estrella y una barrera" loading="lazy"></figure>
+          <h3>¿Qué es cada cosa del primer menú?</h3>
+          <p>El libro explica qué es una party, la estrella la crea y la barrera de la derecha cierra el menú.</p>
+        </article>
+        <article class="faq-item">
+          <figure><img src="img/informacion.jpg" alt="Información de la party: líder theEVILgrip, miembros 1/8, conectados 1" loading="lazy"></figure>
+          <h3>¿Cuánta gente cabe y cuánta hay?</h3>
+          <p>Caben 8 contando al líder. Pasa el ratón por la amatista del menú y verás el líder, los miembros y cuántos están conectados.</p>
+        </article>
+        <article class="faq-item">
+          <figure><img src="img/invitar-vacio.jpg" alt="Menú Invitar jugadores vacío con una telaraña en el centro" loading="lazy"></figure>
+          <h3>La lista de invitar sale vacía</h3>
+          <p>La telaraña significa que no hay nadie disponible: o no hay más gente conectada o todos ya están en alguna party.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CIERRE -->
+  <footer class="footer">
+    <h2>Nos vemos<br>en la <em>piedra</em>.</h2>
+    <a href="#inicio" class="footer-mail">Volver arriba ↑</a>
+    <p class="copy">Piedras de Party · Guía para jugadores</p>
+  </footer>
+
+</body>
+</html>

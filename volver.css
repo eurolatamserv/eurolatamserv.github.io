@@ -1,0 +1,52 @@
+/* =========================================
+   Botón "Volver a EuroLatam 7" (compartido por todas las wikis)
+   ========================================= */
+.volver-home {
+  position: fixed;
+  left: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 150;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.1rem 0.5rem 0.5rem;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #e8282b;
+  color: #f2efe9;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.volver-home img {
+  width: 1.9rem;
+  height: 1.9rem;
+  display: block;
+}
+
+.volver-home:hover {
+  background: #e8282b;
+  transform: translateY(-2px);
+}
+
+.volver-home:focus-visible {
+  outline: 2px solid #e8282b;
+  outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+  .volver-home .volver-text {
+    display: none;
+  }
+
+  .volver-home {
+    padding: 0.5rem 0.9rem 0.5rem 0.5rem;
+  }
+}

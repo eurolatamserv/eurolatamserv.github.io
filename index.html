@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EuroLatam 7 — Servidor de Minecraft</title>
+  <meta name="description" content="EuroLatam 7: servidor de Minecraft con mundo hecho a mano, clases y habilidades, monturas, parties y protecciones. IP: eurolatam.craft.gg">
+  <link rel="icon" type="image/png" href="img/icono.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#inicio" class="logo">
+      <img src="img/icono.png" width="64" height="64" alt="">
+      EuroLatam<span>7</span>
+    </a>
+    <nav aria-label="Secciones">
+      <a href="#mundo">Mundo</a>
+      <a href="#aventura">Aventura</a>
+      <a href="#wikis" class="nav-cta" data-open-wikis>Wiki</a>
+    </nav>
+  </header>
+
+  <!-- PORTADA -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <p class="eyebrow">Servidor de Minecraft · Europa y Latinoamérica</p>
+    <h1 class="sr-only">EuroLatam 7</h1>
+    <img class="hero-logo" src="img/logo.png" width="2172" height="724" alt="EuroLatam 7">
+
+    <p class="hero-text">
+      Un mundo hecho a mano, cinco clases con sus habilidades, monturas, grupos
+      y protecciones para tu casa. Entra, elige tu camino y escribe tu propia historia.
+    </p>
+
+    <div class="ip-wrap">
+      <span class="ip-label">IP del servidor · haz clic para copiar</span>
+      <button type="button" class="ip" data-copy-ip="eurolatam.craft.gg" aria-label="Copiar IP eurolatam.craft.gg">
+        <span class="ip-text">eurolatam.craft.gg</span>
+        <span class="ip-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </span>
+      </button>
+      <a class="banner" href="https://panel.omgserv.com/" target="_blank" rel="noopener">
+        <img src="https://panel.omgserv.com/banner/464292" alt="Estado del servidor EuroLatam 7"
+             onerror="this.closest('.banner').hidden = true">
+      </a>
+    </div>
+
+    <span class="scroll-hint" aria-hidden="true">Desliza</span>
+  </section>
+
+  <!-- PRESENTACIÓN -->
+  <main class="blocks">
+
+    <article class="block" id="mundo">
+      <div class="block-text">
+        <span class="number">01</span>
+        <h2>Un mundo hecho <em>a mano</em></h2>
+        <p>
+          Nada de terreno al azar. EuroLatam 7 se juega sobre un mapa diseñado
+          pieza a pieza: glaciares al norte, cordilleras nevadas en el centro,
+          cañones rojizos al sur y costas llenas de islas por descubrir.
+        </p>
+        <a href="#aventura" class="link">Explorar</a>
+      </div>
+      <figure class="block-image">
+        <img src="img/mapa-isometrico.webp" width="800" height="450" loading="lazy"
+             alt="Vista aérea del mapa del servidor con glaciares, montañas nevadas, bosques, cerezos y un cañón rojo">
+        <figcaption>El mapa de EuroLatam 7</figcaption>
+      </figure>
+    </article>
+
+    <article class="block block--reverse">
+      <div class="block-text">
+        <span class="number">02</span>
+        <h2>Cada bioma, una <em>aventura</em></h2>
+        <p>
+          Selvas espesas que esconden pirámides, desiertos de dunas blancas y
+          montañas que asoman entre las nubes. Súbete a una montura y cruza
+          el mapa, o vuela entre los puntos de viaje a lomos de una bestia alada.
+        </p>
+        <a href="wikis/mounttravel/index.html" class="link">Viajes con montura</a>
+      </div>
+      <figure class="block-image">
+        <img src="img/piramide.png" width="1920" height="1080" loading="lazy"
+             alt="Pirámide de arena entre la selva y el desierto, con montañas nevadas y un globo al fondo">
+        <figcaption>La pirámide de la selva</figcaption>
+      </figure>
+    </article>
+
+    <article class="block">
+      <div class="block-text">
+        <span class="number">03</span>
+        <h2>Fuego bajo <em>tus pies</em></h2>
+        <p>
+          Entre bosques y ríos duerme un volcán con el cráter lleno de lava.
+          Morir no es el final: los tótems del alma te esperan en los cementerios
+          para devolverte al lugar donde caíste… si pagas su precio.
+        </p>
+        <a href="wikis/cementerio/index.html" class="link">Tótem del alma</a>
+      </div>
+      <figure class="block-image">
+        <img src="img/volcan.png" width="1920" height="1080" loading="lazy"
+             alt="Volcán con lava en el cráter rodeado de bosques, un río y montañas nevadas">
+        <figcaption>El volcán</figcaption>
+      </figure>
+    </article>
+
+    <article class="block block--reverse">
+      <div class="block-text">
+        <span class="number">04</span>
+        <h2>Rincones para <em>quedarse</em></h2>
+        <p>
+          Encuentra tu lugar entre cerezos en flor y levanta tu casa. Con un palo
+          de protección nadie más podrá tocar lo que construyes, y con tu pergamino
+          siempre podrás volver a casa desde cualquier punto del mundo.
+        </p>
+        <a href="wikis/protect/index.html" class="link">Proteger mi casa</a>
+      </div>
+      <figure class="block-image">
+        <img src="img/cerezos.png" width="1920" height="1080" loading="lazy"
+             alt="Bosque de cerezos en flor alrededor de una colina de piedra con bambú">
+        <figcaption>El valle de los cerezos</figcaption>
+      </figure>
+    </article>
+
+    <article class="block" id="aventura">
+      <div class="block-text">
+        <span class="number">05</span>
+        <h2>Hazte <em>leyenda</em></h2>
+        <p>
+          Elige entre Guerrero, Sanador, Mago, Cazador o Soporte y desbloquea
+          sus 55 habilidades. Forma una party de hasta 8 jugadores, mantén tu
+          equipo a punto con el herrero y sal a conquistar el mundo en compañía.
+        </p>
+        <ul class="stats">
+          <li><strong>5</strong><span>clases</span></li>
+          <li><strong>55</strong><span>habilidades</span></li>
+          <li><strong>8</strong><span>por party</span></li>
+        </ul>
+        <a href="wikis/magia/index.html" class="link">Clases y habilidades</a>
+      </div>
+      <figure class="block-image block-image--tall">
+        <img src="img/heroe.png" width="1024" height="1536" loading="lazy"
+             alt="Personaje de Minecraft con ojos brillantes empuñando una espada mágica morada">
+        <figcaption>Tu próxima leyenda</figcaption>
+      </figure>
+    </article>
+
+  </main>
+
+  <!-- WIKI -->
+  <section class="wiki-section" id="wikis">
+    <p class="label">Guías del servidor</p>
+    <h2>¿Por dónde <em>empiezo</em>?</h2>
+    <p class="wiki-intro">
+      Todo lo que tiene EuroLatam 7, explicado paso a paso con capturas del juego.
+    </p>
+
+    <button type="button" class="wiki-toggle" aria-expanded="false" aria-controls="wiki-list">
+      <span class="wiki-toggle-label">Abrir la wiki</span>
+      <span class="wiki-toggle-icon" aria-hidden="true">+</span>
+    </button>
+
+    <ul class="wiki-list" id="wiki-list" hidden>
+      <li>
+        <a class="wiki-card" href="wikis/magia/index.html">
+          <img src="wikis/magia/img/clase-mago.webp" alt="" loading="lazy">
+          <div>
+            <span class="wiki-tag">GMagic</span>
+            <h3>Clases y habilidades</h3>
+            <p>Cinco clases, 55 habilidades: dónde empezar, cómo se lanzan y qué objetos te ayudan.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="wiki-card" href="wikis/montura/index.html">
+          <img src="wikis/montura/img/montado-lobo.jpg" alt="" loading="lazy">
+          <div>
+            <span class="wiki-tag">Monturas</span>
+            <h3>Silbatos y monturas</h3>
+            <p>Cómo conseguir, invocar y controlar las cinco monturas del servidor.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="wiki-card" href="wikis/mounttravel/index.html">
+          <img src="wikis/mounttravel/img/punto-de-viaje.jpg" alt="" loading="lazy">
+          <div>
+            <span class="wiki-tag">MountTravel</span>
+            <h3>Viajes con montura</h3>
+            <p>Puntos de viaje, destinos, pagos y qué pasa mientras vuelas por el mapa.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="wiki-card" href="wikis/party/index.html">
+          <img src="wikis/party/img/piedra.jpg" alt="" loading="lazy">
+          <div>
+            <span class="wiki-tag">Party</span>
+            <h3>Piedras de party</h3>
+            <p>Forma un grupo de hasta 8 jugadores que no se hacen daño y avanzan juntos.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="wiki-card" href="wikis/protect/index.html">
+          <img src="wikis/protect/img/tienda.jpg" alt="" loading="lazy">
+          <div>
+            <span class="wiki-tag">GProtect</span>
+            <h3>Protecciones</h3>
+            <p>Palos de protección, flags, miembros y comandos para cuidar tu casa.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="wiki-card" href="wikis/piedra/index.html">
+          <img src="wikis/piedra/img/canalizando.jpg" alt="" loading="lazy">
+          <div>
+            <span class="wiki-tag">Piedra Hogar</span>
+            <h3>Pergamino de teletransporte</h3>
+            <p>Elige tu hogar con el tabernero, canaliza el viaje y espera la recarga.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="wiki-card" href="wikis/herrero/index.html">
+          <img src="wikis/herrero/img/01-herrero.png" alt="" loading="lazy">
+          <div>
+            <span class="wiki-tag">Herrero</span>
+            <h3>El herrero</h3>
+            <p>Repara armaduras, armas y herramientas, y descubre qué pasa cuando se desgastan.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="wiki-card" href="wikis/cementerio/index.html">
+          <img src="wikis/cementerio/media/totem-campamento.webp" alt="" loading="lazy">
+          <div>
+            <span class="wiki-tag">Cementerios</span>
+            <h3>Tótem del alma</h3>
+            <p>Dónde reapareces al morir y cómo volver al lugar exacto donde caíste.</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- CIERRE -->
+  <footer class="footer" id="jugar">
+    <h2>¿Listo para <em>entrar</em>?</h2>
+    <p class="footer-text">Abre Minecraft, añade el servidor y nos vemos dentro.</p>
+    <button type="button" class="ip ip--small" data-copy-ip="eurolatam.craft.gg" aria-label="Copiar IP eurolatam.craft.gg">
+      <span class="ip-text">eurolatam.craft.gg</span>
+      <span class="ip-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </span>
+    </button>
+    <p class="copy">© 2026 EuroLatam 7 · No afiliado con Mojang ni Microsoft.</p>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Copiar la IP
+    const toast = document.querySelector('.toast');
+    let toastTimer;
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2200);
+    }
+
+    function fallbackCopy(text) {
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      area.remove();
+      return ok;
+    }
+
+    document.querySelectorAll('[data-copy-ip]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const ip = btn.dataset.copyIp;
+        let ok = false;
+        try {
+          await navigator.clipboard.writeText(ip);
+          ok = true;
+        } catch (e) {
+          ok = fallbackCopy(ip);
+        }
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1200);
+        showToast(ok ? '¡IP copiada! ' + ip : 'Copia la IP: ' + ip);
+      });
+    });
+
+    // Botón de la wiki
+    const toggle = document.querySelector('.wiki-toggle');
+    const list = document.getElementById('wiki-list');
+
+    function setWikis(open) {
+      list.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.querySelector('.wiki-toggle-label').textContent = open ? 'Cerrar la wiki' : 'Abrir la wiki';
+      toggle.querySelector('.wiki-toggle-icon').textContent = open ? '−' : '+';
+    }
+
+    toggle.addEventListener('click', () => setWikis(list.hidden));
+
+    document.querySelectorAll('[data-open-wikis]').forEach((link) => {
+      link.addEventListener('click', () => setWikis(true));
+    });
+
+    if (location.hash === '#wikis') setWikis(true);
+  </script>
+
+</body>
+</html>

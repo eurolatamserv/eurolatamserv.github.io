@@ -1,0 +1,894 @@
+/* =========================================
+   GProtect · Wiki
+   Basada en la plantilla "Noir": misma paleta,
+   tipografia y bloques intercalados.
+   ========================================= */
+
+/* =========================================
+   Variables
+   ========================================= */
+:root {
+  --bg: #000;
+  --bg-soft: #0c0c0c;
+  --bg-raise: #121110;
+  --text: #f2efe9;
+  --muted: #8a8780;
+  --line: #222;
+  --accent: #c9a86a;
+
+  /* Solo para el estado de las flags, nunca como adorno */
+  --ok: #86b98d;
+  --no: #c9705f;
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --gutter: clamp(1.25rem, 8vw, 8rem);
+  --read: 44rem;
+}
+
+/* =========================================
+   Base
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+code,
+kbd {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  padding: 0.05em 0.4em;
+  white-space: nowrap;
+}
+
+strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* =========================================
+   Barra de progreso (scroll)
+   ========================================= */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 100;
+}
+
+/* =========================================
+   Navegación
+   ========================================= */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem clamp(1.25rem, 5vw, 4rem);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.92), transparent);
+  z-index: 50;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav nav {
+  display: flex;
+  gap: clamp(1rem, 2.4vw, 2.25rem);
+}
+
+.nav nav a {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.nav nav a:hover {
+  color: var(--text);
+}
+
+/* =========================================
+   Portada
+   ========================================= */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem var(--gutter) 5rem;
+  position: relative;
+  background: radial-gradient(ellipse at 70% 30%, #1a1712 0%, var(--bg) 60%);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  animation: fade-up 1s ease both;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 8vw, 6.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+  animation: fade-up 1s 0.15s ease both;
+}
+
+.hero h1 em {
+  color: var(--accent);
+}
+
+.hero-text {
+  max-width: 46ch;
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  animation: fade-up 1s 0.3s ease both;
+}
+
+/* Ruta de los pasos: resume la guia y salta a cada uno */
+.route {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  max-width: 60rem;
+  counter-reset: paso;
+  animation: fade-up 1s 0.45s ease both;
+}
+
+.route li {
+  counter-increment: paso;
+}
+
+.route a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.route a::before {
+  content: counter(paso, decimal-leading-zero);
+  font-family: var(--serif);
+  color: var(--accent);
+  letter-spacing: 0.15em;
+}
+
+.route a:hover {
+  color: var(--text);
+}
+
+/* =========================================
+   Bloques intercalados (los pasos)
+   ========================================= */
+.blocks {
+  padding: 6rem var(--gutter) 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6rem, 12vw, 10rem);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+/* Intercala: imagen a la izquierda y texto a la derecha */
+.block--reverse .block-text {
+  order: 2;
+}
+
+.block--reverse .block-image {
+  order: 1;
+}
+
+.number {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.25rem;
+}
+
+.number::after {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 1px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+
+.block-text h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.block-text p {
+  color: var(--muted);
+  max-width: 46ch;
+  font-size: 1.05rem;
+}
+
+.block-text p + p {
+  margin-top: 1rem;
+}
+
+/* Lista de acciones dentro de un paso */
+.steps {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+  max-width: 46ch;
+}
+
+/* Guion posicionado: el texto del paso fluye normal aunque lleve
+   <strong> o <code> dentro (en grid/flex cada uno seria una celda). */
+.steps li {
+  position: relative;
+  padding-left: 2.25rem;
+  color: var(--muted);
+}
+
+.steps li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.link::after {
+  content: " →";
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.link:hover::after {
+  transform: translateX(4px);
+}
+
+/* Marco negro de la plantilla, adaptado a capturas del juego:
+   proporcion real y a color (el verde/rojo del menu es informacion). */
+.block-image {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.block-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.8s ease;
+}
+
+.block-image:hover img {
+  transform: scale(1.02);
+}
+
+.block-image figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+/* Arte pixelado ampliado: sin suavizado */
+.pixel {
+  image-rendering: pixelated;
+}
+
+/* Captura pequeña dentro del texto de un paso */
+.inline-shot {
+  margin-top: 2rem;
+  border: 1px solid var(--line);
+  padding: 0.6rem;
+  max-width: 34rem;
+}
+
+.inline-shot figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* =========================================
+   Secciones de consulta
+   ========================================= */
+.ref {
+  padding: 8rem var(--gutter) 0;
+}
+
+.ref-head {
+  max-width: var(--read);
+  margin-bottom: 3.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.ref-head h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.05;
+}
+
+.ref-head p {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 58ch;
+}
+
+/* --- Catalogo de palos --- */
+.sizes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.size {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.size figure {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+  padding: 0.75rem;
+}
+
+.size-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 1.5rem 1.75rem;
+  flex: 1;
+}
+
+.size-dim {
+  font-family: var(--serif);
+  font-size: clamp(2.25rem, 3.2vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.size-dim small {
+  font-size: 0.5em;
+  color: var(--muted);
+}
+
+.size-use {
+  color: var(--muted);
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.size-facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.3rem 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem;
+}
+
+.size-facts dt {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  align-self: center;
+}
+
+.size-facts dd {
+  font-family: var(--mono);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Glosario de flags --- */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.flags {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: clamp(2rem, 5vw, 5rem);
+  border-top: 1px solid var(--line);
+}
+
+.flag {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 1.5rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.flag h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.flag .icon {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+.flag p {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 52ch;
+}
+
+.state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: start;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+
+.state::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  background: currentColor;
+}
+
+.state--ok {
+  color: var(--ok);
+}
+
+.state--no {
+  color: var(--no);
+}
+
+/* --- Reglas --- */
+.rules {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.rule {
+  padding: 2rem 2rem 2.25rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.rule + .rule {
+  padding-left: 2rem;
+  border-left: 1px solid var(--line);
+}
+
+.rule:nth-child(3n + 1) {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.rule h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.rule p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.rule .fig {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+/* --- Comandos --- */
+.table-wrap {
+  overflow-x: auto;
+  border-top: 1px solid var(--line);
+}
+
+.cmds {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+}
+
+.cmds th {
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 1rem 1.5rem 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cmds td {
+  padding: 1.15rem 1.5rem 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  color: var(--muted);
+}
+
+.cmds td:first-child {
+  white-space: nowrap;
+}
+
+.cmds td:first-child code {
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.cmds .alias code {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* --- Preguntas frecuentes --- */
+.faq {
+  max-width: 52rem;
+  border-top: 1px solid var(--line);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  line-height: 1.25;
+  transition: color 0.3s;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: var(--accent);
+  transition: transform 0.3s;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq summary:hover {
+  color: var(--accent);
+}
+
+.faq details p {
+  color: var(--muted);
+  max-width: 60ch;
+  padding-bottom: 1.6rem;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.footer {
+  text-align: center;
+  padding: 9rem var(--gutter) 3rem;
+  border-top: 1px solid var(--line);
+  margin-top: 9rem;
+}
+
+.footer h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 1;
+}
+
+.footer-text {
+  max-width: 44ch;
+  margin: 2rem auto 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.copy {
+  margin-top: 7rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* =========================================
+   Animaciones
+   ========================================= */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Sin opacidad: el contenido siempre es legible aunque no se haya animado */
+@keyframes from-left {
+  from { transform: translateX(-60px); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes from-right {
+  from { transform: translateX(60px); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes reveal-img {
+  from { clip-path: inset(0 0 18% 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes grow {
+  to { transform: scaleX(1); }
+}
+
+/* Aparición al hacer scroll — solo CSS (scroll-driven animations).
+   En navegadores sin soporte el contenido se ve igual, sin animación. */
+@supports (animation-timeline: view()) {
+
+  .progress {
+    animation: grow linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .block-text,
+  .block-image,
+  .block-image img {
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 35%;
+  }
+
+  /* Bloque normal: texto entra por la izquierda, imagen por la derecha */
+  .block .block-text  { animation-name: from-left; }
+  .block .block-image { animation-name: from-right; }
+
+  /* Bloque invertido: al revés */
+  .block--reverse .block-text  { animation-name: from-right; }
+  .block--reverse .block-image { animation-name: from-left; }
+
+  /* La captura se "destapa" dentro del marco negro */
+  .block-image img {
+    animation-name: reveal-img;
+    animation-range: entry 15% cover 45%;
+  }
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 1100px) {
+  .sizes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rules {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rule:nth-child(3n + 1) {
+    padding-left: 2rem;
+    border-left: 1px solid var(--line);
+  }
+
+  .rule:nth-child(2n + 1) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .nav nav {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 8rem;
+  }
+
+  .block {
+    grid-template-columns: 1fr;
+  }
+
+  /* En móvil siempre: texto arriba, imagen abajo */
+  .block--reverse .block-text  { order: 1; }
+  .block--reverse .block-image { order: 2; }
+
+  .flags {
+    grid-template-columns: 1fr;
+  }
+
+  .rules {
+    grid-template-columns: 1fr;
+  }
+
+  .rule,
+  .rule + .rule,
+  .rule:nth-child(3n + 1),
+  .rule:nth-child(2n + 1) {
+    padding: 1.75rem 0;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .sizes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .progress {
+    display: none;
+  }
+}

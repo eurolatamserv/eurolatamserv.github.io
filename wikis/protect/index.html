@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GProtect</title>
+  <meta name="description" content="Guía para proteger tu casa en el servidor: palos de protección, flags, miembros y comandos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="../../img/icono.png">
+  <link rel="stylesheet" href="../../volver.css">
+</head>
+<body>
+
+  <a href="../../index.html" class="volver-home" aria-label="Volver a la página principal de EuroLatam 7"><img src="../../img/icono.png" alt="" width="64" height="64"><span aria-hidden="true">←</span><span class="volver-text">Volver a EuroLatam 7</span></a>
+
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#" class="logo">GProtect<span>.</span></a>
+    <nav aria-label="Secciones">
+      <a href="#palos">Palos</a>
+      <a href="#marcar">Crear zona</a>
+      <a href="#flags">Flags</a>
+      <a href="#miembros">Miembros</a>
+      <a href="#comandos">Comandos</a>
+      <a href="#faq">Dudas</a>
+    </nav>
+  </header>
+
+  <!-- PORTADA -->
+  <section class="hero">
+    <p class="eyebrow">Wiki del servidor · Protecciones</p>
+    <h1>Lo que construyes, <em>solo tuyo</em>.</h1>
+    <p class="hero-text">
+      Con un palo de protección reclamas un terreno para tu casa, tu granja o tu
+      aldea. Dentro, nadie más puede romper, abrir ni tocar nada, salvo las
+      personas que tú elijas.
+    </p>
+    <ol class="route" aria-label="Pasos de la guía">
+      <li><a href="#conseguir">Consigue un palo</a></li>
+      <li><a href="#marcar">Marca y confirma</a></li>
+      <li><a href="#flags">Ajusta las flags</a></li>
+      <li><a href="#miembros">Comparte la zona</a></li>
+      <li><a href="#quitar">Quita una protección</a></li>
+    </ol>
+  </section>
+
+  <main>
+
+    <!-- PASO 1 -->
+    <div class="blocks">
+      <article class="block" id="conseguir">
+        <div class="block-text">
+          <span class="number">01</span>
+          <h2>Consigue un palo</h2>
+          <p>
+            Los palos de protección se compran a los comerciantes de la tienda de
+            <strong>Protecciones</strong>. Hay cuatro tamaños: cuanto más grande,
+            más terreno cubre y más cuesta.
+          </p>
+          <p>
+            Cada palo sirve para crear una zona y se gasta al hacerlo. Elígelo
+            según lo que vayas a construir.
+          </p>
+          <a href="#palos" class="link">Ver los cuatro tamaños</a>
+        </div>
+        <figure class="block-image">
+          <img src="img/tienda.jpg" width="1600" height="901" alt="La tienda de Protecciones del servidor, con dos comerciantes detrás del mostrador">
+          <figcaption>La tienda de Protecciones</figcaption>
+        </figure>
+      </article>
+    </div>
+
+    <!-- CATALOGO DE PALOS -->
+    <section class="ref" id="palos" aria-labelledby="palos-titulo">
+      <div class="ref-head">
+        <span class="label">Tamaños</span>
+        <h2 id="palos-titulo">Qué palo te conviene</h2>
+        <p>
+          El número es el lado del cuadrado que protege. Como referencia, un chunk
+          de Minecraft mide 16 × 16. Precios de la tienda de Protecciones.
+        </p>
+      </div>
+
+      <div class="sizes">
+        <article class="size">
+          <figure>
+            <img src="img/palo-16.jpg" width="843" height="355" loading="lazy" alt="Descripción del Palo de Protección 16x16 en la tienda">
+          </figure>
+          <div class="size-body">
+            <p class="size-dim">16<small> × 16</small></p>
+            <p class="size-use">El área de un chunk. Una casa con su entrada.</p>
+            <dl class="size-facts">
+              <dt>Bloques</dt><dd>256</dd>
+              <dt>Precio</dt><dd>40</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="size">
+          <figure>
+            <img src="img/palo-32.jpg" width="843" height="355" loading="lazy" alt="Descripción del Palo de Protección 32x32 en la tienda">
+          </figure>
+          <div class="size-body">
+            <p class="size-dim">32<small> × 32</small></p>
+            <p class="size-use">Cuatro chunks. Casa, huerto y corrales.</p>
+            <dl class="size-facts">
+              <dt>Bloques</dt><dd>1.024</dd>
+              <dt>Precio</dt><dd>64</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="size">
+          <figure>
+            <img src="img/palo-64.jpg" width="843" height="355" loading="lazy" alt="Descripción del Palo de Protección 64x64 en la tienda">
+          </figure>
+          <div class="size-body">
+            <p class="size-dim">64<small> × 64</small></p>
+            <p class="size-use">Dieciséis chunks. Una base con sus granjas.</p>
+            <dl class="size-facts">
+              <dt>Bloques</dt><dd>4.096</dd>
+              <dt>Precio</dt><dd>96</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="size">
+          <figure>
+            <img src="img/palo-128.jpg" width="843" height="355" loading="lazy" alt="Descripción del Palo de Protección 128x128 en la tienda">
+          </figure>
+          <div class="size-body">
+            <p class="size-dim">128<small> × 128</small></p>
+            <p class="size-use">Sesenta y cuatro chunks. Una aldea entera. Este es una vara de blaze.</p>
+            <dl class="size-facts">
+              <dt>Bloques</dt><dd>16.384</dd>
+              <dt>Precio</dt><dd>128</dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PASOS 2 Y 3 -->
+    <div class="blocks">
+      <article class="block block--reverse" id="marcar">
+        <div class="block-text">
+          <span class="number">02</span>
+          <h2>Marca y confirma</h2>
+          <p>
+            Con el palo en la mano, haz <strong>click derecho</strong> sobre el
+            bloque que quieras dejar en el centro. Aparece una pared de partículas
+            verdes con el borde exacto y un mensaje en el chat con los datos del
+            terreno.
+          </p>
+          <ul class="steps">
+            <li>Recorre el borde y comprueba que cubre todo lo que quieres proteger.</li>
+            <li>Pulsa <strong>SI, CREAR</strong> o escribe <code>si</code> en el chat. Nadie más verá ese mensaje.</li>
+            <li>¿No te convence? Pulsa <strong>CANCELAR</strong> o escribe <code>cancelar</code> y prueba en otro sitio.</li>
+            <li>Tienes 60 segundos y debes seguir con el mismo palo en la mano.</li>
+          </ul>
+          <figure class="inline-shot">
+            <img src="img/zona-creada.jpg" width="960" height="108" loading="lazy" alt="Mensaje en el chat: ¡Zona creada! Ahora eres el dueño de Zona de theEVILgrip">
+            <figcaption>Al confirmar, el palo se gasta y la zona ya es tuya.</figcaption>
+          </figure>
+        </div>
+        <figure class="block-image">
+          <img src="img/confirmacion.jpg" width="1000" height="292" alt="Mensaje de confirmación en el chat con tamaño, centro, mundo y los botones SI, CREAR y CANCELAR">
+          <figcaption>El mensaje de confirmación en el chat</figcaption>
+        </figure>
+      </article>
+
+      <article class="block" id="flags">
+        <div class="block-text">
+          <span class="number">03</span>
+          <h2>Ajusta las flags</h2>
+          <p>
+            Las flags deciden qué pueden hacer los demás dentro de tu zona.
+            Colócate dentro y escribe <code>/zonaflags</code>.
+          </p>
+          <ul class="steps">
+            <li>Cada objeto del menú es un interruptor: haz click para cambiarlo.</li>
+            <li>Nombre en verde y con brillo: permitido. En rojo: bloqueado.</li>
+            <li>Tú y tus miembros nunca estáis limitados por las flags.</li>
+          </ul>
+          <a href="#flags-lista" class="link">Qué hace cada flag</a>
+        </div>
+        <figure class="block-image">
+          <img src="img/flags.jpg" width="520" height="325" alt="Menú de flags de la zona con quince objetos, una cabeza de jugador y un papel">
+          <figcaption>El menú de <code>/zonaflags</code></figcaption>
+        </figure>
+      </article>
+    </div>
+
+    <!-- GLOSARIO DE FLAGS -->
+    <section class="ref" id="flags-lista" aria-labelledby="flags-titulo">
+      <div class="ref-head">
+        <span class="label">Referencia</span>
+        <h2 id="flags-titulo">Qué hace cada flag</h2>
+        <p>
+          Así empieza toda zona nueva. Puedes cambiar cualquiera cuando quieras;
+          el objeto entre paréntesis es el que verás en el menú.
+        </p>
+      </div>
+
+      <div class="legend" aria-hidden="true">
+        <span><span class="state state--ok">Permitido</span> los demás pueden hacerlo</span>
+        <span><span class="state state--no">Bloqueado</span> solo tú y tus miembros</span>
+      </div>
+
+      <div class="flags">
+        <div class="flag">
+          <h3>Construir <span class="icon">Bloque de hierba</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Poner y romper bloques, vaciar o llenar cubos y colgar cuadros o marcos.</p>
+        </div>
+        <div class="flag">
+          <h3>Usar bloques <span class="icon">Puerta de roble</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Puertas, trampillas, puertas de valla, botones, palancas, camas, mesas de trabajo, yunques y carteles.</p>
+        </div>
+        <div class="flag">
+          <h3>Contenedores <span class="icon">Cofre</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Cofres, hornos, barriles, tolvas y cajas de shulker. También comerciar con aldeanos y abrir vagonetas con cofre.</p>
+        </div>
+        <div class="flag">
+          <h3>Entrada <span class="icon">Puerta de hierro</span></h3>
+          <span class="state state--ok">Permitido</span>
+          <p>Si lo bloqueas, nadie de fuera puede entrar caminando ni teletransportarse dentro de tu zona.</p>
+        </div>
+        <div class="flag">
+          <h3>PvP <span class="icon">Espada de hierro</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Que los jugadores puedan pelear entre sí dentro de la zona, también con arcos y tridentes.</p>
+        </div>
+        <div class="flag">
+          <h3>Dañar animales <span class="icon">Carne cruda</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Matar tus vacas, ovejas, caballos o aldeanos. A los monstruos siempre se les puede atacar.</p>
+        </div>
+        <div class="flag">
+          <h3>Dañar decoración <span class="icon">Marco</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Romper o girar marcos, cuadros y soportes de armadura, o quitarles lo que llevan.</p>
+        </div>
+        <div class="flag">
+          <h3>Aparición de mobs <span class="icon">Cabeza de zombi</span></h3>
+          <span class="state state--ok">Permitido</span>
+          <p>Si lo bloqueas, dejan de aparecer monstruos solos y en spawners. Los huevos de spawn siguen funcionando.</p>
+        </div>
+        <div class="flag">
+          <h3>Daño de mobs <span class="icon">Perla de ender</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Endermans que se llevan bloques, ravagers que rompen cultivos y similares.</p>
+        </div>
+        <div class="flag">
+          <h3>Explosiones <span class="icon">TNT</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Que la TNT y los creepers rompan bloques dentro de la zona.</p>
+        </div>
+        <div class="flag">
+          <h3>Propagación de fuego <span class="icon">Mechero</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Que el fuego se extienda y queme madera, lana u hojas.</p>
+        </div>
+        <div class="flag">
+          <h3>Pisar cultivos <span class="icon">Tierra de cultivo</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Que saltar sobre la tierra arada la destroce, o que se rompan huevos de tortuga.</p>
+        </div>
+        <div class="flag">
+          <h3>Pistones externos <span class="icon">Pistón</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Que un pistón colocado fuera empuje o arrastre bloques de tu zona.</p>
+        </div>
+        <div class="flag">
+          <h3>Líquidos externos <span class="icon">Cubo de agua</span></h3>
+          <span class="state state--no">Bloqueado</span>
+          <p>Que agua o lava que nace fuera entre en tu zona. La que pongas tú dentro fluye normal.</p>
+        </div>
+        <div class="flag">
+          <h3>Caída de hojas <span class="icon">Hojas de roble</span></h3>
+          <span class="state state--ok">Permitido</span>
+          <p>Bloquéalo para que las hojas de tus árboles decorativos no desaparezcan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASOS 4 Y 5 -->
+    <div class="blocks">
+      <article class="block block--reverse" id="miembros">
+        <div class="block-text">
+          <span class="number">04</span>
+          <h2>Comparte la zona</h2>
+          <p>
+            ¿Construís en equipo? Añade a tus amigos como <strong>miembros</strong>
+            y podrán construir, abrir cofres y usar todo igual que tú.
+          </p>
+          <ul class="steps">
+            <li>Abre <code>/zonaflags</code> y pulsa la cabeza <strong>Miembros de la zona</strong>.</li>
+            <li>Verás la cabeza con la skin de cada jugador conectado, y primero a tus miembros aunque no estén.</li>
+            <li>Click en una cabeza para añadirlo y otro click para quitarlo. Si está conectado, le llega un aviso.</li>
+            <li>Los miembros no pueden borrar la zona ni cambiar sus flags.</li>
+          </ul>
+          <p>
+            Para dejar pasar a un amigo no actives <strong>Construir</strong>: eso
+            abre tu zona a todo el servidor.
+          </p>
+        </div>
+        <figure class="block-image">
+          <img class="pixel" src="img/boton-miembros.png" width="424" height="208" alt="Botón Miembros de la zona: una cabeza de jugador junto a las hojas de roble en el menú">
+          <figcaption>El botón de miembros, junto a la última flag</figcaption>
+        </figure>
+      </article>
+
+      <article class="block" id="quitar">
+        <div class="block-text">
+          <span class="number">05</span>
+          <h2>Quita una protección</h2>
+          <p>
+            Si te mudas, ponte dentro de la zona y escribe
+            <code>/zone remove</code>. El borde se vuelve rojo y el chat te pide
+            que lo confirmes.
+          </p>
+          <ul class="steps">
+            <li>Confirma con <strong>SI, ELIMINAR</strong> o escribiendo <code>si</code>.</li>
+            <li>Te devuelven el palo del mismo tamaño que usaste. Si tienes el inventario lleno, cae al suelo.</li>
+            <li>Desde ese momento, cualquiera puede construir en ese terreno.</li>
+          </ul>
+        </div>
+        <figure class="block-image">
+          <img src="img/eliminar.jpg" width="1600" height="901" loading="lazy" alt="Pared de partículas rojas marcando el borde de la zona y el mensaje de confirmación SI, ELIMINAR">
+          <figcaption>Eliminando una zona: el borde se pinta de rojo</figcaption>
+        </figure>
+      </article>
+    </div>
+
+    <!-- REGLAS -->
+    <section class="ref" id="reglas" aria-labelledby="reglas-titulo">
+      <div class="ref-head">
+        <span class="label">Antes de reclamar</span>
+        <h2 id="reglas-titulo">Reglas del terreno</h2>
+      </div>
+
+      <div class="rules">
+        <div class="rule">
+          <span class="fig">5 zonas</span>
+          <h3>Varias zonas a tu nombre</h3>
+          <p>Puedes tener hasta cinco, cada una con sus propias flags y miembros.</p>
+        </div>
+        <div class="rule">
+          <span class="fig">bedrock → cielo</span>
+          <h3>Protege toda la altura</h3>
+          <p>La zona llega desde el fondo del mundo hasta el límite de construcción. Tus minas y tu torre quedan cubiertas.</p>
+        </div>
+        <div class="rule">
+          <span class="fig">0 bloques ajenos</span>
+          <h3>Sin pisar a nadie</h3>
+          <p>Tu zona no puede meter ni un bloque en la de otro jugador. Pueden quedar pegadas, nunca una encima de otra.</p>
+        </div>
+        <div class="rule">
+          <span class="fig">las tuyas, sí</span>
+          <h3>Tus zonas se pueden juntar</h3>
+          <p>Puedes superponer zonas propias para ampliar terreno. Donde se juntan, manda la flag más estricta.</p>
+        </div>
+        <div class="rule">
+          <span class="fig">5 bloques</span>
+          <h3>Lejos de las zonas del servidor</h3>
+          <p>No se puede reclamar dentro ni a menos de cinco bloques de las zonas del servidor, como el spawn.</p>
+        </div>
+        <div class="rule">
+          <span class="fig">60 s</span>
+          <h3>El palo solo se gasta al confirmar</h3>
+          <p>Si cancelas, se acaba el tiempo o te desconectas, conservas el palo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMANDOS -->
+    <section class="ref" id="comandos" aria-labelledby="comandos-titulo">
+      <div class="ref-head">
+        <span class="label">Chat</span>
+        <h2 id="comandos-titulo">Comandos</h2>
+        <p>Todos funcionan sobre la zona en la que estás parado.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="cmds">
+          <thead>
+            <tr>
+              <th scope="col">Comando</th>
+              <th scope="col">Atajo</th>
+              <th scope="col">Para qué sirve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/zonaflags</code></td>
+              <td class="alias"><code>/zf</code></td>
+              <td>Abre el menú de flags y miembros. Solo el dueño de la zona.</td>
+            </tr>
+            <tr>
+              <td><code>/zone remove</code></td>
+              <td class="alias"><code>/zona remove</code></td>
+              <td>Quita la protección y te devuelve el palo. Pide confirmación.</td>
+            </tr>
+            <tr>
+              <td><code>/zone info</code></td>
+              <td class="alias">—</td>
+              <td>Muestra el dueño, el tamaño, las esquinas y cuántos miembros tiene.</td>
+            </tr>
+            <tr>
+              <td><code>/zone ver</code></td>
+              <td class="alias">—</td>
+              <td>Dibuja el borde de la zona durante unos segundos.</td>
+            </tr>
+            <tr>
+              <td><code>/gprotect lista</code></td>
+              <td class="alias"><code>/gp lista</code></td>
+              <td>Lista todas tus zonas con su mundo y sus coordenadas.</td>
+            </tr>
+            <tr>
+              <td><code>/gprotect</code></td>
+              <td class="alias"><code>/gp</code></td>
+              <td>Resumen de comandos dentro del juego.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS -->
+    <section class="ref" id="faq" aria-labelledby="faq-titulo">
+      <div class="ref-head">
+        <span class="label">Problemas comunes</span>
+        <h2 id="faq-titulo">Dudas frecuentes</h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Me dice «Esa zona se superpone con la zona de…»</summary>
+          <p>Tu borde pisa el terreno de otro jugador. Aléjate unos bloques del límite o usa un palo más pequeño.</p>
+        </details>
+        <details>
+          <summary>Me dice «No puedes reclamar aquí: zona restringida del servidor»</summary>
+          <p>Estás dentro o muy cerca de una zona del servidor, como el spawn o las tiendas. Busca terreno un poco más lejos.</p>
+        </details>
+        <details>
+          <summary>Me dice «Ya no tienes el palo en la mano»</summary>
+          <p>Cambiaste de objeto antes de confirmar. Vuelve a coger el palo, marca otra vez y confirma sin soltarlo.</p>
+        </details>
+        <details>
+          <summary>Me sale «Comando desconocido» al abrir las flags</summary>
+          <p>El comando es <code>/zonaflags</code>, con a. <code>/zoneflags</code> no existe. También puedes usar <code>/zf</code>.</p>
+        </details>
+        <details>
+          <summary>¿Puedo agrandar o mover mi zona?</summary>
+          <p>Una zona no se estira. Para ampliarla, crea otra zona tuya pegada o encima. Para moverla, quítala con <code>/zone remove</code>, recupera el palo y créala donde quieras.</p>
+        </details>
+        <details>
+          <summary>¿Pierdo el palo si me equivoco?</summary>
+          <p>No. Solo se gasta cuando confirmas la zona, y si más adelante la quitas, te lo devuelven.</p>
+        </details>
+        <details>
+          <summary>Mi amigo no puede abrir mi puerta ni mis cofres</summary>
+          <p>Añádelo como miembro: <code>/zonaflags</code>, botón Miembros de la zona y click en su cabeza.</p>
+        </details>
+        <details>
+          <summary>¿Cómo sé si estoy dentro de una zona?</summary>
+          <p>Al cruzar el borde aparece «Entrando a la zona de…» encima de la barra de objetos. Con <code>/zone ver</code> se dibuja el borde unos segundos.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CIERRE -->
+  <footer class="footer">
+    <h2>¿Más dudas?</h2>
+    <p class="footer-text">
+      Pregunta a cualquier miembro del staff dentro del servidor. Si algo no
+      funciona como describe esta guía, avísanos con capturas.
+    </p>
+    <p class="copy">GProtect · Guía para jugadores</p>
+  </footer>
+
+</body>
+</html>

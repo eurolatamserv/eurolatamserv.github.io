@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tótem del Alma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&family=Pixelify+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="../../img/icono.png">
+  <link rel="stylesheet" href="../../volver.css">
+</head>
+<body>
+
+  <a href="../../index.html" class="volver-home" aria-label="Volver a la página principal de EuroLatam 7"><img src="../../img/icono.png" alt="" width="64" height="64"><span aria-hidden="true">←</span><span class="volver-text">Volver a EuroLatam 7</span></a>
+
+
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="corazon" viewBox="0 0 7 6">
+      <path d="M1 0h2v1H1zM4 0h2v1H4zM0 1h7v2H0zM1 3h5v1H1zM2 4h3v1H2zM3 5h1v1H3z"/>
+    </symbol>
+  </svg>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#inicio" class="logo">Cementerios<span>.</span></a>
+    <nav aria-label="Secciones de la guía">
+      <a href="#morir">Al morir</a>
+      <a href="#volver">Volver</a>
+      <a href="#precio">El precio</a>
+      <a href="#durmientes">Durmientes</a>
+      <a href="#dudas">Dudas</a>
+    </nav>
+  </header>
+
+  <!-- PORTADA -->
+  <section class="hero" id="inicio">
+    <p class="eyebrow">Guía para jugadores · Tótem del Alma</p>
+    <h1>Morir no es el <em>final</em> del camino.</h1>
+    <p class="hero-text">
+      Repartidos por el mundo hay cementerios custodiados por tótems que flotan
+      entre llamas de alma. Cuando caes, despiertas frente al más cercano, y su
+      tótem puede devolverte al lugar exacto donde moriste… si aceptas pagar el precio.
+    </p>
+    <span class="scroll-hint" aria-hidden="true">Desliza</span>
+  </section>
+
+  <!-- EL CAMINO DE VUELTA, PASO A PASO -->
+  <main class="blocks">
+
+    <article class="block" id="morir">
+      <div class="block-text">
+        <span class="number">01</span>
+        <h2>Caes, y despiertas en un cementerio</h2>
+        <p>
+          Al morir no vuelves a tu cama ni al inicio del mundo: reapareces frente al
+          tótem del cementerio <strong>más cercano al lugar donde caíste</strong>,
+          mirándolo de frente.
+        </p>
+        <p>
+          Lo reconocerás enseguida: un tótem enorme que sube y baja despacio mientras
+          gira, rodeado de llamas de alma azules, con polvo morado en el suelo y su
+          nombre flotando encima.
+        </p>
+        <p>
+          Aunque hayas dormido en una cama o cargado un ancla de reaparición, el
+          cementerio manda. Solo si mueres en un mundo sin cementerios reapareces
+          como siempre.
+        </p>
+      </div>
+      <figure class="block-image">
+        <img src="media/totem-campamento.webp" alt="El tótem del cementerio Campamento flotando entre llamas de alma azules, con su nombre encima y polvo morado en el suelo">
+      </figure>
+    </article>
+
+    <article class="block block--stack" id="volver">
+      <div class="block-text">
+        <span class="number">02</span>
+        <h2>Pídele al tótem que te lleve</h2>
+        <p>
+          Haz <strong>clic derecho sobre cualquier tótem</strong>. Se abre una ventana
+          que te recuerda dónde moriste, a cuántos bloques queda y lo que te va a
+          costar el viaje. Tienes dos opciones:
+        </p>
+        <ul class="choices">
+          <li><span class="key key--go">LLEVAME</span> Empieza el ritual para volver a tu punto de muerte.</li>
+          <li><span class="key key--stop">CANCELAR</span> Cierra la ventana sin hacer nada.</li>
+        </ul>
+        <p class="note">
+          Si el tótem no recuerda ninguna muerte tuya, la ventana solo te lo dirá:
+          no hay a dónde volver.
+        </p>
+      </div>
+      <figure class="block-image block-image--wide">
+        <img src="media/ventana-totem.webp" alt="Ventana del Tótem del Alma: la advertencia de fragilidad durante 40 segundos, el punto de muerte a 24 bloques y los botones Llevame y Cancelar">
+      </figure>
+    </article>
+
+    <article class="block block--reverse" id="ritual">
+      <div class="block-text">
+        <span class="number">03</span>
+        <h2>Tres segundos sin moverte</h2>
+        <p>
+          Al pulsar LLEVAME, el tótem empieza a canalizar: una espiral de llamas se
+          cierra sobre ti, un hilo de luz te une a él y suenan campanadas cada vez
+          más agudas mientras la barra se llena.
+        </p>
+        <p>
+          <strong>No te muevas.</strong> Si das un paso, el ritual se rompe y tendrás
+          que pedírselo otra vez. Al completarse, un destello te lleva al lugar exacto
+          donde moriste, aunque esté en otro mundo.
+        </p>
+      </div>
+      <figure class="block-image block-image--ui">
+        <div class="scene">
+          <div class="rings" aria-hidden="true">
+            <span class="ring"></span>
+            <span class="ring"></span>
+            <span class="ring"></span>
+          </div>
+          <p class="actionbar">
+            Canalizando
+            <span class="bar" role="img" aria-label="Barra del ritual llenándose"><span class="bar-fill"></span></span>
+          </p>
+          <p class="scene-caption">Lo que verás en pantalla</p>
+        </div>
+      </figure>
+    </article>
+
+    <article class="block" id="precio">
+      <div class="block-text">
+        <span class="number">04</span>
+        <h2>El precio: fragilidad del alma</h2>
+        <p>
+          Cruzar el velo deja tu alma débil durante <strong>40 segundos</strong>.
+          Llegas a tus cosas, pero no en tu mejor momento:
+        </p>
+        <dl class="costs">
+          <div><dt>Debilidad II</dt><dd>Tus golpes apenas hacen daño.</dd></div>
+          <div><dt>Lentitud I</dt><dd>Caminas más despacio.</dd></div>
+          <div><dt>Fatiga minera II</dt><dd>Picar bloques cuesta muchísimo.</dd></div>
+          <div><dt>Hambre I</dt><dd>Gastas la comida más rápido.</dd></div>
+          <div><dt>−3 corazones</dt><dd>Menos vida máxima mientras dure.</dd></div>
+        </dl>
+        <p>
+          Una cuenta atrás te avisa del tiempo que queda. Al terminar suena un aviso
+          y tu alma recupera toda su fuerza. Mejor asegúrate de que no haya nada
+          peligroso esperándote.
+        </p>
+      </div>
+      <figure class="block-image block-image--ui">
+        <div class="scene scene--frail">
+          <div class="frail-aura" aria-hidden="true"></div>
+          <p class="hearts" role="img" aria-label="Siete corazones de diez: la fragilidad te quita tres">
+            <svg class="heart" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+            <svg class="heart" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+            <svg class="heart" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+            <svg class="heart" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+            <svg class="heart" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+            <svg class="heart" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+            <svg class="heart" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+            <svg class="heart heart--lost" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+            <svg class="heart heart--lost" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+            <svg class="heart heart--lost" viewBox="0 0 7 6"><use href="#corazon"></use></svg>
+          </p>
+          <p class="actionbar actionbar--frail">
+            <span class="skull" aria-hidden="true">&#9760;&#xFE0E;</span>
+            <span class="label">Fragilidad del alma</span>
+            <span class="sep" aria-hidden="true">|</span>
+            <span>38s</span>
+          </p>
+          <p class="scene-caption">Lo que verás en pantalla</p>
+        </div>
+      </figure>
+    </article>
+
+  </main>
+
+  <!-- REGLAS -->
+  <section class="section rules" aria-labelledby="reglas-titulo">
+    <p class="eyebrow">Lo que conviene saber</p>
+    <h2 class="section-title" id="reglas-titulo">Las reglas del <em>camino de vuelta</em></h2>
+    <dl class="rules-list">
+      <div>
+        <dt>Un viaje por muerte</dt>
+        <dd>Cuando el tótem te lleva, olvida esa muerte. Para volver a usarlo tendrás que caer otra vez.</dd>
+      </div>
+      <div>
+        <dt>Solo la última</dt>
+        <dd>Recuerda tu muerte más reciente. Si vuelves a morir, el punto anterior se pierde.</dd>
+      </div>
+      <div>
+        <dt>Cualquier tótem sirve</dt>
+        <dd>No hace falta usar el del cementerio donde apareciste: todos recuerdan tu muerte.</dd>
+      </div>
+      <div>
+        <dt><span>30 s</span> de recarga</dt>
+        <dd>Entre un viaje y el siguiente, el tótem necesita medio minuto para recuperarse.</dd>
+      </div>
+      <div>
+        <dt>Entre mundos</dt>
+        <dd>Puede llevarte a tu punto de muerte aunque esté en otro mundo distinto al del cementerio.</dd>
+      </div>
+      <div>
+        <dt>Morir borra la fragilidad</dt>
+        <dd>Si caes mientras estás débil, la fragilidad desaparece y ese nuevo lugar pasa a ser tu punto de muerte.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- TÓTEMS DURMIENTES -->
+  <section class="section dormant" id="durmientes" aria-labelledby="durmientes-titulo">
+    <p class="eyebrow">Una variante especial</p>
+    <h2 class="section-title" id="durmientes-titulo">Tótems <em>durmientes</em></h2>
+    <p class="section-lead">
+      Algunos cementerios esconden un tótem dormido: tumbado en el suelo, oscuro,
+      como una talla olvidada. Mientras duerme no existe para ti: ni te hace
+      reaparecer ni responde si lo tocas.
+    </p>
+    <p class="section-lead">
+      Para despertarlo, <strong>atraviésalo caminando</strong>. Se levanta, se
+      enciende y empieza a funcionar como cualquier otro cementerio… pero solo para
+      ti, y solo durante un tiempo.
+    </p>
+
+    <div class="states">
+      <div class="state state--asleep">
+        <div class="state-stage" aria-hidden="true">
+          <span class="lying"></span>
+          <span class="smoke"></span>
+          <span class="smoke"></span>
+          <span class="smoke"></span>
+        </div>
+        <div class="state-body">
+          <p class="state-label">Dormido</p>
+          <ul>
+            <li>Tumbado en el suelo, sin luz, soltando algo de humo.</li>
+            <li>No cuenta como punto de reaparición.</li>
+            <li>Hacerle clic no hace nada.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="state state--awake">
+        <div class="state-stage">
+          <div class="timer-labels" role="img" aria-label="Carteles de ejemplo: 5 minutos 42 segundos, o siempre">
+            <span class="timer"><span>5m 42s</span></span>
+            <span class="timer"><span>siempre</span></span>
+          </div>
+        </div>
+        <div class="state-body">
+          <p class="state-label">Despierto para ti</p>
+          <ul>
+            <li>Flota, gira y brilla como un tótem normal.</li>
+            <li>Reapareces en él si es el más cercano a donde mueres.</li>
+            <li>Clic derecho para volver a tu punto de muerte.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dormant-details">
+      <div>
+        <h3>Tu propia cuenta atrás</h3>
+        <p>
+          Encima de un tótem despierto no verás su nombre, sino el tiempo que te queda
+          a ti. Cada jugador ve el suyo: tu compañero puede tenerlo encendido mientras
+          tú lo sigues viendo dormido.
+        </p>
+      </div>
+      <div>
+        <h3>Cuánto dura</h3>
+        <p>
+          Cada tótem durmiente tiene su propia duración: unos minutos, varias horas o
+          para siempre. El tiempo sigue corriendo aunque te desconectes.
+        </p>
+      </div>
+      <div>
+        <h3>Cuando se apaga</h3>
+        <p>
+          Vuelve a tumbarse con una bocanada de humo y te avisa en el chat. Para
+          encenderlo otra vez, atraviésalo de nuevo. Pasar por encima mientras sigue
+          encendido no reinicia el tiempo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="section faq" id="dudas" aria-labelledby="dudas-titulo">
+    <p class="eyebrow">Preguntas frecuentes</p>
+    <h2 class="section-title" id="dudas-titulo">Dudas de los <em>recién caídos</em></h2>
+    <div class="faq-list">
+      <details>
+        <summary>Dormí en una cama, ¿por qué aparecí en un cementerio?</summary>
+        <p>
+          Porque en este servidor el cementerio tiene prioridad sobre la cama y el
+          ancla de reaparición. Siempre despiertas junto al tótem más cercano al lugar
+          donde moriste.
+        </p>
+      </details>
+      <details>
+        <summary>Le di a LLEVAME y no me llevó a ningún lado.</summary>
+        <p>
+          Mira el chat: o te moviste durante los tres segundos del ritual, o el tótem
+          todavía se estaba recargando. Espera lo que te indique y vuelve a pedírselo
+          sin moverte.
+        </p>
+      </details>
+      <details>
+        <summary>¿Puedo volver dos veces al mismo sitio?</summary>
+        <p>
+          No. Cada muerte da para un solo viaje: en cuanto el tótem te lleva, olvida
+          ese lugar.
+        </p>
+      </details>
+      <details>
+        <summary>Mi amigo ve un tótem encendido y yo lo veo tumbado. ¿Es un error?</summary>
+        <p>
+          No: es un tótem durmiente. Tu amigo ya lo despertó y tú todavía no. Pasa
+          caminando a través de él y se encenderá también para ti.
+        </p>
+      </details>
+      <details>
+        <summary>Se me acabó el tiempo estando justo encima del tótem durmiente.</summary>
+        <p>
+          Sal de encima y vuelve a pasar: el tótem se enciende cuando lo atraviesas,
+          no por quedarte quieto sobre él.
+        </p>
+      </details>
+      <details>
+        <summary>¿Se pueden romper o mover los tótems?</summary>
+        <p>
+          No. Son indestructibles y solo los administradores pueden colocarlos o
+          quitarlos.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <footer class="footer">
+    <h2>Descansa. <em>Vuelve.</em></h2>
+    <a href="#inicio" class="footer-mail">Volver al principio ↑</a>
+    <p class="copy">Tótem del Alma · Guía para jugadores</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herrero — Wiki</title>
+  <meta name="description" content="Cómo usar el Herrero del servidor: reparar armaduras, armas y herramientas, y qué pasa cuando tu equipo se desgasta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="../../img/icono.png">
+  <link rel="stylesheet" href="../../volver.css">
+</head>
+<body>
+
+  <a href="../../index.html" class="volver-home" aria-label="Volver a la página principal de EuroLatam 7"><img src="../../img/icono.png" alt="" width="64" height="64"><span aria-hidden="true">←</span><span class="volver-text">Volver a EuroLatam 7</span></a>
+
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#" class="logo">Herrero<span>.</span></a>
+    <nav>
+      <a href="#reparar">Reparar</a>
+      <a href="#proteccion">Desgaste</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+  </header>
+
+  <!-- PORTADA -->
+  <section class="hero">
+    <p class="eyebrow">Wiki del servidor · El Herrero</p>
+    <h1>Tu equipo,<br>como <em>nuevo</em>.</h1>
+    <p class="hero-text">
+      El herrero repara tus armaduras, armas y herramientas a cambio de materiales.
+      Aquí tienes todo lo que necesitas saber para usarlo, y qué le pasa a tu equipo
+      cuando se desgasta.
+    </p>
+    <span class="scroll-hint" aria-hidden="true">Desliza</span>
+  </section>
+
+  <!-- PASO A PASO -->
+  <main class="blocks" id="reparar">
+
+    <article class="block block--shot">
+      <div class="block-text">
+        <span class="number">01</span>
+        <h2>Encuentra al herrero</h2>
+        <p>
+          Lo reconocerás por el nombre <strong class="gold">Herrero</strong> sobre su cabeza.
+          Suele estar en su taller, rodeado de yunques y hornos. Cuando te acerques te
+          seguirá con la mirada.
+        </p>
+        <p>
+          Para hablar con él, <strong>haz clic sobre él</strong>: da igual si es clic derecho o
+          izquierdo. Oirás el yunque y se abrirá su ventana.
+        </p>
+      </div>
+      <figure class="block-image">
+        <a href="img/01-herrero.png" target="_blank" rel="noopener">
+          <img src="img/01-herrero.png" alt="El herrero en su taller, con su nombre en naranja sobre la cabeza" loading="lazy">
+        </a>
+        <figcaption>Clic para ampliar</figcaption>
+      </figure>
+    </article>
+
+    <article class="block block--shot block--reverse">
+      <div class="block-text">
+        <span class="number">02</span>
+        <h2>Elige qué reparar</h2>
+        <p>
+          El herrero revisa todo lo que llevas: el inventario, la armadura que tienes puesta
+          y la mano secundaria. Te enseña cuántos objetos dañados tienes y cuánto costaría
+          arreglarlos todos.
+        </p>
+        <p>
+          Tus objetos aparecen separados en <strong class="aqua">Armaduras</strong>,
+          <strong class="red">Armas</strong> y <strong class="green">Herramientas</strong>.
+          Solo verás las categorías en las que tengas algo dañado.
+        </p>
+        <p class="callout">
+          ¿Prisa? Pulsa <strong class="green">REPARAR TODO</strong> y el herrero se encarga de
+          todo tu equipo de una vez.
+        </p>
+      </div>
+      <figure class="block-image">
+        <a href="img/02-menu-categorias.png" target="_blank" rel="noopener">
+          <img src="img/02-menu-categorias.png" alt="Ventana del herrero con la categoría Armaduras y el botón Reparar todo" loading="lazy">
+        </a>
+        <figcaption>Clic para ampliar</figcaption>
+      </figure>
+    </article>
+
+    <article class="block block--shot">
+      <div class="block-text">
+        <span class="number">03</span>
+        <h2>Mira cada objeto</h2>
+        <p>
+          Al entrar en una categoría ves la lista de tus objetos de ese tipo. Para cada uno
+          se muestra:
+        </p>
+        <ul class="list">
+          <li><strong>Su icono y su nombre</strong>, para saber cuál es.</li>
+          <li><strong>El desgaste</strong>: cuánto se ha gastado, en porcentaje.</li>
+          <li><strong>El costo</strong>: qué materiales pide el herrero por él.</li>
+        </ul>
+        <p>
+          Abajo puedes reparar <strong>un solo objeto</strong> pulsando su nombre, o
+          <strong>toda la categoría</strong> con el botón verde. <em>Volver</em> te lleva a las
+          categorías.
+        </p>
+      </div>
+      <figure class="block-image">
+        <a href="img/03-categoria.png" target="_blank" rel="noopener">
+          <img src="img/03-categoria.png" alt="Lista de armaduras con su desgaste y costo, y botones para repararlas" loading="lazy">
+        </a>
+        <figcaption>Clic para ampliar</figcaption>
+      </figure>
+    </article>
+
+    <article class="block block--shot block--reverse">
+      <div class="block-text">
+        <span class="number">04</span>
+        <h2>Revisa y confirma</h2>
+        <p>
+          Pasa el ratón por encima de cualquier botón y verás su precio exacto. Los colores te
+          dicen si puedes pagarlo:
+        </p>
+        <ul class="list">
+          <li><span class="chip chip--green">verde</span> tienes suficientes materiales.</li>
+          <li><span class="chip chip--red">rojo</span> te faltan.</li>
+        </ul>
+        <p>
+          Al elegir qué reparar, el herrero te pide <strong>confirmar</strong> y te enseña el
+          costo total. Nada se cobra hasta que pulses <strong class="green">Confirmar</strong>.
+          Entonces se llevan los materiales de tu inventario, tu equipo queda como nuevo,
+          suena el yunque y saltan chispas.
+        </p>
+      </div>
+      <figure class="block-image">
+        <a href="img/04-detalle-costo.png" target="_blank" rel="noopener">
+          <img src="img/04-detalle-costo.png" alt="Detalle al pasar el ratón: Repara toda la categoría por 6 de cuero" loading="lazy">
+        </a>
+        <figcaption>Clic para ampliar</figcaption>
+      </figure>
+    </article>
+
+    <article class="block block--shot">
+      <div class="block-text">
+        <span class="number">05</span>
+        <h2>Si no te alcanza</h2>
+        <p>
+          Si no llevas los materiales, el herrero te dirá exactamente <strong>qué te falta</strong>
+          y no te cobrará nada. Consigue lo que pide y vuelve.
+        </p>
+        <p>
+          Si pediste reparar varios objetos y solo te alcanza para algunos, el herrero
+          <strong>repara los que puedas pagar</strong> y te avisa antes de confirmar.
+        </p>
+        <p class="callout">
+          Los materiales tienen que estar en tu <strong>inventario</strong>. Si el pago es un
+          objeto especial del servidor, como una moneda, tiene que ser exactamente ese objeto.
+        </p>
+      </div>
+      <figure class="block-image">
+        <a href="img/05-sin-materiales.png" target="_blank" rel="noopener">
+          <img src="img/05-sin-materiales.png" alt="Aviso: No tienes los materiales necesarios. Te hace falta 6 de cuero" loading="lazy">
+        </a>
+        <figcaption>Clic para ampliar</figcaption>
+      </figure>
+    </article>
+
+  </main>
+
+  <!-- DESGASTE -->
+  <section class="section" id="proteccion">
+    <div class="section-head">
+      <span class="number">06</span>
+      <h2>Tu equipo no se rompe</h2>
+      <p class="lead">
+        En este servidor ningún objeto se rompe del todo. Cuando está a punto de romperse se
+        queda <strong class="red">agotado</strong>: sigue en tu inventario, pero deja de
+        funcionar hasta que lo repares. Un mensaje te avisará en cuanto pase.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <span class="card-tag aqua">Armaduras</span>
+        <h3>Ya no te protegen</h3>
+        <p>
+          Una armadura agotada no te defiende de nada. Puedes seguir llevándola puesta, pero es
+          como no llevar nada.
+        </p>
+        <p class="quote">“Tu casco está muy dañado y ya no te protege. Visita a un herrero.”</p>
+      </article>
+
+      <article class="card">
+        <span class="card-tag red">Armas</span>
+        <h3>No hacen daño</h3>
+        <p>
+          Con una espada o una maza agotada no puedes golpear. El arco y la ballesta no
+          disparan, el tridente no se lanza y el escudo no bloquea.
+        </p>
+        <p class="quote">“Tu espada está demasiado dañada para usarla. Visita a un herrero.”</p>
+      </article>
+
+      <article class="card">
+        <span class="card-tag green">Herramientas</span>
+        <h3>No funcionan</h3>
+        <p>
+          Un pico, una pala o un hacha agotados no rompen bloques ni sirven para golpear.
+          Tampoco puedes usar el mechero, la azada o la caña de pescar.
+        </p>
+        <p class="quote">“Tu pico está demasiado dañado para usarlo. Visita a un herrero.”</p>
+      </article>
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <h4>Lo reconocerás en la lista</h4>
+        <p>En la ventana del herrero, los objetos agotados salen marcados con <span class="chip chip--red">[AGOTADA]</span>.</p>
+      </div>
+      <div class="note">
+        <h4>Repararlo lo arregla todo</h4>
+        <p>En cuanto el herrero lo repare, el objeto vuelve a funcionar igual que antes, con todos sus encantamientos.</p>
+      </div>
+      <div class="note">
+        <h4>Cambia de objeto</h4>
+        <p>Con algo agotado en la mano puedes abrir cofres y puertas, pero no romper bloques ni golpear. Cambia a otro objeto o a la mano vacía.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS -->
+  <section class="section" id="preguntas">
+    <div class="section-head">
+      <span class="number">07</span>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>¿Qué objetos puede reparar el herrero?</summary>
+        <p>
+          Cualquier cosa que se desgaste: todas las armaduras (incluidos los élitros y la
+          armadura de lobo), las armas (espadas, arcos, ballestas, tridente, maza, escudo) y las
+          herramientas (picos, hachas, palas, azadas, tijeras, mechero, caña de pescar,
+          cepillo…).
+        </p>
+      </details>
+
+      <details>
+        <summary>¿Cuánto cuesta reparar?</summary>
+        <p>
+          Cada objeto tiene su propio precio, que decide el staff. Normalmente se paga con el
+          material del que está hecho: diamantes para el equipo de diamante, hierro para el de
+          hierro, cuero para el de cuero… pero el servidor puede pedir cualquier cosa, como una
+          moneda propia. Lo verás siempre antes de pagar.
+        </p>
+      </details>
+
+      <details>
+        <summary>¿Sale más barato si está poco dañado?</summary>
+        <p>
+          Depende del servidor. Por defecto el precio es el mismo esté como esté el objeto, así
+          que conviene esperar a que esté bastante gastado. Mira siempre el costo que muestra
+          el herrero.
+        </p>
+      </details>
+
+      <details>
+        <summary>¿Aparece gratis alguno?</summary>
+        <p>
+          Sí, si el staff lo ha dejado sin costo. Lo verás marcado como <span class="chip chip--green">GRATIS</span>.
+        </p>
+      </details>
+
+      <details>
+        <summary>¿Me pueden cobrar sin querer?</summary>
+        <p>
+          No. Siempre hay una ventana de confirmación con el precio total, y no se cobra nada
+          hasta que pulsas <em>Confirmar</em>. Si cancelas, vuelves a la lista sin perder nada.
+        </p>
+      </details>
+
+      <details>
+        <summary>Cerré la ventana a medias, ¿pasa algo?</summary>
+        <p>
+          No. Puedes cerrarla cuando quieras con <em>Cerrar</em> o con la tecla Esc. Vuelve a hacer
+          clic en el herrero para empezar de nuevo.
+        </p>
+      </details>
+
+      <details>
+        <summary>Moví mis cosas con la ventana abierta y ahora no me deja</summary>
+        <p>
+          El herrero comprueba tu inventario justo antes de cobrar. Si cambiaste el objeto de
+          sitio o ya no lo llevas, te lo dirá y no cobrará nada. Vuelve atrás y elígelo otra vez.
+        </p>
+      </details>
+
+      <details>
+        <summary>Mi objeto está agotado y no tengo materiales, ¿lo pierdo?</summary>
+        <p>
+          No. Un objeto agotado nunca se rompe ni desaparece. Guárdalo y llévalo al herrero cuando
+          tengas con qué pagar.
+        </p>
+      </details>
+
+      <details>
+        <summary>¿Puedo reparar sin ir hasta el herrero?</summary>
+        <p>
+          Si el servidor lo permite, escribe <code>/herrero reparar</code> y se abrirá la misma
+          ventana estés donde estés. Si no te deja, toca visitar al herrero en su taller.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <footer class="footer">
+    <h2>¿A la fragua?</h2>
+    <a href="#" class="footer-mail">Volver arriba</a>
+    <p class="copy">© 2026 Herrero · Wiki del plugin</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,1167 @@
+/* =========================================
+   GMagic · Wiki del sistema de habilidades
+   Basada en la plantilla "Noir"
+   ========================================= */
+
+/* =========================================
+   Variables
+   ========================================= */
+:root {
+  --bg: #000;
+  --bg-soft: #0c0c0c;
+  --bg-raised: #121110;
+  --text: #f2efe9;
+  --muted: #8a8780;
+  --faint: #5f5d58;
+  --line: #222;
+  --line-soft: #171716;
+  --accent: #c9a86a;
+
+  /* Colores de clase del juego, apagados para convivir con el dorado */
+  --guerrero: #e0695e;
+  --sanador: #6cc7dd;
+  --mago: #e38a52;
+  --cazador: #96c06a;
+  --soporte: #c29ade;
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+  --pixel: "Silkscreen", "Courier New", monospace;
+  --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  --gutter: clamp(1.25rem, 8vw, 8rem);
+  --measure: 62ch;
+}
+
+/* =========================================
+   Base
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* =========================================
+   Barra de progreso (scroll)
+   ========================================= */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 100;
+}
+
+/* =========================================
+   Navegación
+   ========================================= */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem clamp(1.25rem, 5vw, 4rem);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+  z-index: 50;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav nav {
+  display: flex;
+  gap: clamp(1rem, 2.5vw, 2.25rem);
+}
+
+.nav nav a {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.nav nav a:hover,
+.nav nav a:focus-visible {
+  color: var(--text);
+}
+
+/* =========================================
+   Portada
+   ========================================= */
+.hero {
+  /* A pantalla completa como la plantilla, pero sin pasarse en monitores altos */
+  min-height: min(100vh, 52rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem var(--gutter) 4rem;
+  position: relative;
+  background: radial-gradient(ellipse at 70% 30%, #1a1712 0%, var(--bg) 60%);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  animation: fade-up 1s ease both;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 8vw, 7rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+  text-wrap: balance;
+  animation: fade-up 1s 0.15s ease both;
+}
+
+.hero h1 em {
+  color: var(--accent);
+}
+
+.hero-text {
+  max-width: 46ch;
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  animation: fade-up 1s 0.3s ease both;
+}
+
+.hero-classes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin-top: 2.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: fade-up 1s 0.45s ease both;
+}
+
+.hero-classes a {
+  color: var(--c);
+  transition: opacity 0.3s;
+}
+
+.hero-classes a:hover {
+  opacity: 0.7;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 3.5rem;
+}
+
+.scroll-hint::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 2.75rem;
+  background: linear-gradient(var(--muted), transparent);
+  animation: drip 2s ease-in-out infinite;
+}
+
+/* =========================================
+   Cabeceras de sección
+   ========================================= */
+.section {
+  padding: clamp(6rem, 12vw, 10rem) var(--gutter) 0;
+}
+
+.section-head {
+  max-width: var(--measure);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.kicker {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.section-head h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.section-head p {
+  color: var(--muted);
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.sub {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  margin: clamp(4rem, 8vw, 6rem) 0 1.5rem;
+  text-wrap: balance;
+}
+
+.sub:first-child {
+  margin-top: 0;
+}
+
+.prose {
+  max-width: var(--measure);
+  color: var(--muted);
+  font-size: 1.02rem;
+  display: grid;
+  gap: 1rem;
+}
+
+/* =========================================
+   Bloques intercalados (primeros pasos)
+   ========================================= */
+.blocks {
+  padding: 0 var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6rem, 14vw, 12rem);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.block--reverse .block-text {
+  order: 2;
+}
+
+.block--reverse .block-image {
+  order: 1;
+}
+
+.number {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.25rem;
+}
+
+.number::after {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 1px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+
+.block-text h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.block-text p {
+  color: var(--muted);
+  max-width: 44ch;
+  font-size: 1.05rem;
+}
+
+.block-text p + p {
+  margin-top: 1rem;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.link::after {
+  content: " →";
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.link:hover::after {
+  transform: translateX(4px);
+}
+
+/* Imagen con fondo negro */
+.block-image {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: clamp(1rem, 2.5vw, 2rem);
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.8s ease, transform 0.8s ease;
+}
+
+.block-image:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+/* Capturas de menú: se ven enteras, sin recortar la descripción */
+.block-image--shot {
+  aspect-ratio: auto;
+}
+
+.block-image--shot img {
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.block-image--clip img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.block-image figcaption {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+}
+
+/* En pantallas táctiles no hay hover: la imagen se ve en color */
+@media (hover: none) {
+  .block-image img {
+    filter: none;
+  }
+}
+
+/* =========================================
+   Teclas
+   ========================================= */
+kbd {
+  display: inline-block;
+  font-family: var(--pixel);
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  background: var(--bg-raised);
+  border: 1px solid #2c2b29;
+  border-bottom-width: 3px;
+  padding: 0.5rem 0.65rem 0.4rem;
+  white-space: nowrap;
+  vertical-align: 0.1em;
+}
+
+.plus {
+  color: var(--faint);
+  margin: 0 0.35rem;
+  font-size: 0.8rem;
+}
+
+.controles {
+  display: grid;
+  border-top: 1px solid var(--line);
+  max-width: 58rem;
+}
+
+.control {
+  display: grid;
+  grid-template-columns: minmax(10rem, 15rem) 1fr;
+  gap: 1rem 2.5rem;
+  align-items: baseline;
+  padding-block: 1.35rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.control p {
+  color: var(--muted);
+}
+
+.control-tag {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cazador);
+}
+
+/* =========================================
+   Tablas
+   ========================================= */
+.tabla-wrap {
+  overflow-x: auto;
+  max-width: 58rem;
+  border-top: 1px solid var(--line);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabla th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding: 1rem 1.5rem 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.tabla td {
+  padding: 1rem 1.5rem 1rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--muted);
+  vertical-align: top;
+}
+
+.tabla td:first-child {
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.tabla code {
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.num {
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* =========================================
+   Clases
+   ========================================= */
+.clases {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.clase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  padding-block: clamp(3rem, 6vw, 5rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.clase-id {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.clase-simbolo {
+  font-size: 1.6rem;
+  color: var(--c);
+  line-height: 1;
+}
+
+.clase h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1;
+  color: var(--c);
+}
+
+.clase-rol {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+.datos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  padding-block: 1.5rem;
+  border-block: 1px solid var(--line-soft);
+  margin-bottom: 1.75rem;
+}
+
+.datos dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.datos dd {
+  margin-top: 0.2rem;
+  font-size: 0.95rem;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.puntos {
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+.puntos li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.puntos li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 0.55rem;
+  height: 1px;
+  background: var(--c, var(--accent));
+}
+
+.captura {
+  border: 1px solid var(--line);
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  background: var(--bg);
+}
+
+.captura img {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.captura figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+
+/* =========================================
+   Habilidades
+   ========================================= */
+.niveles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-block: 1px solid var(--line);
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.nivel {
+  padding: 1.75rem clamp(1rem, 2.5vw, 2rem) 1.75rem 0;
+}
+
+.nivel + .nivel {
+  padding-left: clamp(1rem, 2.5vw, 2rem);
+  border-left: 1px solid var(--line);
+}
+
+.nivel-nombre {
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.nivel p {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.nivel .num {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.grupo {
+  border-top: 1px solid var(--line);
+}
+
+.grupo:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+
+.grupo summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding-block: 1.75rem;
+}
+
+.grupo summary::-webkit-details-marker {
+  display: none;
+}
+
+.grupo-nombre {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  line-height: 1;
+  color: var(--c);
+}
+
+.grupo-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.grupo-signo {
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--muted);
+  transition: transform 0.3s, color 0.3s;
+}
+
+.grupo summary:hover .grupo-signo {
+  color: var(--accent);
+}
+
+.grupo[open] .grupo-signo {
+  transform: rotate(45deg);
+  color: var(--accent);
+}
+
+.habilidades {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr));
+  gap: 0 clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: 3rem;
+}
+
+.habilidad {
+  padding-block: 1.6rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.hab-cabeza {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.habilidad h4 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+
+.hab-tipo {
+  flex: none;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.hab-tipo--definitiva {
+  color: var(--accent);
+}
+
+.hab-datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.1rem;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.hab-datos span + span::before {
+  content: "·";
+  margin-right: 1.1rem;
+  color: var(--faint);
+}
+
+.hab-datos .inicial {
+  color: var(--c);
+}
+
+.hab-texto {
+  margin-top: 0.85rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.hab-texto ul {
+  list-style: none;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.hab-texto li {
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.hab-texto li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--c);
+}
+
+.nota {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.nota b {
+  font-weight: 500;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+
+/* =========================================
+   Mascotas y listas en rejilla
+   ========================================= */
+.dos-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.mascotas {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+  gap: 0 2rem;
+}
+
+.mascota {
+  padding-block: 1.35rem;
+  border-top: 1px solid var(--line);
+}
+
+.mascota h4 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.15;
+}
+
+.mascota-poder {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cazador);
+}
+
+.mascota p {
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.mascota-huevo {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--faint);
+}
+
+.ordenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: 0 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.ordenes div {
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ordenes dt {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.ordenes dd {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.pergaminos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: 2.5rem 2rem;
+  padding-bottom: 3rem;
+}
+
+.pergaminos h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--c);
+  margin-bottom: 0.75rem;
+}
+
+.pergaminos ul {
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.pergaminos li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.pergaminos li strong {
+  display: block;
+  font-weight: 500;
+}
+
+/* =========================================
+   Ayuda
+   ========================================= */
+.faq {
+  max-width: 58rem;
+  border-top: 1px solid var(--line);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 1.5rem;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  color: var(--muted);
+  transition: transform 0.3s, color 0.3s;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+  color: var(--accent);
+}
+
+.faq details p {
+  color: var(--muted);
+  max-width: var(--measure);
+  padding-bottom: 1.75rem;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.footer {
+  text-align: center;
+  padding: 10rem var(--gutter) 3rem;
+  border-top: 1px solid var(--line);
+  margin-top: clamp(8rem, 14vw, 12rem);
+}
+
+.footer h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.footer-mail {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.footer-mail:hover,
+.footer-mail:focus-visible {
+  border-color: var(--accent);
+}
+
+.copy {
+  margin-top: 8rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* =========================================
+   Animaciones
+   ========================================= */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drip {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes from-left {
+  from { opacity: 0; transform: translateX(-80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes from-right {
+  from { opacity: 0; transform: translateX(80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes reveal-img {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes grow {
+  to { transform: scaleX(1); }
+}
+
+/* Aparición al hacer scroll — solo CSS (scroll-driven animations).
+   En navegadores sin soporte el contenido se ve igual, sin animación. */
+@supports (animation-timeline: view()) {
+
+  .progress {
+    animation: grow linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .block-text,
+  .block-image,
+  .block-image img {
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 40%;
+  }
+
+  .block .block-text  { animation-name: from-left; }
+  .block .block-image { animation-name: from-right; }
+
+  .block--reverse .block-text  { animation-name: from-right; }
+  .block--reverse .block-image { animation-name: from-left; }
+
+  .block-image img {
+    animation-name: reveal-img;
+    animation-range: entry 20% cover 50%;
+  }
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 1000px) {
+  .nav nav {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .clase,
+  .dos-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .block {
+    grid-template-columns: 1fr;
+  }
+
+  .block--reverse .block-text  { order: 1; }
+  .block--reverse .block-image { order: 2; }
+
+  .niveles {
+    grid-template-columns: 1fr;
+  }
+
+  .nivel,
+  .nivel + .nivel {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .nivel + .nivel {
+    border-top: 1px solid var(--line);
+  }
+
+  .control {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .datos {
+    grid-template-columns: 1fr;
+  }
+
+  .grupo summary {
+    grid-template-columns: 1fr auto;
+  }
+
+  .grupo-meta {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .progress {
+    display: none;
+  }
+}

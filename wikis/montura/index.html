@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silbatos y Monturas</title>
+  <meta name="description" content="Guia para jugadores: como conseguir, invocar y controlar las monturas del servidor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="../../img/icono.png">
+  <link rel="stylesheet" href="../../volver.css">
+</head>
+<body>
+
+  <a href="../../index.html" class="volver-home" aria-label="Volver a la página principal de EuroLatam 7"><img src="../../img/icono.png" alt="" width="64" height="64"><span aria-hidden="true">←</span><span class="volver-text">Volver a EuroLatam 7</span></a>
+
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#inicio" class="logo">Monturas<span>.</span></a>
+    <nav aria-label="Secciones">
+      <a href="#como">Cómo funciona</a>
+      <a href="#monturas">Monturas</a>
+      <a href="#controles">Controles</a>
+      <a href="#reglas">Reglas</a>
+      <a href="#dudas">Dudas</a>
+    </nav>
+  </header>
+
+  <!-- PORTADA -->
+  <section class="hero" id="inicio">
+    <img class="hero-bg" src="img/hero-desierto.jpg" alt="" aria-hidden="true">
+    <p class="eyebrow">Wiki del servidor · Sistema de monturas</p>
+    <h1>Un silbido y tu montura <em>acude</em>.</h1>
+    <p class="hero-text">
+      Cinco monturas, un silbato para cada una. Aquí tienes todo lo que necesitas
+      para invocarlas, dominarlas y no acabar en el fondo de un barranco.
+    </p>
+    <span class="scroll-hint" aria-hidden="true">Desliza</span>
+  </section>
+
+  <!-- COMO FUNCIONA: tres pasos en orden -->
+  <main>
+
+    <header class="section-head section-head--blocks" id="como">
+      <p class="eyebrow">Cómo funciona</p>
+      <h2>Del bolsillo a la silla en tres pasos</h2>
+    </header>
+
+    <div class="blocks">
+
+      <article class="block">
+        <div class="block-text">
+          <span class="number">01</span>
+          <h2>Consigue tu silbato</h2>
+          <p>
+            Cada montura vive dentro de su propio silbato: un objeto con nombre en
+            negrita que llevas en el inventario como cualquier otro. Tener el
+            silbato es tener la montura.
+          </p>
+          <p class="whistles">
+            Corcel <span>·</span> Camello <span>·</span> Hoglin <span>·</span> Lobo <span>·</span> Phantom
+          </p>
+          <a href="#monturas" class="link">Ver las cinco monturas</a>
+        </div>
+        <figure class="block-image">
+          <img src="img/silbatos-inventario.jpg" alt="Inventario con los cinco silbatos en la barra rápida: silla de montar, cactus, hongo carmesí, hueso y membrana de phantom.">
+        </figure>
+      </article>
+
+      <article class="block block--reverse">
+        <div class="block-text">
+          <span class="number">02</span>
+          <h2>Invócala</h2>
+          <p>
+            Ten el silbato en la mano y haz <strong>clic derecho</strong>. Aparece
+            una barra de progreso encima de tu barra de objetos y un círculo de
+            runas a tu alrededor. Tarda entre 3 y 5 segundos según la montura.
+          </p>
+          <p>
+            Quédate quieto hasta que se llene: si te mueves, recibes daño o cambias
+            de objeto, la invocación se cancela y tendrás que empezar de nuevo.
+          </p>
+          <a href="#mensajes" class="link">Qué significa cada aviso</a>
+        </div>
+        <figure class="block-image">
+          <img src="img/invocando-lobo.jpg" alt="Jugador invocando al Lobo de Carga: la barra de progreso naranja casi llena y runas de encantamiento flotando alrededor.">
+        </figure>
+      </article>
+
+      <article class="block">
+        <div class="block-text">
+          <span class="number">03</span>
+          <h2>Súbete y viaja</h2>
+          <p>
+            Cuando la barra termina, la montura aparece a tus pies y te subes
+            automáticamente. Gira con la cámara y avanza con <strong>W</strong>:
+            la montura va hacia donde miras.
+          </p>
+          <p>
+            Para bajarte pulsa <strong>Shift</strong>. La montura desaparece y el
+            silbato vuelve a tu inventario, listo para la próxima vez.
+          </p>
+          <a href="#controles" class="link">Ver todos los controles</a>
+        </div>
+        <figure class="block-image">
+          <img src="img/montado-lobo.jpg" alt="Jugador montado en el Lobo de Carga recorriendo las calles de un pueblo del desierto.">
+        </figure>
+      </article>
+
+    </div>
+
+    <!-- MONTURAS -->
+    <section class="section" id="monturas">
+      <header class="section-head">
+        <p class="eyebrow">Las monturas</p>
+        <h2>Elige con qué cruzar el mapa</h2>
+        <p class="lede">
+          Todas se controlan igual; lo que cambia es cuánto corren, cuánto saltan y
+          cuánto tardan en llegar. Las distancias están medidas en bloques.
+        </p>
+      </header>
+
+      <div class="mounts">
+
+        <article class="mount">
+          <div class="mount-id">
+            <span class="tag">Tierra</span>
+            <h3>Corcel</h3>
+            <p class="item">Silbato de Corcel · silla de montar</p>
+            <p>
+              El más rápido por tierra. Pensado para viajes largos por caminos y
+              llanuras donde puedes dejarlo correr.
+            </p>
+          </div>
+          <dl class="stats">
+            <div class="stat" style="--v: 8.4; --max: 12">
+              <dt>Velocidad</dt><dd>≈ 8,4 bloques/s</dd>
+            </div>
+            <div class="stat" style="--v: 2.5; --max: 4">
+              <dt>Salto</dt><dd>≈ 2,5 bloques</dd>
+            </div>
+            <div class="stat" style="--v: 3; --max: 6">
+              <dt>Invocación</dt><dd>3 s</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="mount">
+          <div class="mount-id">
+            <span class="tag">Tierra</span>
+            <h3>Camello del Desierto</h3>
+            <p class="item">Silbato de Camello · cactus</p>
+            <p>
+              El mejor saltador y el que más acelera al correr. Sube escalones de
+              bloque y medio sin saltar, ideal para terreno roto y dunas.
+            </p>
+          </div>
+          <dl class="stats">
+            <div class="stat" style="--v: 7.6; --max: 12">
+              <dt>Velocidad</dt><dd>≈ 7,6 bloques/s</dd>
+            </div>
+            <div class="stat" style="--v: 3.5; --max: 4">
+              <dt>Salto</dt><dd>≈ 3,5 bloques</dd>
+            </div>
+            <div class="stat" style="--v: 3.5; --max: 6">
+              <dt>Invocación</dt><dd>3,5 s</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="mount">
+          <div class="mount-id">
+            <span class="tag">Tierra</span>
+            <h3>Hoglin de Guerra</h3>
+            <p class="item">Silbato de Hoglin · hongo carmesí</p>
+            <p>
+              Una bestia del Nether que no teme salir de él: nunca se transforma
+              en zoglin, esté donde esté. Tarda un poco más en responder.
+            </p>
+          </div>
+          <dl class="stats">
+            <div class="stat" style="--v: 6.8; --max: 12">
+              <dt>Velocidad</dt><dd>≈ 6,8 bloques/s</dd>
+            </div>
+            <div class="stat" style="--v: 2; --max: 4">
+              <dt>Salto</dt><dd>≈ 2 bloques</dd>
+            </div>
+            <div class="stat" style="--v: 4; --max: 6">
+              <dt>Invocación</dt><dd>4 s</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="mount">
+          <div class="mount-id">
+            <span class="tag">Tierra</span>
+            <h3>Lobo de Carga</h3>
+            <p class="item">Silbato de Lobo · hueso</p>
+            <p>
+              Compañero grande y ágil, perfecto para moverse entre casas y
+              callejones. El más modesto en velocidad, pero siempre a mano.
+            </p>
+          </div>
+          <dl class="stats">
+            <div class="stat" style="--v: 6; --max: 12">
+              <dt>Velocidad</dt><dd>≈ 6 bloques/s</dd>
+            </div>
+            <div class="stat" style="--v: 1.5; --max: 4">
+              <dt>Salto</dt><dd>≈ 1,5 bloques</dd>
+            </div>
+            <div class="stat" style="--v: 3; --max: 6">
+              <dt>Invocación</dt><dd>3 s</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="mount mount--air">
+          <div class="mount-id">
+            <span class="tag">Voladora</span>
+            <h3>Phantom Alado</h3>
+            <p class="item">Silbato de Phantom · membrana de phantom</p>
+            <p>
+              La única que vuela. No sufre daño por caída y no arde con la luz del
+              sol. A cambio, su invocación es la más larga.
+            </p>
+          </div>
+          <dl class="stats">
+            <div class="stat" style="--v: 11; --max: 12">
+              <dt>Velocidad</dt><dd>≈ 11 bloques/s</dd>
+            </div>
+            <div class="stat stat--text">
+              <dt>Salto</dt><dd>Vuela: sube con Espacio</dd>
+            </div>
+            <div class="stat" style="--v: 5; --max: 6">
+              <dt>Invocación</dt><dd>5 s</dd>
+            </div>
+          </dl>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTROLES -->
+    <section class="section" id="controles">
+      <header class="section-head">
+        <p class="eyebrow">Controles</p>
+        <h2>Si sabes caminar, sabes montar</h2>
+        <p class="lede">
+          Las teclas son las de siempre. La montura gira sola hacia donde apunta tu
+          cámara y sube bloques sin que tengas que saltar.
+        </p>
+      </header>
+
+      <div class="controls">
+        <div class="control-set">
+          <h3>Por tierra</h3>
+          <ul class="keys">
+            <li><span class="keycaps"><kbd>W</kbd></span> Avanzar hacia donde miras</li>
+            <li><span class="keycaps"><kbd>S</kbd></span> Retroceder</li>
+            <li><span class="keycaps"><kbd>A</kbd><kbd>D</kbd></span> Moverse de lado</li>
+            <li><span class="keycaps"><kbd class="wide">Espacio</kbd></span> Saltar</li>
+            <li><span class="keycaps"><kbd class="wide">Ctrl</kbd></span> Correr más rápido</li>
+            <li><span class="keycaps"><kbd class="wide">Shift</kbd></span> Bajarse y guardar la montura</li>
+          </ul>
+          <p class="note">En el agua la montura flota; mantén Espacio para salir nadando.</p>
+        </div>
+
+        <div class="control-set">
+          <h3>Por aire <span>Phantom Alado</span></h3>
+          <ul class="keys">
+            <li><span class="keycaps"><kbd>W</kbd></span> Volar hacia donde miras, también hacia arriba o abajo</li>
+            <li><span class="keycaps"><kbd class="wide">Espacio</kbd></span> Ganar altura</li>
+            <li><span class="keycaps"><kbd>—</kbd></span> Sin tocar nada, se queda flotando en el sitio</li>
+            <li><span class="keycaps"><kbd class="wide">Shift</kbd></span> Bajarse y guardar la montura</li>
+          </ul>
+          <p class="note">
+            Para aterrizar, mira al suelo y avanza con W. Bájate cuando estés
+            posado: si pulsas Shift en pleno vuelo, caes tú solo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGLAS -->
+    <section class="section" id="reglas">
+      <header class="section-head">
+        <p class="eyebrow">Reglas</p>
+        <h2>Lo que conviene saber antes de salir</h2>
+      </header>
+
+      <div class="rule rule--fall">
+        <div class="rule-text">
+          <h3>Las caídas se pagan</h3>
+          <p>
+            Una montura de tierra no te protege de un salto al vacío: al aterrizar,
+            el golpe te lo llevas tú. Hasta 4 bloques no pasa nada; a partir de ahí
+            cada bloque duele más, y desde 14 bloques la caída es mortal.
+            Caer en agua te salva. El Phantom Alado no sufre caídas.
+          </p>
+        </div>
+
+        <figure class="fall">
+          <div class="fall-track" role="img" aria-label="Escala de caída en bloques: sin daño hasta 4, daño entre 4 y 14, mortal desde 14.">
+            <span class="zone zone--safe" style="--from: 0; --to: 4"><b>Sin daño</b></span>
+            <span class="zone zone--hurt" style="--from: 4; --to: 14"><b>Daño</b></span>
+            <span class="zone zone--dead" style="--from: 14; --to: 18"><b>Mortal</b></span>
+            <span class="pin" style="--v: 6">6</span>
+            <span class="pin" style="--v: 10">10</span>
+            <span class="pin" style="--v: 14">14</span>
+          </div>
+          <div class="fall-ticks" aria-hidden="true">
+            <span style="--v: 0">0</span>
+            <span style="--v: 4">4</span>
+            <span style="--v: 8">8</span>
+            <span style="--v: 12">12</span>
+            <span style="--v: 16">16</span>
+          </div>
+          <figcaption>
+            <dl class="fall-legend">
+              <div><dt>6 bloques</dt><dd>pierdes 1,5 corazones</dd></div>
+              <div><dt>10 bloques</dt><dd>pierdes 4,5 corazones</dd></div>
+              <div><dt>14 bloques o más</dt><dd>mueres</dd></div>
+            </dl>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="rules">
+        <div class="rule">
+          <h3>Zonas sin monturas</h3>
+          <p>
+            En algunas zonas protegidas, como el spawn o las arenas, no se pueden
+            invocar monturas. Si entras montado en una de ellas, la montura
+            desaparece y recuperas el silbato al instante.
+          </p>
+        </div>
+        <div class="rule">
+          <h3>Un respiro entre viajes</h3>
+          <p>
+            Después de bajarte hay que esperar 8 segundos antes de volver a
+            invocar. El chat te dice cuántos segundos quedan.
+          </p>
+        </div>
+        <div class="rule">
+          <h3>Una montura a la vez</h3>
+          <p>
+            Solo puedes tener una montura invocada. Tampoco puedes invocar si ya
+            vas subido en otra cosa, como una barca o una vagoneta.
+          </p>
+        </div>
+        <div class="rule">
+          <h3>Tu silbato nunca se pierde</h3>
+          <p>
+            Si mueres montado, lo recibes al reaparecer, no se cae con tus cosas.
+            Si te desconectas, lo tendrás en el inventario al volver. Si tu
+            inventario está lleno, cae al suelo a tus pies.
+          </p>
+        </div>
+        <div class="rule">
+          <h3>Solo tuya, e intocable</h3>
+          <p>
+            Nadie más puede subirse a tu montura. No recibe daño, los monstruos la
+            ignoran y no se puede atar con correa ni abrir su inventario.
+          </p>
+        </div>
+        <div class="rule">
+          <h3>Portales</h3>
+          <p>
+            Las monturas no cruzan portales. Para cambiar de dimensión, bájate
+            primero y vuelve a invocarla al otro lado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENSAJES -->
+    <section class="section" id="mensajes">
+      <header class="section-head">
+        <p class="eyebrow">Mensajes del chat</p>
+        <h2>Qué te está diciendo el juego</h2>
+        <p class="lede">Así aparecen en el chat, tal cual, y lo que significan.</p>
+      </header>
+
+      <dl class="chat-list">
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="c7">Invocando <span class="cf">Lobo de Carga</span>...</span></dt>
+          <dd>La invocación ha empezado. No te muevas hasta que se llene la barra.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="ca">Montura invocada. <span class="c7">Pulsa <span class="cf">SHIFT</span> para bajarte.</span></span></dt>
+          <dd>Todo ha ido bien y ya estás encima.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="cc">Te has movido, invocacion cancelada.</span></dt>
+          <dd>Te desplazaste durante la invocación. Vuelve a hacer clic derecho y quédate quieto.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="cc">Has recibido dano, invocacion cancelada.</span></dt>
+          <dd>Algo te golpeó mientras invocabas. Aléjate del peligro y prueba otra vez.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="cc">Invocacion cancelada.</span></dt>
+          <dd>Cambiaste de objeto, soltaste el silbato o te teletransportaste.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="cc">Debes esperar <span class="cf">5s</span> antes de volver a invocar.</span></dt>
+          <dd>Te bajaste hace poco. Espera los segundos que indica.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="cc">No puedes invocar monturas en esta zona.</span></dt>
+          <dd>Estás dentro de una zona sin monturas. Sal de ella a pie.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="cc">Has entrado en una zona sin monturas: tu montura ha desaparecido.</span></dt>
+          <dd>Cruzaste el límite montado. El silbato ya está de vuelta en tu inventario.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="cc">Ya tienes una montura invocada.</span></dt>
+          <dd>Guarda la que tienes con Shift antes de sacar otra.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="cc">Esa montura no es tuya.</span></dt>
+          <dd>Intentaste subirte o interactuar con la montura de otro jugador.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="c4">Has caido desde demasiado alto con tu montura.</span></dt>
+          <dd>Saltaste desde 14 bloques o más. Recuperarás el silbato al reaparecer.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="ca">Se te ha devuelto el item de montura que tenias invocada.</span></dt>
+          <dd>Recuperas un silbato que quedó pendiente al morir o desconectarte.</dd>
+        </div>
+        <div class="chat-row">
+          <dt class="chat"><i>[</i><b>Monturas</b><i>]</i> <span class="ce">Tu inventario estaba lleno: el item de montura se ha soltado al suelo.</span></dt>
+          <dd>No cabía en tu inventario. Recógelo del suelo antes de que desaparezca.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- DUDAS -->
+    <section class="section" id="dudas">
+      <header class="section-head">
+        <p class="eyebrow">Dudas frecuentes</p>
+        <h2>Preguntas de otros jinetes</h2>
+      </header>
+
+      <div class="faq">
+        <details>
+          <summary>¿Mi montura puede morir?</summary>
+          <p>No. Es invulnerable: ni golpes, ni lava, ni sol, ni monstruos. Lo único que te puede pasar a ti es una mala caída.</p>
+        </details>
+        <details>
+          <summary>¿Puedo perder el silbato?</summary>
+          <p>No mientras lo uses. Al bajarte, morir, desconectarte o entrar en una zona sin monturas vuelve siempre a ti. Eso sí, si lo tiras al suelo o lo guardas en un cofre, es un objeto más.</p>
+        </details>
+        <details>
+          <summary>¿Puedo llevar a un amigo detrás?</summary>
+          <p>No. Cada montura lleva solo a su dueño, y nadie más puede subirse.</p>
+        </details>
+        <details>
+          <summary>Hice clic derecho y no pasó nada. ¿Qué hago?</summary>
+          <p>Mira el chat: siempre te dice el motivo. Lo más común es seguir en el tiempo de espera, estar en una zona sin monturas o haberte movido durante la invocación.</p>
+        </details>
+        <details>
+          <summary>¿Cómo bajo con el Phantom sin hacerme daño?</summary>
+          <p>Mira hacia el suelo y avanza con W hasta posarte, y luego pulsa Shift. Si te bajas en pleno vuelo, la caída ya es tuya.</p>
+        </details>
+        <details>
+          <summary>¿Por qué no puedo abrir el inventario del caballo o del camello?</summary>
+          <p>Porque son monturas invocadas, no animales normales: no llevan silla ni cofre y no se pueden equipar.</p>
+        </details>
+        <details>
+          <summary>¿Puedo tener varios silbatos?</summary>
+          <p>Sí, puedes guardar los cinco. Solo puedes tener una montura fuera a la vez.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CIERRE -->
+  <footer class="footer">
+    <h2>¿Listo para salir?</h2>
+    <p class="footer-cta">Silbato en mano, clic derecho.</p>
+    <p class="copy">Wiki del sistema de monturas · 2026</p>
+  </footer>
+
+</body>
+</html>
